@@ -1,0 +1,12 @@
+{
+    "name": "project/twig",
+    "authors": [
+        {
+            "name": "WBPierre",
+            "email": "d.pierrebox@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "~1.0"
+    }
+}
