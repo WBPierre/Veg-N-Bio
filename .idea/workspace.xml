@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a6ccd0a7-8aaa-4d48-a63c-637dae9f5a60" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/License.pdf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/README.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/css/bootstrap.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/css/bootstrap.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/css/mdb.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/css/mdb.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/css/style.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Bold.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Bold.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Bold.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Bold.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Light.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Light.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Light.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Light.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Medium.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Medium.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Medium.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Medium.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Regular.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Regular.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Regular.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Regular.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Thin.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Thin.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Thin.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/font/roboto/Roboto-Thin.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/lightbox/default-skin.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/lightbox/default-skin.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/lightbox/preloader.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/overlays/01.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/overlays/02.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/overlays/03.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/overlays/04.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/overlays/05.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/overlays/06.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/overlays/07.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/overlays/08.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/overlays/09.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/svg/arrow_left.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/img/svg/arrow_right.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/index.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/bootstrap.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/bootstrap.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/jquery-3.2.1.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/mdb.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/mdb.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/buttons.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/cards.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/character-counter.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/chart.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/chips.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/collapsible.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/dropdown.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/enhanced-modals.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/file-input.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/forms-free.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/hammer.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/jarallax-video.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/jarallax.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/jquery.easing.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/jquery.easypiechart.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/jquery.hammer.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/jquery.sticky.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/lightbox.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/material-select.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/mdb-autocomplete.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/picker-date.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/picker-time.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/picker.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/preloading.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/range-input.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/scrollbar.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/scrolling-navbar.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/sidenav.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/smooth-scroll.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/toastr.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/velocity.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/waves.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/modules (optional)/wow.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/js/popper.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/license.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/mdb-addons/mdb-lightbox-ui.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/mdb-addons/preloader.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/_custom.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_animations.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_badge.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_breadcrumb.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_buttons.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_cards-basic.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_carousel-basic.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_collapse.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_deprecated.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_dropdowns.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_footer.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_forms-basic.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_global.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_helpers.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_jumbotron.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_list-group.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_masks.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_modals.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_msc.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_navbar.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_pagination.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_progress.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_tables.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_typography.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/_waves.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/data/_colors.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/data/_functions.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/data/_mixins.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/data/_prefixer.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/data/_variables-b4.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/free/data/_variables.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_animations-pro.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_autocomplete.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_blog.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_buttons-pro.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_cards-pro.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_carousels-pro.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_charts-pro.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_checkbox.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_chips.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_deprecated.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_dropdowns-pro.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_ecommerce.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_file-input.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_forms-pro.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_input-group.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_light-box.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_material-select.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_msc.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_navbars-pro.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_parallax.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_progress.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_radio.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_range.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_scrollbar.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_scrollspy.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_sections.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_side-nav.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_skins.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_social-buttons.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_stepper.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_switch.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_tabs.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_toasts.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/_variables-pro.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/date_picker/_default.date.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/date_picker/_default.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/date_picker/_default.time.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_blog.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_contacts.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_features.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_magazine.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_pricing.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_projects.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_social.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_team.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_templates.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/sass/mdb/pro/sections/_testimonials.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/about-us.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/blog-post.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/blog-posts.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/contact-us.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/ecommerce.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/landing-page.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/login-page.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/pricing.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/profile-page.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/MDB/templates/signup-page.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/_partials/header.twig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/_stylesheets/style.css" />
+      <change beforePath="$PROJECT_DIR$/templates/_partials/head.twig" afterPath="$PROJECT_DIR$/templates/_partials/head.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/_partials/menu.twig" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/templates/base.twig" afterPath="$PROJECT_DIR$/templates/base.twig" />
+      <change beforePath="$PROJECT_DIR$/templates/home.twig" afterPath="$PROJECT_DIR$/templates/home.twig" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="head.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/_partials/head.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/_stylesheets/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/home.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&lt;!-- .*</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/templates/_partials/menu.twig" />
+        <option value="$PROJECT_DIR$/templates/base.twig" />
+        <option value="$PROJECT_DIR$/templates/home.twig" />
+        <option value="$PROJECT_DIR$/templates/_stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/templates/_partials/head.twig" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-953" />
+    <option name="y" value="-1020" />
+    <option name="width" value="1440" />
+    <option name="height" value="806" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="_stylesheets" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a6ccd0a7-8aaa-4d48-a63c-637dae9f5a60" name="Default" comment="" />
+      <created>1519209117494</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1519209117494</updated>
+      <workItem from="1519209119594" duration="3838000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3838000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-953" y="-1020" width="1440" height="806" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24320458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44892088" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/AutoloaderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LanguageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/fr/fr_translations.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/MDB/js/mdb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/_partials/header.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/_stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/_partials/head.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
