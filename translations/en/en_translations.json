@@ -1,5 +1,10 @@
 {
 	"index":{
 		"metaTitle":"Home"
+	},
+	"admin":{
+		"index":{
+			"metaTitle":"Log in"
+		}
 	}
 }
