@@ -1,4 +1,4 @@
-#bodyHome {
-    background-image: url('../../assets/images/backgroundHeader.jpeg');
-    background-size: cover;
+#backgroundHeader {
+    background-color: red;
+    height: 500px;
 }
