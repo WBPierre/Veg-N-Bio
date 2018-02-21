@@ -19,7 +19,7 @@ class AutoloaderController{
 		Gère les requires sur tous les controllers voulus
 	 */
 	static function Autoload($class){
-		require ROOT.'/src/'.$class.'.php';
+		require ROOT.'/admin/src/'.$class.'.php';
 	} 
 
 

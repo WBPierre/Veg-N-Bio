@@ -1,5 +1,10 @@
 {
 	"index":{
 		"metaTitle":"Accueil"
+	},
+	"admin":{
+		"index":{
+			"metaTitle":"Connexion"
+		}
 	}
 }
