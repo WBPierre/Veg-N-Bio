@@ -1,6 +1,6 @@
 new WOW().init();
 
-$(document).ready(function(){
+$(document).ready(function() {
 
 
 
@@ -38,7 +38,7 @@ $(document).ready(function(){
     // Try HTML5 geolocation.
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
@@ -52,7 +52,7 @@ $(document).ready(function(){
                 position: pos,
                 map: map
             });
-        }, function() {
+        }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         });
     } else {
@@ -67,6 +67,70 @@ $(document).ready(function(){
             'Error: Your browser doesn\'t support geolocation.');
     }
 
+    var state = 'img';
+
+    $('.adminEdition').click(function () {
+
+        console.log(this);
+
+        if(this.tagName === 'IMG') {
+            state = 'img';
+            $("#editionPicture").prop('hidden', false).attr('src', this.src);
+            $("#editionText").prop('hidden', true);
+        } else {
+            state = 'text';
+            $("#editionText").text(this.innerHTML).prop('hidden', false);
+            $("#editionPicture").prop('hidden', true);
+        }
+
+        $('#fullHeightModalRight').modal('show');
+
+        var splitFile;
+        var file;
+
+        if(state = 'img'){
+            $('#validFile').click(function () {
+
+                splitFile = $("#inputFile").val().split('\\');
+                file = splitFile[2].split('.');
+
+                $("#editionPicture").attr('src', '../assets/images/' + splitFile[2]);
+
+            });
+            $('#saveValidFile').click(function () {
+                $('.adminEdition').attr('src', '../assets/images/' + splitFile[2]);
+                $('#fullHeightModalRight').modal('hide');
+            });
+        };
 
 
+    });
 });
+    /*
+
+        $('#fullHeightModalRight').modal('show')
+        if ($('#validFile').click(function () {
+
+                var file = document.getElementById('inputFile').value
+                var nameFile = file.split("\\");
+                var splitFile = nameFile[2].split('.');
+
+                if ((file).length > 1) {
+                    console.log(splitFile[1].toLowerCase());
+                    if (splitFile[1].toLowerCase() === 'jpg') {
+                        console.log('Le fichier est bon');
+                        console.log(file);
+                        $("#imageEdition").attr('src', '../assets/images/' + nameFile[2]);
+                    }
+                } else {
+                    console.log("Le fichier n'est pas bon");
+                }
+            })) ;
+        if ($('#saveValidFile').click(function () {
+                $("#imageEdition").attr('src', '../assets/images/' + nameFile[2]);
+            })) ;
+
+    });
+
+    */
+
