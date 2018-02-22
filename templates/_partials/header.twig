@@ -1,35 +1,79 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark default-color">
-        <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Opinions</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fa fa-instagram"></i></a>
-                </li>
-            </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar brown darken-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto smooth-scroll">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features" data-offset="100">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-offset="100">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products" data-offset="100">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials" data-offset="100">Opinions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#modal-contact">Contact</a>
+                    </li>
+                </ul>
+                <!-- Social Icons -->
+                <ul class="navbar-nav nav-flex-icons">
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+
+    <!-- Intro Section -->
+    <div id="home" class="view hm-black-strong-1 jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Food/full%20page/11.jpg);">
+
+        <div class="full-bg-img">
+            <div class="container flex-center">
+                <div class="row smooth-scroll">
+                    <div class="col-md-12 text-center white-text">
+                        <div class="wow fadeInDown" data-wow-delay="0.2s">
+                            <hr class="white">
+                            <h1 class="white-text display-4 font-bold">
+                                <em>Welcome to our
+                                    <strong>Organic cafe</strong>
+                                </em>
+                            </h1>
+                            <hr class="white">
+                            <h5 class="font-up white-text mb-5 mt-5 font-bold spacing">Lorem ipsum dolor sit amet</h5>
+                            <a href="#features" class="btn rgba-white-strong btn-rounded dark-grey-text font-bold">Welcome</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
