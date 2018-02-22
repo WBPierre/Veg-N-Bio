@@ -2,3 +2,11 @@
     background-image: url('../images/backgroundHeader.jpeg');
     background-size: cover;
 }
+
+#map {
+    height: 100%;
+}
+
+.map-section {
+    height: 500px;
+}

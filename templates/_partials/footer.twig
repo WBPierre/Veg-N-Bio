@@ -87,27 +87,10 @@
 		<script type="text/javascript" src="../../assets/MDB/js/bootstrap.min.js"></script>
 		
 		<script type="text/javascript" src="../../assets/MDB/js/mdb.min.js"></script>
-		<script>
-			//Animation init
-			new WOW().init();
-			// Material Select Initialization
-			$(document).ready(function () {
-				$('.mdb-select').material_select();
-			});
-		</script>
-		<script>
-			$(function () {
-				var selectedClass = "";
-				$(".filter").click(function () {
-					selectedClass = $(this).attr("data-rel");
-					$("#gallery").fadeTo(100, 0.1);
-					$("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
-					setTimeout(function () {
-						$("." + selectedClass).fadeIn().addClass('animation');
-						$("#gallery").fadeTo(300, 1);
-					}, 300);
-				});
-			});
-		</script>
+
+        <script type="text/javascript" src="../../assets/js/function.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu2OZNEGITgd_ZeDK8y0XnLHfPLPNdjog"
+        async defer></script>
 	</body>
 </html>
