@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "gridstack": "^0.3.0"
+    "gridstack": "^0.3.0",
+    "loadash": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {

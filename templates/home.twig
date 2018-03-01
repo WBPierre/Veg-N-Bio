@@ -26,7 +26,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 pb-3 flex-center">
-						<img src="../assets/images/burgerVeggan.jpg" alt="" class="z-depth-0 img-fluid">
+						<img src="../assets/images/burgerVeggan.jpg" alt="" class="z-depth-0 img-fluid adminEdition">
 					</div>
 					<div class="col-md-4">
 						<div class="row text-center pb-5">
@@ -58,11 +58,9 @@
 							 alt="My photo">
 					</div>
 					<div class="col-xl-6 col-lg-6 pb-3 wow fadeIn" data-wow-delay="0.4s">
-						<p class="adminEdition" align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo animi soluta ratione quisquam, dicta
-							ab cupiditate iure eaque? Repellendus voluptatum, magni impedit eaque animi maxime.</p>
+						<p class="adminEdition" align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo animi soluta ratione quisquam, dicta ab cupiditate iure eaque? Repellendus voluptatum, magni impedit eaque animi maxime.</p>
 
-						<p align="justify">Nemo animi soluta ratione quisquam, dicta ab cupiditate iure eaque? Repellendus voluptatum, magni
-							impedit eaque delectus, beatae maxime temporibus maiores quibusdam quasi rem magnam.</p>
+						<p class="adminEdition" align="justify">Nemo animi soluta ratione quisquam, dicta ab cupiditate iure eaque? Repellendus voluptatum, magni impedit eaque delectus, beatae maxime temporibus maiores quibusdam quasi rem magnam.</p>
 
 						<ul>
 							<li>Nemo animi soluta ratione</li>
@@ -178,12 +176,12 @@
 						<div class="gallery" id="gallery">
 							<div class="row">
 								<div class="col-6 mb-3 pics animation all 2">
-									<img class="img-fluid mb-4 rounded" src="https://mdbootstrap.com/img/Photos/Others/images/34.jpg" alt="Card image cap">
-									<img class="img-fluid rounded" src="https://mdbootstrap.com/img/Photos/Vertical/1.jpg" alt="Card image cap">
+									<img class="img-fluid mb-4 rounded adminEdition" src="https://mdbootstrap.com/img/Photos/Others/images/34.jpg" alt="Card image cap">
+									<img class="img-fluid rounded adminEdition" src="https://mdbootstrap.com/img/Photos/Vertical/1.jpg" alt="Card image cap">
 								</div>
 								<div class="col-6 pics animation all 1">
-									<img class="img-fluid mb-4 rounded" src="https://mdbootstrap.com/img/Photos/Vertical/2.jpg" alt="Card image cap">
-									<img class="img-fluid rounded" src="https://mdbootstrap.com/img/Photos/Others/images/35.jpg" alt="Card image cap">
+									<img class="img-fluid mb-4 rounded adminEdition" src="https://mdbootstrap.com/img/Photos/Vertical/2.jpg" alt="Card image cap">
+									<img class="img-fluid rounded adminEdition" src="https://mdbootstrap.com/img/Photos/Others/images/35.jpg" alt="Card image cap">
 								</div>
 							</div>
 						</div>
@@ -197,34 +195,41 @@
 				</h1>
 				<div id="map"></div>
 			</section>
-
 			<div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-full-height modal-right" role="document">
 					<div class="modal-content">
 						<div class="modal-header success-color">
-							<h5 class="modal-title text-white" id="exampleModalLabel">Modifier une image</h5>
+							<h5 class="modal-title text-white" id="exampleModalLabel">Modify an element</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="modal-body">
 							<div class="col-xl-12 mr-auto col-lg-12 wow fadeIn" data-wow-delay="0.4s">
-							<img id="editionPicture" src="#" class="img-fluid rounded z-depth-1-half"
-									 alt="My photo">
-								<textarea id="editionText"></textarea>
+								<div id="showText"></div>
+								<img id="editionPicture" src="#" class="img-fluid rounded z-depth-1-half" alt="My photo">
+								<textarea type="text" id="editionText" class="md-textarea md-textarea-auto form-control" rows="7"></textarea>
 							</div>
 							<div class="col-xl-12 mr-auto col-lg-12 wow fadeIn" data-wow-delay="0.4s">
-								<div class="d-inline float-left btn btn-primary col-xl-8 col-lg-8">
-									<input id="inputFile" type="file">
-								</div>
-								<div class="d-inline float-left btn btn-primary col-xl-3 col-lg-3" id="validFile">
-									<div class="fa fa-2x fa-check"></div>
-								</div>
+								<br>
+								<form>
+									<div class="md-form">
+										<div id="file-field" class="file-field">
+											<div class="btn btn-secondary btn-sm float-left">
+												<span>Choose file</span>
+												<input id="inputFile" type="file">
+											</div>
+											<div class="file-path-wrapper">
+												<input class="file-path validate" type="text" placeholder="Upload your file">
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button id="saveValidFile" type="button" class="btn btn-primary">Save changes</button>
+							<button id="saveValidFile" type="button" class="btn btn-success">Save changes</button>
 						</div>
 					</div>
 				</div>
