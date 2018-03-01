@@ -10,3 +10,10 @@
 .map-section {
     height: 700px;
 }
+
+.adminEdition {
+    border: 2px dotted #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
