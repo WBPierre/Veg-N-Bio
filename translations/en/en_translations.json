@@ -4,7 +4,13 @@
 	},
 	"admin":{
 		"index":{
-			"metaTitle":"Log in"
+			"metaTitle":"Connexion",
+			"backToMain":"Back to website",
+			"logIn":"Log in",
+			"yourEmail":"Your email",
+			"yourPwd":"Your password",
+			"signUp":"Sign up",
+			"signUpThroughCard":"Sign up through a card"
 		}
 	}
 }
