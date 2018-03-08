@@ -2,57 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6ccd0a7-8aaa-4d48-a63c-637dae9f5a60" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageController.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/Veg-N-Bio.iml" afterPath="$PROJECT_DIR$/.idea/Veg-N-Bio.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/assets/js/function.js" afterPath="$PROJECT_DIR$/assets/js/function.js" />
       <change beforePath="$PROJECT_DIR$/assets/stylesheets/style.css" afterPath="$PROJECT_DIR$/assets/stylesheets/style.css" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/.bithoundrc" afterPath="$PROJECT_DIR$/node_modules/gridstack/.bithoundrc" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/.jscsrc" afterPath="$PROJECT_DIR$/node_modules/gridstack/.jscsrc" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/.npmignore" afterPath="$PROJECT_DIR$/node_modules/gridstack/.npmignore" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/gridstack/.travis.yml" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/Gruntfile.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/Gruntfile.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/LICENSE" afterPath="$PROJECT_DIR$/node_modules/gridstack/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/README.md" afterPath="$PROJECT_DIR$/node_modules/gridstack/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/bower.json" afterPath="$PROJECT_DIR$/node_modules/gridstack/bower.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/anijs.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/anijs.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/float.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/float.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/index.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/index.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/knockout.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/knockout.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/knockout2.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/knockout2.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/nested.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/nested.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/responsive.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/responsive.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/rtl.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/rtl.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/serialization.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/serialization.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/demo/two.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/demo/two.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack-extra.css" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack-extra.css" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack-extra.min.css" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack-extra.min.css" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.all.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.all.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.css" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.css" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.jQueryUI.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.jQueryUI.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.jQueryUI.min.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.jQueryUI.min.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.min.css" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.min.css" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.min.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.min.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.min.map" afterPath="$PROJECT_DIR$/node_modules/gridstack/dist/gridstack.min.map" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/doc/FAQ.md" afterPath="$PROJECT_DIR$/node_modules/gridstack/doc/FAQ.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/doc/README.md" afterPath="$PROJECT_DIR$/node_modules/gridstack/doc/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/karma.conf.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/karma.conf.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/package.json" afterPath="$PROJECT_DIR$/node_modules/gridstack/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/protractor.conf.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/protractor.conf.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/spec/e2e/gridstack-spec.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/spec/e2e/gridstack-spec.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/spec/e2e/html/gridstack-with-height.html" afterPath="$PROJECT_DIR$/node_modules/gridstack/spec/e2e/html/gridstack-with-height.html" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/spec/gridstack-engine-spec.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/spec/gridstack-engine-spec.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/spec/gridstack-spec.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/spec/gridstack-spec.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/spec/utils-spec.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/spec/utils-spec.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/src/gridstack-extra.scss" afterPath="$PROJECT_DIR$/node_modules/gridstack/src/gridstack-extra.scss" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/src/gridstack.jQueryUI.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/src/gridstack.jQueryUI.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/src/gridstack.js" afterPath="$PROJECT_DIR$/node_modules/gridstack/src/gridstack.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gridstack/src/gridstack.scss" afterPath="$PROJECT_DIR$/node_modules/gridstack/src/gridstack.scss" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/templates/_partials/footer.twig" afterPath="$PROJECT_DIR$/templates/_partials/footer.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/_partials/head.twig" afterPath="$PROJECT_DIR$/templates/_partials/head.twig" />
       <change beforePath="$PROJECT_DIR$/templates/home.twig" afterPath="$PROJECT_DIR$/templates/home.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,41 +31,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="196" column="22" lean-forward="true" selection-start-line="196" selection-start-column="22" selection-end-line="196" selection-end-column="22" />
+            <state relative-caret-position="-96">
+              <caret line="207" column="66" lean-forward="true" selection-start-line="207" selection-start-column="66" selection-end-line="207" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/_partials/footer.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="function.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="function.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/function.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+            <state relative-caret-position="241">
+              <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageController.php">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -146,11 +88,11 @@
         <option value="$PROJECT_DIR$/templates/_stylesheets/style.css" />
         <option value="$PROJECT_DIR$/templates/_partials/header.twig" />
         <option value="$PROJECT_DIR$/src/ImageController.php" />
-        <option value="$PROJECT_DIR$/assets/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/templates/_partials/head.twig" />
         <option value="$PROJECT_DIR$/templates/_partials/footer.twig" />
-        <option value="$PROJECT_DIR$/assets/js/function.js" />
         <option value="$PROJECT_DIR$/templates/home.twig" />
+        <option value="$PROJECT_DIR$/assets/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/assets/js/function.js" />
       </list>
     </option>
   </component>
@@ -197,33 +139,6 @@
             <path>
               <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
               <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="stylesheets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="_partials" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -274,10 +189,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45051000" />
+    <option name="totallyTimeSpent" value="53589000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="700" y="-1057" width="1920" height="1057" extended-state="6" />
+    <frame x="698" y="-1057" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18370607" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -610,10 +525,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/style.css">
+    <entry file="file://$PROJECT_DIR$/templates/_partials/head.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="15" selection-end-column="18" />
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/gridstack/src/gridstack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="1734" column="4" lean-forward="false" selection-start-line="1734" selection-start-column="4" selection-end-line="1734" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/_partials/footer.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -626,42 +555,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/_partials/head.twig">
+    <entry file="file://$PROJECT_DIR$/assets/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/gridstack/src/gridstack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="1734" column="4" lean-forward="false" selection-start-line="1734" selection-start-column="4" selection-end-line="1734" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/_partials/footer.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/function.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+        <state relative-caret-position="165">
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/home.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="196" column="22" lean-forward="true" selection-start-line="196" selection-start-column="22" selection-end-line="196" selection-end-column="22" />
+        <state relative-caret-position="-96">
+          <caret line="207" column="66" lean-forward="true" selection-start-line="207" selection-start-column="66" selection-end-line="207" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/function.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
           <folding />
         </state>
       </provider>

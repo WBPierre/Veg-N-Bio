@@ -189,11 +189,26 @@
 				</div>
 			</section>
 			<hr class="wow fadeIn" data-wow-delay="0.4s">
-			<section class="section map-section" id="testimonials">
-				<h1 class="text-center font-bold mt-5 pt-5 mb-3 wow fadeIn" data-wow-delay="0.2s">
-					<em>Our restaurants</em>
-				</h1>
-				<div id="map"></div>
+			<section class="section map-section" id="mapID">
+                <h1 class="text-center font-bold mt-5 pt-5 mb-3 wow fadeIn" data-wow-delay="0.2s">
+                    <em>Our restaurants</em>
+                </h1>
+                <p class="text-center font-up grey-text font-bold mb-5 pb-4 wow fadeIn" data-wow-delay="0.2s">Looking for a restaurant ?</p>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="list-Nation-list" data-toggle="list" role="tab" aria-controls="home">Nation</a>
+                            <a class="list-group-item list-group-item-action" id="list-Bastille-list" data-toggle="list" role="tab" aria-controls="profile">Bastille</a>
+                            <a class="list-group-item list-group-item-action" id="list-Republique-list" data-toggle="list" role="tab" aria-controls="messages">République</a>
+                            <a class="list-group-item list-group-item-action" id="list-PlaceItalie-list" data-toggle="list" role="tab" aria-controls="settings">Place d'Italie</a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="map-section" id="nav-tabContent">
+                            <div class="col-lg-12" id="map"></div>
+                        </div>
+                    </div>
+                </div>
 			</section>
 			<div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-full-height modal-right" role="document">
