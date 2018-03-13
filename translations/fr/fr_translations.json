@@ -3,7 +3,7 @@
 		"metaTitle":"Accueil"
 	},
 	"admin":{
-		"index":{
+		"login":{
 			"metaTitle":"Connexion",
 			"backToMain":"Retour au site",
 			"logIn":"Se connecter",
@@ -11,6 +11,20 @@
 			"yourPwd":"Votre mot de passe",
 			"signUp":"Se connecter",
 			"signUpThroughCard":"Se connecter via un badge"
+		},
+		"dashboard":{
+			"metaTitle":"Dashboard",
+			"home":"Accueil",
+			"search":"Rechercher",
+			"logOut":"Se déconnecter",
+			"restaurantManagement":"Gestion restaurant",
+			"menus":"Menus",
+			"modifyWebSite":"Modifier le site vitrine",
+			"inventoryManagement":"Gestion des stocks",
+			"employeesManagement":"Gestion des employés",
+			"checking":"Pointage",
+			"offerManagement":"Gestion des offres",
+			"support":"Support"
 		}
 	}
 }
