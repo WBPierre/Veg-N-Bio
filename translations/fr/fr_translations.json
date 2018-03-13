@@ -24,7 +24,18 @@
 			"employeesManagement":"Gestion des employés",
 			"checking":"Pointage",
 			"offerManagement":"Gestion des offres",
-			"support":"Support"
+			"support":"Support",
+			"deleteConfirm":"Voulez-vous vraiment retirer cet employé ?",
+			"yes":"Oui",
+			"no":"Non",
+			"addEmployee":"Ajouter un employé",
+			"name":"Nom",
+			"firstname":"Prénom",
+			"job":"Poste",
+			"dateArrival":"Date d'arrivée",
+			"ratioHour":"Ratio",
+			"first":"Premier",
+			"last":"Dernier"
 		}
 	}
 }

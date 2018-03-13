@@ -24,7 +24,18 @@
 			"employeesManagement":"Employees management",
 			"checking":"Checking",
 			"offerManagement":"Offer management",
-			"support":"Support"
+			"support":"Support",
+			"deleteConfirm":"Do you really want to remove this employee ?",
+			"yes":"Yes",
+			"no":"No",
+			"addEmployee":"Add an employee",
+			"name":"Name",
+			"firstname":"Firstname",
+			"job":"Job",
+			"dateArrival":"Date of arrival",
+			"ratioHour":"Ratio",
+			"first":"First",
+			"last":"Last"
 		}
 	}
 }
