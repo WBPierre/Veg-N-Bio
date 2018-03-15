@@ -3,6 +3,7 @@
 {% block header %}{% endblock %}
 {% block content %}
 	{% include 'login/css/login.css' %}
+
 	<header>
 	    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
 	        <div class="container">
@@ -72,4 +73,9 @@
 {% block footer %}{% endblock %}
 {% block javascript %}
 	{% include 'login/js/login.js' %}
+	{% if error == true %}
+	<script>
+		 toastr["error"]("Identifiants erronés");
+	</script>
+	{% endif %}
 {% endblock %}

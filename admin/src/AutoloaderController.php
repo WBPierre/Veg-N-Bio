@@ -2,13 +2,13 @@
 
 	/*
 		Class AutoloaderController
-		Charge automatiquement les classes nécessaires 
+		Load automatically al the classes needed 
 	 */
 class AutoloaderController{
 
 
 	/*
-		Evite des problèmes sur la multiplication d'autoload.
+		Handle multiple autoloaders
 	 */
 	static function register(){
 
@@ -16,7 +16,7 @@ class AutoloaderController{
 	}
 
 	/*
-		Gère les requires sur tous les controllers voulus
+		Handle all the requires needed
 	 */
 	static function Autoload($class){
 		require ROOT.'/admin/src/'.$class.'.php';

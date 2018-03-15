@@ -1,16 +1,28 @@
 <?php
-echo 'ok class';
+require_once "config/config.php";
 class RooterController{
-	echo 'in';
 
-	public static function getPage(){
-		echo "ok";
-		$URI = $_SERVER['REQUEST_URI'];
-		$URI = str_replace("/admin","",$URI);
-		if($URI == '/'){
-			$link = 'src/FormValidator.php';
-			$string = LanguageController::translate('index');
-			echo $twig->render('test.twig', [ 'trans' => $string, 'link'=>$link ] );
+	private $url;
+
+	function __construct(){
+		$this->url = $_GET['url'];
+	}
+
+	public function getRoute(){
+		switch($this->url){
+			case 'employeesManagement':
+
+				$db = new DatabaseController();
+				$data = $db->fetchAll('SELECT * FROM vnb_users WHERE employee = 1');
+				$contracts = $db->fetchAll('SELECT * FROM vnb_contract');
+
+				$string = LanguageController::translate('dashboard');
+				echo $twig->render('employeesManagement/employeesManagement.twig', [ 'trans' => $string, 'employees' => $data, 'contract' => $contracts[0] ] );
+				break;
+			default:
+				$string = LanguageController::translate('dashboard');
+				echo $twig->render('dashboard/dashboard.twig', [ 'trans' => $string ] );
 		}
+
 	}
 }
