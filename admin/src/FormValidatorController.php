@@ -3,12 +3,12 @@
  * @Author: Pierre
  * @Date:   2018-03-08 11:39:46
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-03-09 11:11:34
+ * @Last Modified time: 2018-03-14 12:46:32
  */
 
 /**
  * Class FormValidatorController
- * Permet de vérifier l'intégrité d'un formulaire
+ * Verify the integrity of a form
  */
 class FormValidatorController{
 
@@ -16,7 +16,7 @@ class FormValidatorController{
 	private $valid = false;
 
 	/*
-	* Construit le tableau en private dans la classe
+	* Create an array with all the datas
 	* @param $array
 	 */
 
@@ -25,7 +25,7 @@ class FormValidatorController{
 	}
 
 	/*
-		Verification du champ email
+		Verify an email
 		@param $email
 		@return Boolean
 	 */
@@ -39,7 +39,7 @@ class FormValidatorController{
 	}
 
 	/*
-		Verification du champ password
+		Verify a password
 		@param $password
 		@return Boolean
 	*/
@@ -49,8 +49,24 @@ class FormValidatorController{
 		return true;
 	}
 
+
 	/*
-		Verification de la validité des champs transmis
+		Verify a phone number
+		@param $string
+		@return Boolean
+	 */
+	private function phoneValidator($number){
+		if(strlen($number) < 10 ){
+			return false;
+		}
+		if(!is_numeric(intval($number))){
+			return false;
+		}
+			$this->valid = true;
+			return true;
+	}
+	/*
+		Verify all the data sent
 		@return Boolean
 	*/
 
@@ -68,8 +84,49 @@ class FormValidatorController{
 						return false;
 					}
 					break;
+				case 'phone':
+					if(!$this->phoneValidator($value)){
+						return false;
+					}
+					break;
 			}
 		}
 		return $this->valid;
+	}
+
+	/*
+		Treat all the data before sending to database
+		@return PHP Array
+	 */
+	public function treatData(){
+
+		foreach($this->data as $key => $value){
+			$this->data[$key] = htmlspecialchars($value);
+			if($key == 'contractStart'){
+				if(isset($this->data['contractEnd'])){
+					$longStart = (time() - strtotime($this->data['contractStart'])) / 3600 / 24 /365;
+					$longEnd = (time() - strtotime($this->data['contractEnd'])) / 3600 / 24 /365;
+					$inter = $longStart - $longEnd;
+					if($inter <= 0){
+						return 0;
+					}
+				}
+			}
+			if($key == 'birthdate'){
+				$age = (time() - strtotime($this->data['birthdate'])) / 3600 / 24 /365;
+				if($age < 18 ){
+					return 0;
+				}
+			}
+			if($key != 'id'){
+				if($key != 'formName'){
+					$array[] = $value;
+				}
+			}
+			
+		}
+
+			return $array;
+		
 	}
 }

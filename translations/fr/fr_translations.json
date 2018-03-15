@@ -32,10 +32,20 @@
 			"name":"Nom",
 			"firstname":"Prénom",
 			"job":"Poste",
-			"dateArrival":"Date d'arrivée",
+			"dateEndOfContract":"Date de fin de contrat  (YYYY-MM-DD)",
 			"ratioHour":"Ratio",
 			"first":"Premier",
-			"last":"Dernier"
+			"last":"Dernier",
+			"phone":"Téléphone",
+			"birthdate":"Date de naissance",
+			"contractStart":"Début de contrat",
+			"contractEnd":"Fin de contrat",
+			"saveChanges":"Sauvegarder",
+			"close":"Fermer",
+			"contractLast":"Nombre de jours restant du contrat",
+			"vacationDayLast":"Jours de congés utilisés",
+			"vacationDayTotal":"Total jour de congés",
+			"contractType":"Type de contrat"
 		}
 	}
 }

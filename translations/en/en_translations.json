@@ -32,10 +32,20 @@
 			"name":"Name",
 			"firstname":"Firstname",
 			"job":"Job",
-			"dateArrival":"Date of arrival",
+			"dateEndOfContract":"End of contract (YYYY-MM-DD)",
 			"ratioHour":"Ratio",
 			"first":"First",
-			"last":"Last"
+			"last":"Last",
+			"phone":"Phone",
+			"birthdate":"Birthdate",
+			"contractStart":"Start of contract",
+			"contractEnd":"End of contract",
+			"saveChanges":"Save changes",
+			"close":"Close",
+			"contractLast":"Days before contract ends",
+			"vacationDayLast":"Vacations day used",
+			"vacationDayTotal":"Total of vacation day",
+			"contractType":"Contract type"
 		}
 	}
 }

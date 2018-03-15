@@ -39,7 +39,7 @@
                         <p class="white-text mx-3"><b>{{ trans.employeesManagement }}</p>
 
                         <div>
-                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" id="modifyEmployees">
                                 <i class="fa fa-pencil mt-0"></i>
                             </button>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" data-toggle="modal" data-target="#modalConfirmDelete">
@@ -62,50 +62,130 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            <!-- <input type="checkbox" id="checkbox"> -->
-                                            <!-- <label for="checkbox" class="label-table"></label> -->
                                         </th>
                                         <th class="th-lg">{{ trans.firstname }}</th>
                                         <th class="th-lg">{{ trans.name }}</th>
                                         <th class="th-lg">{{ trans.job }}</th>
-                                        <th class="th-lg">{{ trans.dateArrival }}</th>
+                                        <th class="th-lg">{{ trans.dateEndOfContract }}</th>
                                         <th class="th-lg">{{ trans.ratioHour }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for employee in employees %}
+                                    <div class="modal fade right" id="{{ employee.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-full-height modal-right" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">{{ employee.firstname }} {{ employee.name }}<br>{{ employee.job }} <span class="badge badge-success badge-pill" id="inputRatioHour">250%<i class="fa fa-arrow-up ml-1"></i></span></h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form action="var/FormDispatcher.php" method="POST">
+                                                	<input type="hidden" name="formName" value="employeeManagementModify">
+                                                	<input type="hidden" name="id" value="{{ employee.id }}">
+                                                	<div class="modal-body">
+	                                                    <div class="form-row">
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" id="inputFirstname" name="firstname" value="{{ employee.firstname }}">
+	                                                                <label for="inputFirstname">{{ trans.firstname }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" id="inputName" name="name" value="{{ employee.name }}">
+	                                                                <label for="inputName">{{ trans.name }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="row">
+	                                                        <div class="col-md-12">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="email" class="form-control" id="inputEmail" name="email" value="{{ employee.email }}">
+	                                                                <label for="inputEmail">Email</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="form-row">
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                            	<input value="{{ employee.birthdate }}" type="text" id="date-picker-example" name="birthdate" class="form-control datepicker" >
+																	<label for="date-picker-example">{{ trans.birthdate }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" id="inputPhone" name="phone" value="{{ employee.phone }}">
+	                                                                <label for="inputPhone">{{ trans.phone }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>                                                        
+	                                                    <div class="form-row">
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                            	<input value="{{ employee.contract_start }}" type="text" id="date-picker-example" name="contractStart" class="form-control datepicker" >
+																	<label for="date-picker-example">{{ trans.contractStart }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                            	<input value="{{ employee.contract_end }}" type="text" id="date-picker-example" name="contractEnd" class="form-control datepicker" >
+																	<label for="date-picker-example">{{ trans.contractEnd }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="row">
+	                                                        <div class="col-md-12">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" id="inputContractLast" value="{{ employee.contract_last }}" disabled>
+	                                                                <label for="inputContractLast" class="disabled"></label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="row">
+	                                                        <div class="col-md-12">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" id="inputContractType" value="{{ employee.contractType }}" disabled>
+	                                                                <label for="inputContractType" class="disabled">{{ trans.contractType }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="form-row">
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                               <input type="text" class="form-control" id="inputVacationDay" name="vacationDay" value="{{ employee.vacation_day }}">
+	                                                                <label for="inputVacationDay">{{ trans.vacationDayLast }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" id="inputVacationDayTotal" name="vacationDayTotal" value="{{ employee.vacation_day_total }}">
+	                                                                <label for="inputVacationDayTotal">{{ trans.vacationDayTotal }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+	                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+	                                                    <button type="submit" class="btn btn-primary">{{ trans.saveChanges }}</button>
+	                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <tr>
                                         <th scope="row">
-                                            <input type="checkbox" id="checkbox1">
-                                            <label for="checkbox1" class="label-table"></label>
+                                            <input class="form-check-input checkThisEmployee" type="radio" name="exampleRadios" id="Check{{ employee.id }}" value="{{ employee.id }}">
+                                            <label class="form-check-label" for="Check{{ employee.id }}">
                                         </th>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
+                                        <td>{{ employee.firstname }}</td>
+                                        <td>{{ employee.name }}</td>
+                                        <td>{{ employee.job }}</td>
+                                        <td>{{ employee.contract_end }}</td>
+                                        <td><span class="badge badge-success badge-pill">250%<i class="fa fa-arrow-up ml-1"></i></span></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <input type="checkbox" id="checkbox2">
-                                            <label for="checkbox2" class="label-table"></label>
-                                        </th>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <input type="checkbox" id="checkbox3">
-                                            <label for="checkbox3" class="label-table"></label>
-                                        </th>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                        <td>Lorem Ipsum</td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
 
@@ -114,7 +194,7 @@
                         <hr class="my-0">
 
                         <!--Bottom Table UI-->
-                        <div class="d-flex justify-content-between">
+                        {#<div class="d-flex justify-content-between">
 
                             <!--Name-->
 
@@ -169,7 +249,7 @@
                             </nav>
                             <!--/Pagination -->
 
-                        </div>
+                        </div> #}
                         <!--Bottom Table UI-->
 
                     </div>
@@ -178,5 +258,7 @@
                 </div>
     </div>
 </main>
-
+{% endblock %}
+{% block javascript %}
+	{% include 'employeesManagement/js/employeesManagement.js' %}
 {% endblock %}
