@@ -22,7 +22,11 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
 			$array = $data->getAllEmployees();
 			$string = LanguageController::translate('dashboard');
 			echo $twig->render('employeesManagement/employeesManagement.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string, 'employees' => $array, 'success' => $success ] );
-			break;
+        break;
+        case 'salesInterface':
+            $string = LanguageController::translate('dashboard');
+            echo $twig->render('salesInterface/salesInterface.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string, 'sales' => $array, 'success' => $success ] );
+        break;
 		default:
 			$string = LanguageController::translate('dashboard');
 			echo $twig->render('dashboard/dashboard.twig', [ 'trans' => $string ] );

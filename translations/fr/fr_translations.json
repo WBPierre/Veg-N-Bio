@@ -41,11 +41,24 @@
 			"contractStart":"Début de contrat",
 			"contractEnd":"Fin de contrat",
 			"saveChanges":"Sauvegarder",
+			"salesInterface":"Interface de caisse",
 			"close":"Fermer",
 			"contractLast":"Nombre de jours restant du contrat",
 			"vacationDayLast":"Jours de congés utilisés",
 			"vacationDayTotal":"Total jour de congés",
-			"contractType":"Type de contrat"
+			"contractType":"Type de contrat",
+			"salesProducts": {
+				"validate": "Valider",
+				"close": "Fermer",
+				"selectProduct": "Selectionner un produit",
+				"drink1": "Jus de carottes",
+				"drink2": "Jus d'oranges",
+				"drink3": "Jus de pommes",
+				"Drinks": "Boisson",
+				"Burger": "Burger",
+				"Sandwich": "Sandwich",
+				"Soupe": "Soupe"
+			}
 		}
 	}
 }

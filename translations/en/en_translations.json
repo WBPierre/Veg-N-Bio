@@ -41,11 +41,24 @@
 			"contractStart":"Start of contract",
 			"contractEnd":"End of contract",
 			"saveChanges":"Save changes",
+			"salesInterface": "Sales interface",
 			"close":"Close",
 			"contractLast":"Days before contract ends",
 			"vacationDayLast":"Vacations day used",
 			"vacationDayTotal":"Total of vacation day",
-			"contractType":"Contract type"
+			"contractType":"Contract type",
+			"salesProducts": {
+				"validate": "Validate",
+				"close": "Close",
+				"selectProduct": "Select a product",
+				"drink1": "Carrots juice",
+				"drink2": "Oranges juice",
+				"drink3": "Apples juice",
+				"Drink": "Drink",
+				"Burger": "Burger",
+				"Sandwich": "Sandwich",
+				"Soupe": "Soup"
+			}
 		}
 	}
 }
