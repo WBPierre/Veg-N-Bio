@@ -33,6 +33,10 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
 			$string = LanguageController::translate('dashboard');
 			echo $twig->render('employeesManagement/addEmployee.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string] );
 			break;
+        case 'menu':
+            $string = LanguageController::translate('dashboard');
+            echo $twig->render('menu/menu.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string, 'sales' => $array, 'success' => $success ] );
+            break;
 		default:
 			$string = LanguageController::translate('dashboard');
 			echo $twig->render('dashboard/dashboard.twig', [ 'trans' => $string ] );

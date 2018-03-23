@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6ccd0a7-8aaa-4d48-a63c-637dae9f5a60" name="Default" comment="">
+<<<<<<< Updated upstream
       <change beforePath="" afterPath="$PROJECT_DIR$/admin/src/LoginController.php" />
       <change beforePath="" afterPath="$PROJECT_DIR$/admin/templates/employeesManagement/addEmployee.twig" />
       <change beforePath="" afterPath="$PROJECT_DIR$/admin/var/C/login.c" />
@@ -10,6 +11,13 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/admin/var/C/test2" />
       <change beforePath="" afterPath="$PROJECT_DIR$/admin/var/logOut.php" />
       <change beforePath="" afterPath="$PROJECT_DIR$/admin/var/shellExecute.php" />
+=======
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/templates/menu/js/menu.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/templates/menu/menu.twig" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bcf9ff2e-8691-45dc-b3c6-8d771ad2293e.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/bcf9ff2e-8691-45dc-b3c6-8d771ad2293e.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/admin/config/config.php" afterPath="$PROJECT_DIR$/admin/config/config.php" />
       <change beforePath="$PROJECT_DIR$/admin/index.php" afterPath="$PROJECT_DIR$/admin/index.php" />
       <change beforePath="$PROJECT_DIR$/admin/kill_session.php" afterPath="" />
@@ -17,9 +25,12 @@
       <change beforePath="$PROJECT_DIR$/admin/src/EmployeeManagerController.php" afterPath="$PROJECT_DIR$/admin/src/EmployeeManagerController.php" />
       <change beforePath="$PROJECT_DIR$/admin/src/FormValidatorController.php" afterPath="$PROJECT_DIR$/admin/src/FormValidatorController.php" />
       <change beforePath="$PROJECT_DIR$/admin/templates/_partials/header.twig" afterPath="$PROJECT_DIR$/admin/templates/_partials/header.twig" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/admin/templates/employeesManagement/employeesManagement.twig" afterPath="$PROJECT_DIR$/admin/templates/employeesManagement/employeesManagement.twig" />
       <change beforePath="$PROJECT_DIR$/admin/templates/login/login.twig" afterPath="$PROJECT_DIR$/admin/templates/login/login.twig" />
       <change beforePath="$PROJECT_DIR$/admin/var/FormDispatcher.php" afterPath="$PROJECT_DIR$/admin/var/FormDispatcher.php" />
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/translations/en/en_translations.json" afterPath="$PROJECT_DIR$/translations/en/en_translations.json" />
       <change beforePath="$PROJECT_DIR$/translations/fr/fr_translations.json" afterPath="$PROJECT_DIR$/translations/fr/fr_translations.json" />
     </list>
@@ -47,31 +58,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< Updated upstream
       <file leaf-file-name="en_translations.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/translations/en/en_translations.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="142">
               <caret line="57" column="33" lean-forward="true" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
+=======
+      <file leaf-file-name="menu.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/templates/menu/menu.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file leaf-file-name="fr_translations.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/translations/fr/fr_translations.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
               <caret line="56" column="22" lean-forward="true" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+=======
+      <file leaf-file-name="en_translations.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/translations/en/en_translations.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="64" selection-end-column="51" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-53">
               <caret line="19" column="58" lean-forward="true" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+=======
+      <file leaf-file-name="fr_translations.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/translations/fr/fr_translations.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+>>>>>>> Stashed changes
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< Updated upstream
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/config/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+=======
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-184">
+              <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -80,8 +132,9 @@
       <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/config/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+            <state relative-caret-position="105">
+              <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -99,6 +152,7 @@
       <find>img</find>
       <find>trans</find>
       <find>for</find>
+      <find>search</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -120,15 +174,20 @@
         <option value="$PROJECT_DIR$/templates/_partials/footer.twig" />
         <option value="$PROJECT_DIR$/templates/home.twig" />
         <option value="$PROJECT_DIR$/assets/js/function.js" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/bcf9ff2e-8691-45dc-b3c6-8d771ad2293e/console.sql" />
         <option value="$PROJECT_DIR$/assets/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/admin/templates/salesInterface/js/salesInterface.js" />
-        <option value="$PROJECT_DIR$/admin/config/config.php" />
+        <option value="$PROJECT_DIR$/admin/templates/salesInterface/salesInterface.twig" />
         <option value="$PROJECT_DIR$/admin/templates/_partials/header.twig" />
         <option value="$PROJECT_DIR$/admin/templates/salesInterface/salesInterface.twig" />
         <option value="$PROJECT_DIR$/admin/index.php" />
-        <option value="$PROJECT_DIR$/translations/fr/fr_translations.json" />
         <option value="$PROJECT_DIR$/translations/en/en_translations.json" />
+<<<<<<< Updated upstream
+=======
+        <option value="$PROJECT_DIR$/translations/fr/fr_translations.json" />
+        <option value="$PROJECT_DIR$/admin/templates/menu/menu.twig" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/bcf9ff2e-8691-45dc-b3c6-8d771ad2293e/console.sql" />
+        <option value="$PROJECT_DIR$/admin/config/config.php" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -185,12 +244,25 @@
               <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< Updated upstream
+=======
             </path>
             <path>
               <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
               <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> Stashed changes
+            </path>
+            <path>
+              <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Veg-N-Bio" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< Updated upstream
+=======
+              <item name="menu" type="2a2b976b:PhpTreeStructureProvider$1" />
+>>>>>>> Stashed changes
             </path>
             <path>
               <item name="Veg-N-Bio" type="b2602c69:ProjectViewProjectNode" />
@@ -258,12 +330,17 @@
       <workItem from="1519900327683" duration="7151000" />
       <workItem from="1521461174705" duration="9991000" />
       <workItem from="1521662125442" duration="5509000" />
-      <workItem from="1521730411982" duration="177000" />
+      <workItem from="1521730411982" duration="1118000" />
+      <workItem from="1521733496134" duration="4898000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="73082000" />
+=======
+    <option name="totallyTimeSpent" value="78804000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="822" extended-state="0" />
@@ -287,10 +364,13 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5028612" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+<<<<<<< Updated upstream
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.49713877" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> Stashed changes
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24391988" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -313,35 +393,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/LanguageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/test.php" />
-    <entry file="file://$PROJECT_DIR$/config/init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/fr/fr_translations.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/MDB/js/mdb.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -484,13 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bcf9ff2e-8691-45dc-b3c6-8d771ad2293e/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/a770373/bcf9ff2e-8691-45dc-b3c6-8d771ad2293e/VegNBio.vnb_contract">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -586,13 +630,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/salesInterface/salesInterface.php" />
-    <entry file="file://$PROJECT_DIR$/admin/config/init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/salesInterface/css/salesInterface.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -642,6 +679,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="26" column="15" lean-forward="false" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+<<<<<<< Updated upstream
+        </state>
+=======
+          <folding />
         </state>
       </provider>
     </entry>
@@ -652,24 +693,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/salesInterface/js/salesInterface.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/images/sandwich.jpeg" />
     <entry file="file://$PROJECT_DIR$/assets/images/sandwich.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/salesInterface/salesInterface.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-        </state>
+>>>>>>> Stashed changes
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/_partials/header.twig">
@@ -679,21 +707,131 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/salesInterface/js/salesInterface.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< Updated upstream
+    <entry file="file://$PROJECT_DIR$/assets/images/sandwich.jpeg" />
+    <entry file="file://$PROJECT_DIR$/assets/images/sandwich.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+=======
+    <entry file="file://$PROJECT_DIR$/admin/templates/login/login.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/base.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+>>>>>>> Stashed changes
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/salesInterface/salesInterface.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+<<<<<<< Updated upstream
+          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+=======
+          <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/_partials/header.twig">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/config/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/menu/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state relative-caret-position="120">
+          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="45">
           <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+=======
+        <state relative-caret-position="-184">
+          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/fr/fr_translations.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/a770373/bcf9ff2e-8691-45dc-b3c6-8d771ad2293e/VegNBio.Boissons">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bcf9ff2e-8691-45dc-b3c6-8d771ad2293e/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/en/en_translations.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="64" selection-end-column="51" />
+          <folding />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="75">
           <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+=======
+        <state relative-caret-position="105">
+          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/translations/fr/fr_translations.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -714,6 +852,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="57" column="33" lean-forward="true" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
+=======
+    <entry file="file://$PROJECT_DIR$/admin/templates/menu/menu.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>

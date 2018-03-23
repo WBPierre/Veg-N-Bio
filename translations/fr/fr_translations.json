@@ -64,7 +64,15 @@
 			"modifySuccess":"Modification effectuée",
 			"passwordConfirmation":"Confirmation de mot de passe",
 			"password":"Mot de passe",
-			"hourNumber":"Nombre d'heures du contrat"
+			"hourNumber":"Nombre d'heures du contrat",
+			"menu": {
+				"drink": "Gestion des boissons",
+				"burger": "Gestion des burgers",
+				"sandwich": "Gestion des sandwichs",
+				"name": "Nom",
+				"price": "Prix",
+				"quantity": "Quantité (Bouteilles)"
+			},
 		}
 	}
 }
