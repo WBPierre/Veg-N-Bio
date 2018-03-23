@@ -45,9 +45,11 @@
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" data-toggle="modal" data-target="#modalConfirmDelete">
                                 <i class="fa fa-remove mt-0"></i>
                             </button>
-                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 font-weight-bold">
+                            <a href="?url=addEmployee">
+                                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 font-weight-bold">
                                 {{ trans.addEmployee }}
-                            </button>
+                                </button>
+                            </a>
                         </div>
 
                     </div>
@@ -139,15 +141,7 @@
 	                                                        <div class="col-md-12">
 	                                                            <div class="md-form form-group">
 	                                                                <input type="text" class="form-control" id="inputContractLast" value="{{ employee.contract_last }}" disabled>
-	                                                                <label for="inputContractLast" class="disabled"></label>
-	                                                            </div>
-	                                                        </div>
-	                                                    </div>
-	                                                    <div class="row">
-	                                                        <div class="col-md-12">
-	                                                            <div class="md-form form-group">
-	                                                                <input type="text" class="form-control" id="inputContractType" value="{{ employee.contractType }}" disabled>
-	                                                                <label for="inputContractType" class="disabled">{{ trans.contractType }}</label>
+	                                                                <label for="inputContractLast" class="disabled">{{ trans.contractLast }}</label>
 	                                                            </div>
 	                                                        </div>
 	                                                    </div>
@@ -261,4 +255,14 @@
 {% endblock %}
 {% block javascript %}
 	{% include 'employeesManagement/js/employeesManagement.js' %}
+    {% if success == true %}
+    <script>
+         toastr["success"](" {{ trans.modifySuccess }} ");
+    </script>
+    {% endif %}
+    {% if error == true %}
+        <script>
+            toastr["error"](" {{ trans.modifyError }} ");
+        </script>
+    {% endif %}
 {% endblock %}

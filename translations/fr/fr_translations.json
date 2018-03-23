@@ -10,7 +10,8 @@
 			"yourEmail":"Votre email",
 			"yourPwd":"Votre mot de passe",
 			"signUp":"Se connecter",
-			"signUpThroughCard":"Se connecter via un badge"
+			"signUpThroughCard":"Se connecter via un badge",
+			"logInFail":"Identifiants erronés"
 		},
 		"dashboard":{
 			"metaTitle":"Dashboard",
@@ -45,7 +46,12 @@
 			"contractLast":"Nombre de jours restant du contrat",
 			"vacationDayLast":"Jours de congés utilisés",
 			"vacationDayTotal":"Total jour de congés",
-			"contractType":"Type de contrat"
+			"contractType":"Type de contrat",
+			"modifyError":"Modification impossible",
+			"modifySuccess":"Modification effectuée",
+			"passwordConfirmation":"Confirmation de mot de passe",
+			"password":"Mot de passe",
+			"hourNumber":"Nombre d'heures du contrat"
 		}
 	}
 }
