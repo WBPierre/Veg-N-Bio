@@ -4,7 +4,7 @@
  * @Author: Pierre
  * @Date:   2018-03-13 14:50:08
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-03-14 21:01:52
+ * @Last Modified time: 2018-03-21 11:49:55
  */
 /*
 	Class that handle all treatment needed on the employees
@@ -52,5 +52,19 @@ class EmployeeManagerController{
 			$i++;
 		}
 		return $this->employeesArray;
+	}
+
+		/*
+		addEmployee allow to add employee to the database
+		@return Boolean
+	 */
+	public function addEmployee($array){
+		$db = new DatabaseController();
+		$data = $db->insert('INSERT INTO vnb_users(name, firstname, gender, email, birthdate, phone, active, employee) VALUES ('.$array['name'].','.$array['firstname'].','.$array['gender'].','.$array['email'].','.$array['birthdate'].','.$array['phone'].','.$array['active'].','.$array['employee'].')');
+		// RECUPERER LAST ID
+		$contract = $db->insert('INSERT INTO vnb_users(id_employee, job, contratc_start, contract_end, vacation_day_total) VALUES ('.$array['id_employee'].','.$array['job'].','.$array['contract_start'].','.$array['contract_end'].','.$array['vacation_day_total'].')');
+		if($data && $contract){
+			return true;
+		}
 	}
 }

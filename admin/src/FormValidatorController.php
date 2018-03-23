@@ -3,7 +3,7 @@
  * @Author: Pierre
  * @Date:   2018-03-08 11:39:46
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-03-14 12:46:32
+ * @Last Modified time: 2018-03-22 10:23:55
  */
 
 /**
@@ -45,6 +45,9 @@ class FormValidatorController{
 	*/
 	
 	private function passwordValidator($password){
+		// if(strlen($password) < 8){
+		// 	return false;
+		// }
 		$this->valid = true;
 		return true;
 	}
@@ -65,6 +68,20 @@ class FormValidatorController{
 			$this->valid = true;
 			return true;
 	}
+
+	/*
+		Verify a date
+		@param $string
+		@return boolean
+	 */
+	private function isDate($string){
+		if(strlen($string) < 10){
+			return false;
+		}
+		// CHECK STRTOTIME
+		$this->valid = true;
+		return true;
+	}
 	/*
 		Verify all the data sent
 		@return Boolean
@@ -79,13 +96,28 @@ class FormValidatorController{
 						return false;
 					}
 					break;
-				case 'password':
-					if(!$this->passwordValidator($value)){
+				// case 'password':
+				// 	if(!$this->passwordValidator($value)){
+				// 		return false;
+				// 	}
+				// 	break;
+				case 'phone':
+					if(!$this->phoneValidator($value)){
 						return false;
 					}
 					break;
-				case 'phone':
-					if(!$this->phoneValidator($value)){
+				case 'birthdate':
+					if(!$this->isDate($value)){
+						return false;
+					}
+					break;
+				case 'contract_start':
+					if(!$this->isDate($value)){
+						return false;
+					}
+					break;
+				case 'contract_end':
+					if(!$this->isDate($value)){
 						return false;
 					}
 					break;
