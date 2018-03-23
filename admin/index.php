@@ -3,20 +3,22 @@
 require_once "config/config.php";
 $error = false;
 $success = false;
-if(isset($_GET['error'])){
+if($_GET['url'] == NULL && preg_match('/error/',$_SERVER['REQUEST_URI'])){
+	$url = '?error';
+}else{
+	$url = $_GET['url'];
+}
+if(preg_match('/error/',$url)){
 	$error = true;
+	$url = preg_replace('/\?error/', "", $url);
 }
-if(isset($_GET['url']) && preg_match('/error/',$_GET['url'])){
-	$error = true;
-}
-if(isset($_GET['success'])){
+
+if(preg_match('/success/', $url)){
 	$success = true;
-}
-if(isset($_GET['url']) && preg_match('/success/',$_GET['url'])){
-	$success = true;
+	$url = preg_replace('/\?success/', "", $url);
 }
 if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['adminLog'] == true){
-	switch($_GET['url']){
+	switch($url){
 		case 'employeesManagement':
 			$data = new EmployeeManagerController();
 			$array = $data->getAllEmployees();
@@ -27,6 +29,10 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
             $string = LanguageController::translate('dashboard');
             echo $twig->render('salesInterface/salesInterface.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string, 'sales' => $array, 'success' => $success ] );
         break;
+		case 'addEmployee':
+			$string = LanguageController::translate('dashboard');
+			echo $twig->render('employeesManagement/addEmployee.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string] );
+			break;
 		default:
 			$string = LanguageController::translate('dashboard');
 			echo $twig->render('dashboard/dashboard.twig', [ 'trans' => $string ] );

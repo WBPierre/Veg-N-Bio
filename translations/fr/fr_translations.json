@@ -10,7 +10,8 @@
 			"yourEmail":"Votre email",
 			"yourPwd":"Votre mot de passe",
 			"signUp":"Se connecter",
-			"signUpThroughCard":"Se connecter via un badge"
+			"signUpThroughCard":"Se connecter via un badge",
+			"logInFail":"Identifiants erronés"
 		},
 		"dashboard":{
 			"metaTitle":"Dashboard",
@@ -58,7 +59,12 @@
 				"Burger": "Burger",
 				"Sandwich": "Sandwich",
 				"Soupe": "Soupe"
-			}
+			},
+			"modifyError":"Modification impossible",
+			"modifySuccess":"Modification effectuée",
+			"passwordConfirmation":"Confirmation de mot de passe",
+			"password":"Mot de passe",
+			"hourNumber":"Nombre d'heures du contrat"
 		}
 	}
 }

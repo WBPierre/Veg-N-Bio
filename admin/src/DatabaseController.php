@@ -4,7 +4,7 @@
  * @Author: Pierre
  * @Date:   2018-03-13 10:51:13
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-03-14 12:46:12
+ * @Last Modified time: 2018-03-23 12:19:13
  */
 	/*
 	*	Class DatabaseController
@@ -47,7 +47,6 @@ class DatabaseController{
 		// }else{
 			$this->response->execute([]);
 		// }
-		var_dump($this->response);
 		if($this->response){
 			return true;
 		}else{
@@ -59,7 +58,7 @@ class DatabaseController{
 		Handle a fetchAll on a request
 		@param $request
 		@param $data
-		@return Array
+		@return PHP Array
 	 */
 
 	public function fetchAll($request, $data = NULL){
@@ -90,4 +89,54 @@ class DatabaseController{
 			return true;
 		}
 	}
+
+	/*
+		Handle a fetch on a request
+		@param $request
+		@return PHP Array
+	 */
+	public function fetch($request, $data = NULL){
+		if($request == NULL){
+			return 0;
+		}
+		$valid = $this->requestDB($request, $data);
+		if(!$valid){
+			die('Error in the SQL request - The request was invalid !');
+		}
+		return $this->response->fetch();
+	}
+
+	/*
+		Handle a count on a request
+		@param $request
+		@return $number
+	 */
+	public function rowCount($request, $data = NULL){
+		if($request == NULL){
+			return 0;
+		}
+		$valid = $this->requestDB($request, $data);
+		if(!$valid){
+			die('Error in the SQL request - The request was invalid !');
+		}
+		$number = $this->response->rowCount();
+		return $number;
+	}
+
+	/*
+		Handle an insert into the database
+		@param request
+		@return Boolean
+	 */
+	public function insert($request, $data = NULL){
+		if($request == NULL){
+			return 0;
+		}
+		$valid = $this->requestDB($request, $data);
+		if(!$valid){
+			die('Error in the SQL request - The request was invalid !');
+		}
+		return $valid;
+	}
+		
 }

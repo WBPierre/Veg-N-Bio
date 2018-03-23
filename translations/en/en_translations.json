@@ -10,7 +10,8 @@
 			"yourEmail":"Your email",
 			"yourPwd":"Your password",
 			"signUp":"Sign up",
-			"signUpThroughCard":"Sign up through a card"
+			"signUpThroughCard":"Sign up through a card",
+			"logInFail":"Identification failed"
 		},
 		"dashboard":{
 			"metaTitle":"Dashboard",
@@ -58,7 +59,12 @@
 				"Burger": "Burger",
 				"Sandwich": "Sandwich",
 				"Soupe": "Soup"
-			}
+			},
+			"modifyError":"Modification impossible",
+			"modifySuccess":"Modification done",
+			"passwordConfirmation":"Password Confirmation",
+			"password":"Password",
+			"hourNumber":"Hours of the contract"
 		}
 	}
 }
