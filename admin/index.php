@@ -18,11 +18,11 @@ if(preg_match('/success/', $url)){
 	$url = preg_replace('/\?success/', "", $url);
 }
 if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['adminLog'] == true){
+	$string = LanguageController::translate('dashboard');
 	switch($url){
 		case 'employeesManagement':
 			$data = new EmployeeManagerController();
 			$array = $data->getAllEmployees();
-			$string = LanguageController::translate('dashboard');
 			echo $twig->render('employeesManagement/employeesManagement.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string, 'employees' => $array, 'success' => $success ] );
         break;
         case 'salesInterface':
@@ -30,7 +30,6 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
             echo $twig->render('salesInterface/salesInterface.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string, 'sales' => $array, 'success' => $success ] );
         break;
 		case 'addEmployee':
-			$string = LanguageController::translate('dashboard');
 			echo $twig->render('employeesManagement/addEmployee.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string] );
 			break;
         case 'menu':
@@ -38,7 +37,6 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
             echo $twig->render('menu/menu.twig', [ 'lang' => $_SESSION['lang'], 'trans' => $string, 'sales' => $array, 'success' => $success ] );
             break;
 		default:
-			$string = LanguageController::translate('dashboard');
 			echo $twig->render('dashboard/dashboard.twig', [ 'trans' => $string ] );
 	}
 }else{

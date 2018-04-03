@@ -3,7 +3,7 @@
  * @Author: Pierre
  * @Date:   2018-03-08 11:39:46
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-03-22 10:23:55
+ * @Last Modified time: 2018-03-26 11:33:48
  */
 
 /**
@@ -150,14 +150,19 @@ class FormValidatorController{
 					return 0;
 				}
 			}
-			if($key != 'id'){
-				if($key != 'formName'){
-					$array[] = $value;
+			// if($key != 'id'){
+			// 	if($key != 'formName'){
+				if($key == 'id' || $key == 'vacationDay' || $key == 'vacationDayTotal'){
+					$array[$key] = intval($value);	
+				}else{
+
+					$array[$key] = $value;
+			// 	}
+			// }
 				}
-			}
 			
 		}
-
+			unset($array['formName']);
 			return $array;
 		
 	}

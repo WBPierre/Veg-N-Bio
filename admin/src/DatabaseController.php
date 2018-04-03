@@ -4,7 +4,7 @@
  * @Author: Pierre
  * @Date:   2018-03-13 10:51:13
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-03-23 12:19:13
+ * @Last Modified time: 2018-03-26 12:40:40
  */
 	/*
 	*	Class DatabaseController
@@ -39,14 +39,7 @@ class DatabaseController{
 
 	private function requestDB($request, $data){
 		$this->response = $this->db->prepare($request);
-		// if($data != NULL){
-		// 	if(!is_array($data)){
-		// 		die('Error in the SQL request - Array is necessary as an argument !');
-		// 	}
-		// 	$this->response->execute($data);
-		// }else{
-			$this->response->execute([]);
-		// }
+		$this->response->execute($data);		
 		if($this->response){
 			return true;
 		}else{
@@ -61,10 +54,7 @@ class DatabaseController{
 		@return PHP Array
 	 */
 
-	public function fetchAll($request, $data = NULL){
-		if($request == NULL){
-			return 0;
-		}
+	public function fetchAll($request, $data = []){
 		$valid = $this->requestDB($request, $data);
 		if(!$valid){
 			die('Error in the SQL request - The request was invalid !');
@@ -78,10 +68,7 @@ class DatabaseController{
 		@return Boolean
 	 */
 
-	public function update($request, $data = NULL){
-		if($request == NULL){
-			return 0;
-		}
+	public function update($request, $data = []){
 		$valid = $this->requestDB($request,$data);
 		if(!$valid){
 			die('Error in the SQL request - The request was invalid !');
@@ -95,15 +82,12 @@ class DatabaseController{
 		@param $request
 		@return PHP Array
 	 */
-	public function fetch($request, $data = NULL){
-		if($request == NULL){
-			return 0;
-		}
+	public function fetch($request, $data = []){
 		$valid = $this->requestDB($request, $data);
 		if(!$valid){
 			die('Error in the SQL request - The request was invalid !');
 		}
-		return $this->response->fetch();
+		return $this->response->fetch(); 
 	}
 
 	/*
@@ -111,10 +95,7 @@ class DatabaseController{
 		@param $request
 		@return $number
 	 */
-	public function rowCount($request, $data = NULL){
-		if($request == NULL){
-			return 0;
-		}
+	public function rowCount($request, $data = []){
 		$valid = $this->requestDB($request, $data);
 		if(!$valid){
 			die('Error in the SQL request - The request was invalid !');
@@ -128,10 +109,7 @@ class DatabaseController{
 		@param request
 		@return Boolean
 	 */
-	public function insert($request, $data = NULL){
-		if($request == NULL){
-			return 0;
-		}
+	public function insert($request, $data = []){
 		$valid = $this->requestDB($request, $data);
 		if(!$valid){
 			die('Error in the SQL request - The request was invalid !');

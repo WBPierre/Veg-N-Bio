@@ -4,7 +4,7 @@
  * @Author: Pierre
  * @Date:   2018-03-13 14:50:08
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-03-21 11:49:55
+ * @Last Modified time: 2018-04-03 11:57:23
  */
 /*
 	Class that handle all treatment needed on the employees
@@ -27,7 +27,7 @@ class EmployeeManagerController{
 	public function getAllEmployees(){
 		$i = 0;
 		$db = new DatabaseController();
-		$data = $db->fetchAll('SELECT * FROM vnb_users WHERE employee = 1 AND active = 1');
+		$data = $db->fetchAll('SELECT * FROM vnb_users WHERE access_level >= 1 AND active = 1');
 		$contracts = $db->fetchAll('SELECT * FROM vnb_contract');
 		foreach($data as $value){
 			foreach($contracts as $text){
@@ -60,7 +60,7 @@ class EmployeeManagerController{
 	 */
 	public function addEmployee($array){
 		$db = new DatabaseController();
-		$data = $db->insert('INSERT INTO vnb_users(name, firstname, gender, email, birthdate, phone, active, employee) VALUES ('.$array['name'].','.$array['firstname'].','.$array['gender'].','.$array['email'].','.$array['birthdate'].','.$array['phone'].','.$array['active'].','.$array['employee'].')');
+		$data = $db->insert('INSERT INTO vnb_users(name, firstname, gender, email, birthdate, phone, active, employee) VALUES ('.$array['name'].','.$array['firstname'].','.$array['gender'].','.$array['email'].','.$array['birthdate'].','.$array['phone'].','.$array['active'].','.$array['access_level'].')');
 		// RECUPERER LAST ID
 		$contract = $db->insert('INSERT INTO vnb_users(id_employee, job, contratc_start, contract_end, vacation_day_total) VALUES ('.$array['id_employee'].','.$array['job'].','.$array['contract_start'].','.$array['contract_end'].','.$array['vacation_day_total'].')');
 		if($data && $contract){
