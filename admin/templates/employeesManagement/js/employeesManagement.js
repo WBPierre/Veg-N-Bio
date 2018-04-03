@@ -23,5 +23,8 @@ $(document).ready(function(){
 	$('#modifyEmployees').on('click',function(){
 		$('#'+employee).modal('show');
 	});
+	$('#deleteEmployees').on('click',function(){
+		$('#delete_'+employee).modal('show');
+	});
 });
 </script>
