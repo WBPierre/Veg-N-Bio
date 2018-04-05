@@ -24,6 +24,7 @@
 			"inventoryManagement":"Gestion des stocks",
 			"employeesManagement":"Gestion des employés",
 			"checking":"Pointage",
+			"proposeChecking":"Voulez-vous pointer ?",
 			"offerManagement":"Gestion des offres",
 			"support":"Support",
 			"deleteConfirm":"Voulez-vous vraiment retirer cet employé ?",
@@ -65,14 +66,8 @@
 			"passwordConfirmation":"Confirmation de mot de passe",
 			"password":"Mot de passe",
 			"hourNumber":"Nombre d'heures du contrat",
-			"menu": {
-				"drink": "Gestion des boissons",
-				"burger": "Gestion des burgers",
-				"sandwich": "Gestion des sandwichs",
-				"name": "Nom",
-				"price": "Prix",
-				"quantity": "Quantité (Bouteilles)"
-			},
+			"noCheck":"Vous n'avez pas encore pointé aujourd'hui",
+			"lastCheck":"Dernier pointage à "
 		}
 	}
 }

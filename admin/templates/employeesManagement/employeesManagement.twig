@@ -14,16 +14,23 @@
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" id="modifyEmployees">
+                                {% if access_level >= 2 %}
                                 <i class="fa fa-pencil mt-0"></i>
+                                {% else %}
+                                <i class="fa fa-eye mt-0"></i>
+                                {% endif %}
                             </button>
+                            {% if access_level >= 2 %}
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" id="deleteEmployees" data-toggle="modal" data-target="#modalConfirmDelete">
                                 <i class="fa fa-remove mt-0"></i>
                             </button>
+
                             <a href="?url=addEmployee">
                                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 font-weight-bold">
                                 {{ trans.addEmployee }}
                                 </button>
                             </a>
+                            {% endif %}
                         </div>
 
                     </div>
@@ -48,34 +55,36 @@
                                 </thead>
                                 <tbody>
                                     {% for employee in employees %}
-                                    <div class="modal fade" id="delete_{{ employee.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-                                            <!--Content-->
-                                            <div class="modal-content text-center">
-                                                <!--Header-->
-                                                <div class="modal-header d-flex justify-content-center">
-                                                    <p class="heading">{{ trans.deleteConfirm }}</p>
-                                                </div>
+                                    {% if access_level >= 2 %}
+                                        <div class="modal fade" id="delete_{{ employee.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+                                                <!--Content-->
+                                                <div class="modal-content text-center">
+                                                    <!--Header-->
+                                                    <div class="modal-header d-flex justify-content-center">
+                                                        <p class="heading">{{ trans.deleteConfirm }}</p>
+                                                    </div>
 
-                                                <!--Body-->
-                                                <div class="modal-body">
-                                                    <p>{{ employee.firstname }} {{ employee.name }}</p>
-                                                    <i class="fa fa-times fa-4x animated rotateIn"></i>
-                                                </div>
+                                                    <!--Body-->
+                                                    <div class="modal-body">
+                                                        <p>{{ employee.firstname }} {{ employee.name }}</p>
+                                                        <i class="fa fa-times fa-4x animated rotateIn"></i>
+                                                    </div>
 
-                                                <!--Footer-->
-                                                <div class="modal-footer flex-center">
-                                                    <form action="var/FormDispatcher.php" method="POST">
-                                                        <input type="hidden" name="formName" value="delEmployee">
-                                                        <input type="hidden" name="id" value="{{ employee.id }}">
-                                                        <button type="submit" class="btn  btn-outline-secondary-modal">{{ trans.yes }}</button>
-                                                        <a type="button" class="btn  btn-primary-modal waves-effect" data-dismiss="modal">{{ trans.no }}</a>
-                                                    </form>
+                                                    <!--Footer-->
+                                                    <div class="modal-footer flex-center">
+                                                        <form action="var/FormDispatcher.php" method="POST">
+                                                            <input type="hidden" name="formName" value="delEmployee">
+                                                            <input type="hidden" name="id" value="{{ employee.id }}">
+                                                            <button type="submit" class="btn  btn-outline-secondary-modal">{{ trans.yes }}</button>
+                                                            <a type="button" class="btn  btn-primary-modal waves-effect" data-dismiss="modal">{{ trans.no }}</a>
+                                                        </form>
+                                                    </div>
                                                 </div>
+                                                <!--/.Content-->
                                             </div>
-                                            <!--/.Content-->
                                         </div>
-                                    </div>
+                                    {% endif %}
                                     <div class="modal fade right" id="{{ employee.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-full-height modal-right" role="document">
                                             <div class="modal-content">
@@ -85,7 +94,9 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
+                                                {% if access_level >= 2 %}
                                                 <form action="var/FormDispatcher.php" method="POST">
+                                                {% endif %}
                                                 	<input type="hidden" name="formName" value="employeeManagementModify">
                                                 	<input type="hidden" name="id" value="{{ employee.id }}">
                                                 	<div class="modal-body">
@@ -164,9 +175,13 @@
                                                     </div>
                                                     <div class="modal-footer">
 	                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+                                                        {% if access_level >= 2 %}
 	                                                    <button type="submit" class="btn btn-primary">{{ trans.saveChanges }}</button>
+                                                        {% endif %}
 	                                                </div>
+                                                {% if access_level >= 2 %}
                                                 </form>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>

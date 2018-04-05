@@ -4,7 +4,7 @@
  * @Author: Pierre
  * @Date:   2018-03-09 10:00:43
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-04-03 12:22:36
+ * @Last Modified time: 2018-04-05 12:27:54
  */
 require_once "../config/config.php";
 
@@ -14,10 +14,10 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 
 	$validator = new FormValidatorController($_POST);
 	$check = $validator->isValid();
+	$error = false;
 switch($_POST['formName']){
 
 	case 'adminLogin':
-	$error = false;
 		if($check){
 			$data = new DatabaseController();
 			$array = $validator->treatData();
@@ -27,6 +27,7 @@ switch($_POST['formName']){
 			if($number == 1){
 				if(password_verify($_POST['password'], $employee[0]['password'])){
 					$_SESSION['adminLog'] = true;
+					$_SESSION['access_level'] = $employee[0]['access_level'];
 					if(preg_match('/error/', $_SERVER['HTTP_REFERER'])){
 						$url = $_SERVER['HTTP_REFERER'];
 						$url = preg_replace('/\?error/', "", $url);
@@ -45,8 +46,17 @@ switch($_POST['formName']){
 		}
 		break;
 
+	case 'checking':
+		$data = $validator->treatData();
+		$request = new DatabaseController();
+		$selectContract = $request->fetch("SELECT id FROM vnb_contract WHERE id_employee = :id", $data);
+		unset($selectContract[0]);
+		if(!$request->update("INSERT INTO vnb_contract_check(id_contract) VALUES (:id)",$selectContract)){
+			$error = true;
+		}
+		break;
+
 	case 'employeeManagementModify':
-		$error = false;
 		if($check){
 			$data = $validator->treatData();
 			$request = new DatabaseController();
@@ -68,7 +78,6 @@ switch($_POST['formName']){
 		}
 		break;
 	case 'delEmployee':
-		$error = false;
 		$data = $validator->treatData();
 		$request = new DatabaseController();
 		if(!$request->update("UPDATE vnb_users, vnb_contract SET 
@@ -79,7 +88,6 @@ switch($_POST['formName']){
 		}
 		break;
 	case 'addEmployee':
-		$error = false;
 		if($check){
 			$data = $validator->treatData();
 			

@@ -24,6 +24,7 @@
 			"inventoryManagement":"Inventory management",
 			"employeesManagement":"Employees management",
 			"checking":"Checking",
+			"proposeChecking":"Do you want to check in ?",
 			"offerManagement":"Offer management",
 			"support":"Support",
 			"deleteConfirm":"Do you really want to remove this employee ?",
@@ -64,15 +65,9 @@
 			"modifySuccess":"Modification done",
 			"passwordConfirmation":"Password Confirmation",
 			"password":"Password",
-			"hourNumber":"Hours of the contract"
-			"menu": {
-				"drink": "Drinks management",
-				"burger": "Burgers management",
-				"sandwich": "Sandwichs management",
-				"name": "Name",
-				"price": "Price",
-				"quantity": "Quantity (Bottles)"
-			}
+			"hourNumber":"Hours of the contract",
+			"noCheck":"You did not check in today",
+			"lastCheck":"Last check at : "
 		}
 	}
 }
