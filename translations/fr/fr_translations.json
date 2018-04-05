@@ -24,6 +24,7 @@
 			"inventoryManagement":"Gestion des stocks",
 			"employeesManagement":"Gestion des employés",
 			"checking":"Pointage",
+			"proposeChecking":"Voulez-vous pointer ?",
 			"offerManagement":"Gestion des offres",
 			"support":"Support",
 			"deleteConfirm":"Voulez-vous vraiment retirer cet employé ?",
@@ -51,7 +52,9 @@
 			"modifySuccess":"Modification effectuée",
 			"passwordConfirmation":"Confirmation de mot de passe",
 			"password":"Mot de passe",
-			"hourNumber":"Nombre d'heures du contrat"
+			"hourNumber":"Nombre d'heures du contrat",
+			"noCheck":"Vous n'avez pas encore pointé aujourd'hui",
+			"lastCheck":"Dernier pointage à "
 		}
 	}
 }

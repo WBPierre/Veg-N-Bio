@@ -1,4 +1,43 @@
 {% include 'dashboard/css/dashboard.css' %}
+<div class="modal fade" id="centralCheck" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info" role="document">
+      <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">{{ trans.checking }}</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true" class="white-text">&times;</span>
+                  </button>
+              </div>
+
+              <!--Body-->
+              <div class="modal-body">
+                  <div class="text-center">
+                      
+                      <p>{{ trans.proposeChecking }}</p>
+                      <p>
+                        {% if badge == true %}
+                            {{ trans.lastCheck }} {{ time }}
+                        {% else %}
+                            {{ trans.noCheck }}
+                        {% endif %}
+                      </p>
+                  </div>
+              </div>
+
+              <!--Footer-->
+              <div class="modal-footer justify-content-center">
+                <form method="POST" action="var/FormDispatcher.php">
+                    <input type="hidden" name="formName" value="checking">
+                  <button type="submit" class="btn btn-primary" name="id" value="{{ id }}">{{ trans.yes }}<i class="fa fa-check ml-1"></i></button>
+                </form>
+                  <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">{{ trans.no }}</a>
+              </div>
+        </div>
+      <!--/.Content-->
+    </div>
+</div>
 <header>
         <!-- Sidebar navigation -->
         <div id="slide-out" class="side-nav sn-bg-4 fixed">
@@ -17,27 +56,33 @@
                     </form>
                 </li>
                 <!--/.Search Form-->
+                
                 <!-- Side navigation links -->
                 <li>
                     <ul class="collapsible collapsible-accordion">
-                        <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.restaurantManagement }}<i class="fa fa-angle-down rotate-icon"></i></a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li><a href="#" class="waves-effect"> {{ trans.menus }}</a>
-                                    </li>
-                                    <li><a href="#" class="waves-effect"> {{ trans.modifyWebSite }}</a>
-                                    </li>
-                                    <li><a href="#" class="waves-effect"> {{ trans.inventoryManagement }}</a>
-                                    </li>
-                                </ul>
-                            </div>
+                        {% if access_level >= 2 %}
+                            <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.restaurantManagement }}<i class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="?url=manageMenus" class="waves-effect"> {{ trans.menus }}</a>
+                                        </li>
+                                        <li><a href="#" class="waves-effect"> {{ trans.modifyWebSite }}</a>
+                                        </li>
+                                        <li><a href="#" class="waves-effect"> {{ trans.inventoryManagement }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="?url=employeesManagement" class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.employeesManagement }}</a>
+                            </li>
+                        {% endif %}
+                        <li><a class="waves-effect arrow-r" data-toggle="modal" data-target="#centralCheck"><i class="fa fa-chevron-right"></i> {{ trans.checking }}</a>
                         </li>
-                        <li><a href="?url=employeesManagement" class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.employeesManagement }}</a>
-                        </li>
-                        <li><a class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.checking }}</a>
-                        </li>
-                        <li><a class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.offerManagement }}</a>
-                        </li>
+                        {% if access_level >= 2 %}
+                            <li><a class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.offerManagement }}</a>
+                            </li>
+                        {% endif %}
+                        
                         <li><a class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.support }}</a>
                         </li>
                     </ul>
