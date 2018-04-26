@@ -1,0 +1,137 @@
+{% extends 'base.twig' %}
+
+{% set bodyClass = 'fixed-sn mdb-skin' %}
+{% block content %}
+
+<main class="pt-5 mx-lg-5">
+    <div class="container-fluid mt-5">
+        <form action="var/FormDispatcher.php" method="POST" enctype="multipart/form-data" id="addProductForm">
+			<input type="hidden" name="formName" value="addProduct">
+			<div class="modal-body">
+				<h1>{{ trans.addProduct }}</h1>
+				<hr>
+		        <div class="form-row">
+		            <div class="col-md-12">
+		                <div class="md-form form-group">
+		                    <input type="text" class="form-control" id="inputName" name="name" value="">
+		                    <label for="inputName">{{ trans.name }}</label>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-12">
+						<div class="inline">
+							<div class="form-check">
+								<select class="mdb-select colorful-select dropdown-success" name="type" form="addProductForm">
+								    <option value="0">{{ trans.entry }}</option>
+								    <option value="1">{{ trans.meal }}</option>
+								    <option value="2">{{ trans.salad }}</option>
+								    <option value="3">{{ trans.dessert }}</option>
+								    <option value="4">{{ trans.drink }}</option>
+								</select>
+								<label>{{ trans.selectType }}</label>
+						    </div>
+						</div>						
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-12">
+		                <div class="md-form form-group">
+		                    <input type="text" class="form-control" id="inputDescription" name="description" value="">
+		                    <label for="inputDescription">{{ trans.productDescription }}</label>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-12">
+		                <div class="md-form form-group">
+		                    <input type="text" class="form-control" id="inputAllergens" name="allergens">
+		                    <label for="inputAllergens">{{ trans.productAllergens }}</label>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-12">
+		                <div class="md-form form-group">
+		                    <input type="number" class="form-control" id="inputPrice" name="price">
+		                    <label for="inputPrice">{{ trans.price }}</label>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="form-row">
+		            <div class="col-md-6">
+		                <div class="md-form form-group">
+                           	{{ trans.menuComposit }}
+                           <div class="switch">
+							    <label>
+							        {{ trans.no }}
+							        <input id="switchAddMenu" name="menu_composit" type="checkbox">
+							        <span class="lever m-3"></span>
+							        {{ trans.yes }}
+							    </label>
+							</div>
+                            
+                        </div>
+		            </div>
+		            <div class="col-md-6">
+		                <div class="md-form form-group">
+                           <div class="switch">
+                           	{{ trans.activating }}
+							    <label>
+							        {{ trans.no }}
+							        <input id="switchActive" name="active" type="checkbox">
+							        <span class="lever m-3"></span>
+							        {{ trans.yes }}
+							    </label>
+							</div>
+                        </div>
+		            </div>
+		        </div>
+		        <div class="row pt-4" id="selectMenu" style="display: none;">
+		            <div class="col-md-12">
+		                <div class="inline">
+							<div class="form-check">
+								<select class="mdb-select colorful-select dropdown-success" name="menuSelected[]" form="addProductForm" multiple>
+									<option value="" disabled selected>{{ trans.selectMenu }}</option>
+									{% for menu in array %}
+								    	<option value="{{ menu.id }}">{{ menu.name }}<i class="font-italic">({% if menu.type == 0 %}{{ trans.atLunch }}{% endif %}{% if menu.type == 1 %}{{ trans.atDiner }}{% endif %}{% if menu.type == 2 %}{{ trans.anytime }}{% endif %} - {{menu.price }}€)</i></option>
+									{% endfor %}
+								</select>
+								<label>{{ trans.selectType }}</label>
+						    </div>
+						</div>	
+		            </div>
+		        </div>
+		        <div class="row pt-4">
+                	<div class="col-md-12">
+                		<div class="file-field">
+					        <div class="btn btn-primary btn-sm float-left">
+					            <span>{{ trans.fileUpload }}</span>
+					            <input type="file" name="fileSend">
+					        </div>
+					        <div class="file-path-wrapper">
+					           <input class="file-path validate" name="file" type="text" placeholder="{{ trans.yourFile }}">
+					        </div>
+					    </div>
+                	</div>
+                </div>      
+		        <br><br>                                             
+		        <!-- <div class="row">
+		            <div class="col-md-12"> -->
+		            	<div class="addProductAddIngredients">
+		            	</div>
+						<button type="button" class="btn btn-primary" id="addProductButton">{{ trans.addIngredient }}</button>			
+		            <!-- </div>
+		        </div> -->
+		    </div>
+		    <div class="modal-footer">
+		        <a href="/admin/?url=manageProducts"><button type="button" class="btn btn-secondary">{{ trans.close }}</button></a>
+		        <button type="submit" class="btn btn-primary">{{ trans.saveChanges }}</button>
+		    </div>
+		</form>
+    </div>
+</main>
+{% endblock %}
+{% block javascript %}
+	{% include 'manageProducts/js/manageProducts.js' %}
+{% endblock %}

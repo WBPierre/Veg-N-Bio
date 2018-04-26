@@ -1,22 +1,9 @@
 <?php
 
 require_once "config/config.php";
-$error = false;
-$success = false;
-if($_GET['url'] == NULL && preg_match('/error/',$_SERVER['REQUEST_URI'])){
-	$url = '?error';
-}else{
-	$url = $_GET['url'];
-}
-if(preg_match('/error/',$url)){
-	$error = true;
-	$url = preg_replace('/\?error/', "", $url);
-}
 
-if(preg_match('/success/', $url)){
-	$success = true;
-	$url = preg_replace('/\?success/', "", $url);
-}
+$url = LinkController::requestUrl($_GET['url']);
+
 if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['adminLog'] == true && $_SESSION['access_level'] >= 1){
 	$check['id'] = $_SESSION['id'];
 	$string = LanguageController::translate('dashboard');
@@ -31,27 +18,55 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
 		$max = max(array_keys($getData));
 		$time = substr($getData[$max]['date_inserted'],11,16);
 	}
-	switch($url){
+	switch($url['url']){
 		case 'employeesManagement':
 			$data = new EmployeeManagerController();
 			$array = $data->getAllEmployees();
-			echo $twig->render('employeesManagement/employeesManagement.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'employees' => $array, 'success' => $success ] );
+			echo $twig->render('employeesManagement/employeesManagement.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'employees' => $array, 'alert' => $url ] );
 			break;		
 		case 'addEmployee':
 			if($_SESSION['access_level'] >= 2){
-				echo $twig->render('employeesManagement/addEmployee.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string] );
+				echo $twig->render('employeesManagement/addEmployee.twig', [ '','badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url ] );
+				break;
+			}
+		case 'manageProducts':
+			if($_SESSION['access_level'] >= 2){
+				$request = new ProductController();
+				$array = $request->getAllProducts();
+				$menus = $request->getMenuOnProduct();
+				echo $twig->render('manageProducts/manageProducts.twig', [ 'menus' => $menus,'products' => $array,'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'img' => PRODUCT_IMAGE_FOLDER,'trans' => $string, 'alert' => $url ] );
+				break;
+			}
+		case 'addProduct':
+			if($_SESSION['access_level'] >= 2){
+				$request = new ProductController();
+				$array = $request->getAllMenus(true);
+				echo $twig->render('manageProducts/addProduct.twig', [ 'array' => $array, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url ] );
 				break;
 			}
 		case 'manageMenus':
 			if($_SESSION['access_level'] >= 2){
-				echo $twig->render('employeesManagement/employeesManagement.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string] );
-				break;
+				$menu = new ProductController();
+				$array = $menu->getAllMenus(false);
+				echo $twig->render('manageMenus/manageMenus.twig', [ 'menus' => $array, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
 			}
+			break;
+		case 'cashDesk':
+			$request = new ProductController();
+			$array = $request->getAllProducts();
+			$menu = $request->getAllMenus(true);
+			echo $twig->render('cashDesk/cashDesk.twig', [ 'menus' => $menu, 'products' => $array, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
+			break;
+		case 'inventoryManagement':
+			if($_SESSION['access_level'] >= 2 ){
+				echo $twig->render('inventoryManagement/inventoryManagement.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
+			}
+			break;
 		default:
-			echo $twig->render('dashboard/dashboard.twig', [ 'badge' => $badge, 'time' => $time,'id' => $_SESSION['id'], 'access_level' => $_SESSION['access_level'], 'trans' => $string ] );
+			echo $twig->render('dashboard/dashboard.twig', [ 'badge' => $badge, 'time' => $time,'id' => $_SESSION['id'], 'access_level' => $_SESSION['access_level'], 'trans' => $string, 'alert' => $url ] );
 	}
 }else{
 	$string = LanguageController::translate('login');
-	echo $twig->render('login/login.twig', [ 'trans' => $string, 'error'=>$error ] );
+	echo $twig->render('login/login.twig', [ 'trans' => $string, 'alert' => $url ] );
 }
 

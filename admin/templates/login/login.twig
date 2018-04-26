@@ -90,7 +90,6 @@
 {% endblock %}
 {% block footer %}{% endblock %}
 {% block javascript %}
-	{% include 'login/js/login.js' %}
 	<script>
 		$('#loginWithCard').on('shown.bs.modal', function () {
 		    $('#card').focus();
@@ -99,9 +98,4 @@
 			console.log('test');
 		});
 	</script>
-	{% if error == true %}
-	<script>
-		 toastr["error"]("{{ trans.logInFail }}");
-	</script>
-	{% endif %}
 {% endblock %}

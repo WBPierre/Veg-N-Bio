@@ -3,7 +3,7 @@
  * @Author: Pierre
  * @Date:   2018-03-08 11:39:46
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-03-26 11:33:48
+ * @Last Modified time: 2018-04-11 10:55:00
  */
 
 /**
@@ -70,6 +70,36 @@ class FormValidatorController{
 	}
 
 	/*
+		Verify the integrity of a file
+		@param $file
+		@return Boolean
+	 */
+
+	private function fileValidator(){
+		$extensionUploaded = strtolower(substr(strrchr($_FILES['fileSend']['name'],'.'),1));
+		
+		if($extensionUploaded != 'png'){
+			return false;
+		}
+		if(MAX_FILE_SIZE < $_FILES['fileSend']['size']){
+			return false;
+		}
+		$name = PRODUCT_IMAGE_FOLDER;
+		$short = strstr($_FILES['fileSend']['name'],'.',TRUE);
+		$short .= uniqid();
+		$short .= '.'.$extensionUploaded;
+		$name .= $short;
+		var_dump($name.' '.$short);
+		if(move_uploaded_file($_FILES['fileSend']['tmp_name'],$name)){
+			$this->data['file'] = $short;
+			$this->valid = true;
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	/*
 		Verify a date
 		@param $string
 		@return boolean
@@ -88,8 +118,10 @@ class FormValidatorController{
 	*/
 
 	public function isValid(){
-		
 		foreach($this->data as $key => $value){
+			if(empty($value)){
+				break;
+			}
 			switch($key){
 				case 'email':
 					if(!$this->emailValidator($value)){
@@ -121,6 +153,22 @@ class FormValidatorController{
 						return false;
 					}
 					break;
+				case 'file':
+					if($value == ""){
+						break;
+					}
+					if(!$this->fileValidator()){
+						return false;
+					}
+					break;
+				case 'formName':
+					break;
+					
+				default:
+					htmlspecialchars($value);
+					$this->valid = true;
+					break;
+
 			}
 		}
 		return $this->valid;
@@ -150,20 +198,20 @@ class FormValidatorController{
 					return 0;
 				}
 			}
-			// if($key != 'id'){
-			// 	if($key != 'formName'){
-				if($key == 'id' || $key == 'vacationDay' || $key == 'vacationDayTotal'){
-					$array[$key] = intval($value);	
-				}else{
-
-					$array[$key] = $value;
-			// 	}
-			// }
+			if($key == 'id' || $key == 'vacationDay' || $key == 'vacationDayTotal' || $key == 'price' || $key == 'type'){
+				$array[$key] = intval($value);	
+			}else{
+				if($key == 'menuSelected'){
+					foreach($key as $value){
+						$array[$key][] = intval($value);
+					}
 				}
-			
+				$array[$key] = $value;
+			}
 		}
-			unset($array['formName']);
-			return $array;
+		// die(var_dump($array));
+		unset($array['formName']);
+		return $array;
 		
 	}
 }

@@ -4,17 +4,17 @@
  * @Author: Pierre
  * @Date:   2018-03-09 10:00:43
  * @Last Modified by:   Pierre
- * @Last Modified time: 2018-04-05 12:27:54
+ * @Last Modified time: 2018-04-12 11:58:01
  */
 require_once "../config/config.php";
 
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
 	header('Location: '.$_SERVER['HTTP_REFERER']);
 }
-
 	$validator = new FormValidatorController($_POST);
 	$check = $validator->isValid();
 	$error = false;
+
 switch($_POST['formName']){
 
 	case 'adminLogin':
@@ -28,24 +28,173 @@ switch($_POST['formName']){
 				if(password_verify($_POST['password'], $employee[0]['password'])){
 					$_SESSION['adminLog'] = true;
 					$_SESSION['access_level'] = $employee[0]['access_level'];
-					if(preg_match('/error/', $_SERVER['HTTP_REFERER'])){
-						$url = $_SERVER['HTTP_REFERER'];
-						$url = preg_replace('/\?error/', "", $url);
-						header('Location: '.$url);
-					}else{
-						header('Location: '.$_SERVER['HTTP_REFERER']);
-					}
+					// if(preg_match('/error/', $_SERVER['HTTP_REFERER'])){
+					// 	$url = $_SERVER['HTTP_REFERER'];
+					// 	$url = preg_replace('/\?error/', "", $url);
+					// 	header('Location: '.$url);
+					// }else{
+					// 	header('Location: '.$_SERVER['HTTP_REFERER']);
+					// }
+				}else{
+					$error = true;
 				}
+			}else{
+				$error = true;
 			}			
 		}else{
-			if(preg_match('/error/', $_SERVER['HTTP_REFERER'])){
-				header('Location: '.$_SERVER['HTTP_REFERER']);
-			}else{
-				header('Location: '.$_SERVER['HTTP_REFERER'].'?error');
-			}
+			$error = true;
 		}
 		break;
 
+	case 'modifyMenus':
+		if($check){
+			$data = $validator->treatData();
+			if(!isset($data['active'])){
+				$data['active'] = 0;
+			}else{
+				$data['active'] = 1;
+			}
+			$data['lang'] = $_SESSION['lang'];
+			$request = new DatabaseController();
+			if(!$request->update('UPDATE vnb_restaurant_menu, vnb_restaurant_menu_lang SET 
+				vnb_restaurant_menu.type = :type,
+				vnb_restaurant_menu.price = :price,
+				vnb_restaurant_menu.active = :active,
+				vnb_restaurant_menu_lang.name = :name 
+				WHERE vnb_restaurant_menu.id = :id AND  vnb_restaurant_menu_lang.id_menu = :id AND vnb_restaurant_menu_lang.lang = :lang', $data)){
+				$error = true;
+			}
+		}
+		break;
+	case 'productManagementModify':
+		if($check){
+			$data = $validator->treatData();
+			if(!isset($data['menu_composit'])){
+				$data['menu_composit'] = 0;
+			}else{
+				$data['menu_composit'] = 1;
+			}
+			if(!isset($data['active'])){
+				$data['active'] = 0;
+			}else{
+				$data['active'] = 1;
+			}
+			$request = new DatabaseController();
+			foreach($data as $key=>$value){
+				if(substr($key,0,14) == 'id_composition'){
+					$arrayCheck['id'] = intval(substr($key,14));
+					$arrayCheck['name'] = $data['compo'.$arrayCheck['id']];
+					$arrayCheck['quantity'] = intval($data['quantity'.$arrayCheck['id']]);
+					unset($data[$key]);
+					unset($data['compo'.$arrayCheck['id']]);
+					unset($data['quantity'.$arrayCheck['id']]);
+					if(!$request->update("UPDATE vnb_restaurant_product_composition SET
+						name = :name,
+						quantity = :quantity
+						WHERE id = :id
+						",$arrayCheck)){
+						$error = true;
+					}
+				}
+			}
+			$textRequest = "UPDATE vnb_restaurant_product SET
+				name = :name,
+				description = :description,
+				allergens = :allergens,
+				price = :price,
+				menu_composit = :menu_composit,
+				active = :active";
+			if($data['file'] != ""){
+				$textRequest .= ", img = :file WHERE id = :id";
+			}else{
+				$textRequest .= " WHERE id = :id";
+				unset($data['file']);
+			}
+			// die(var_dump($data));
+			if(!$request->update($textRequest,$data)){
+				$error = true;
+			}
+		}else{
+			$error = true;
+		}
+		break;
+	case 'delProduct':
+		$data = $validator->treatData();
+		$request = new DatabaseController();
+		if(!$request->update("UPDATE vnb_restaurant_product SET 
+				active = 0
+				WHERE id = :id", $data)){
+			$error = true;
+		}
+		break;
+	case 'addProduct':
+		if($check){
+			
+			$data = $validator->treatData();
+			if(!isset($data['menu_composit'])){
+				$data['menu_composit'] = 0;
+			}else{
+				$data['menu_composit'] = 1;
+			}
+			if(!isset($data['active'])){
+				$data['active'] = 0;
+			}else{
+				$data['active'] = 1;
+			}
+			$request = new DatabaseController();
+			$i = 0;
+			foreach($data as $key=>$value){
+				if(substr($key,0,10) == 'ingredient'){
+					$id = intval(substr($key,10));
+					if($value != ""){
+						$arrayCheck[$i]['name'] = $data['ingredient'.$id];
+						$arrayCheck[$i]['quantity'] = intval($data['quantity'.$id]);
+						$i++;
+					}
+					unset($data['ingredient'.$id]);
+					unset($data['quantity'.$id]);
+				}
+				if($key == "menuSelected"){
+					foreach($value as $id_menu){
+						if($id_menu != ""){
+							$arrayMenu[]['id_menu'] = intval($id_menu);
+						}
+					}
+					unset($data[$key]);
+				}
+			}
+			// $data['id_restaurant'] = $_SESSION['id_restaurant'];
+			$data['id_restaurant'] = 1;
+			if(!$request->insert("INSERT INTO vnb_restaurant_product(id_restaurant, name, description, allergens, type, price, menu_composit, active, img) VALUES (:id_restaurant, :name, :description, :allergens, :type, :price, :menu_composit, :active, :file)",$data)){
+				$error = true;
+			}
+			if(!$error){
+				$id = $request->fetch('SELECT id FROM vnb_restaurant_product WHERE id = LAST_INSERT_ID()');
+			}
+			foreach($arrayCheck as $key=>$value){
+				$compo['id_product'] = intval($id['id']);
+				$compo['name'] = $value['name'];
+				$compo['quantity'] = intval($value['quantity']);
+				if(!$request->insert("INSERT INTO  vnb_restaurant_product_composition(id_product, name, quantity) VALUES (:id_product, :name, :quantity)",$compo)){
+						$error = true;
+					}
+			}
+			foreach($arrayMenu as $key => $value){
+				$menu['id_menu'] = $value['id_menu'];
+				$menu['id_product'] = intval($id['id']);
+				if(!$request->insert('INSERT INTO vnb_restaurant_menu_product(id_menu, id_product) VALUES (:id_menu, :id_product)',$menu)){
+					$error = true;
+				}
+			}
+		}else{
+			$error = true;
+		}
+		// if($error){
+		// 	header('Location: '.$_SERVER['HTTP_REFERER']);
+		// }else{
+		// 	header('Location: /admin/?url=manageMenus');
+		// }
+		break;
 	case 'checking':
 		$data = $validator->treatData();
 		$request = new DatabaseController();
@@ -75,6 +224,8 @@ switch($_POST['formName']){
 				, $data)){
 				$error = true;
 			}			
+		}else{
+			$error = true;
 		}
 		break;
 	case 'delEmployee':
@@ -129,13 +280,10 @@ switch($_POST['formName']){
 			if(!$request->insert('INSERT INTO vnb_contract(id_employee, job, identification, contract_type, contract_start, contract_end, id_restaurant, hour_number, vacation_day, vacation_day_total, active) VALUES (:id_employee, :job, :identification, :contract_type, :contract_start, :contract_end, :id_restaurant, :hour_number, :vacation_day, :vacation_day_total, :active)', $data2)){
 				$error = true;
 			}
+		}else{
+			$error = true;
 		}
 		break;
 
 }
-if($error){
-	header('Location: '.$_SERVER['HTTP_REFERER'].'?error');
-}else{
-	header('Location: '.$_SERVER['HTTP_REFERER'].'?success');
-}
-
+LinkController::redirect($error);

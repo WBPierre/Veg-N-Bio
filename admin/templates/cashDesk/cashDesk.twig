@@ -1,0 +1,464 @@
+{% extends 'base.twig' %}
+
+{% set bodyClass = 'fixed-sn mdb-skin' %}
+{% block header %}{% endblock %}
+
+{% block content %}
+{% include 'cashDesk/css/cashDesk.css' %}
+<div class="view" style="height:100vh;">
+	<div class="content">
+		<nav class="navbar navbar-expand-lg navbar-dark success-color-dark">
+		    <div class="container">
+			    <a class="navbar-brand" href="#">Veg'N'Bio</a>
+			    <div class="collapse navbar-collapse">
+			    	<ul class="navbar-nav ml-auto">
+			    		<li class="nav-item active">
+							<a href="/admin/" class="nav-link waves-effect waves-light">
+								<i class="fa fa-paper-plane">
+								</i>
+									{{ trans.returnToWebsite }}
+								 <span class="sr-only">(current)</span>
+							</a>
+			    		</li>
+			    	</ul>
+			    </div>
+		    </div>
+		</nav>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card card-image transparent rgba-black-strong">
+				    <div class="card-body">
+				    	<h4 class="card-title">{{ trans.checkout }}</h4>
+				        <table class="table table-sm table-hover table-responsive btn-table tableListing" style="height: 30vh;max-height:30vh;overflow-y: auto;-ms-overflow-style: -ms-autohiding-scrollbar;">
+				            <thead>
+				                <tr>
+				                    <th>{{ trans.id }}</th>
+				                    <th class="th-lg">{{ trans.name }}</th>
+				                    <th class="th-lg">{{ trans.quantityProduct }}</th>
+				                    <th class="th-lg">{{ trans.price }}</th>
+				                    <th class="th-lg">{{ trans.total }}</th>
+				                    <th></th>
+				                    <th></th>
+				                    <th></th>
+				                </tr>
+				            </thead>
+				            <tbody id="bodyTable">
+				                
+				            </tbody>
+				        </table>
+				    </div>
+				</div>
+			</div>
+
+			        <!-- Button trigger modal -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="cashModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			    <div class="modal-dialog" role="document">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <h5 class="modal-title black-text" id="totalCheckOutCashModal"></h5>
+			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                    <span aria-hidden="true">&times;</span>
+			                </button>
+			            </div>
+			            <div class="modal-body">
+			                <div class="md-form form-lg">
+							    <input type="text" id="inputLGEx" class="form-control form-control-lg">
+							    <label for="inputLGEx">{{ trans.moneyGiven }}</label>
+							</div>
+							<!-- Default input -->
+							<label for="inputDisabledEx" class="disabled black-text">{{ trans.return }}</label>
+							<input type="text" id="inputDisabledEx" class="form-control" disabled>
+			            </div>
+			            <div class="modal-footer">
+			                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.cancel }}</button>
+			                <button type="button" class="btn btn-primary" id="payByCashConfirm">{{ trans.validate }}</button>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+                                
+			<div class="modal fade" id="payModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog modal-notify modal-success modal-frame modal-top" role="document">
+			      <!--Content-->
+			        <div class="modal-content">
+			          <!--Header-->
+			            <div class="modal-header">
+			                <p class="heading lead" id="totalCheckOutModal"></p>
+			  
+			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                    <span aria-hidden="true" class="white-text">&times;</span>
+			                </button>
+			            </div>
+			  
+			          <!--Body-->
+			            <div class="modal-body">
+			                <div class="text-center">
+			                    <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+			                    {{ trans.presentClientCB }}
+			                </div>
+			            </div>
+			  
+			          <!--Footer-->
+			            <div class="modal-footer justify-content-center">
+			                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.cancel }}</button>
+			                <a type="button" class="btn btn-success" id="payByCBConfirm">{{ trans.yes }}</a>
+			            </div>
+			        </div>
+			      <!--/.Content-->
+			    </div>
+			</div>
+
+			<div class="col">
+				<div class="card card-image transparent">
+				    <div class="card-body text-center">
+				        <button type="button" class="btn btn-success">{{ trans.useDiscount }}
+				        </button>
+				        <button type="button" class="btn btn-warning" id="clearOrder">{{ trans.clearOrder }}
+				        </button>
+				    </div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card card-image transparent rgba-black-strong">
+				    <div class="card-body">
+				        <h4 class="card-title dblock text-right"><div class="d-inline red-text">{{ trans.total }} : </div><div class="d-inline totalCheckOut">0</div> €</h4>
+				        <hr>
+				        <button type="button" class="btn btn-info" id="payByCash"><i class="fa fa-credit-card"></i> {{ trans.payByCash}}</button>
+				        <button type="button" class="btn btn-info" id="payByCB"><i class="fa fa-money"></i> {{ trans.payByCB}}</button>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card card-image transparent rgba-black-strong">
+				    <div class="card-body">
+				    	<!-- Nav tabs -->
+						<ul class="nav nav-tabs nav-justified success-color-dark" role="tablist">
+						    <li class="nav-item">
+						        <a class="nav-link active" data-toggle="tab" href="#panel5" role="tab"><i class="fa fa-list"></i> {{ trans.menusBtn }}</a>
+						    </li>
+						    <li class="nav-item">
+						        <a class="nav-link" data-toggle="tab" href="#panel6" role="tab"><i class="fa fa-toggle-right"></i> {{ trans.product }}</a>
+						    </li>
+						</ul>
+						<!-- Tab panels -->
+						<div class="tab-content">
+						    <!--Panel 1-->
+						    <div class="tab-pane fade in show active" id="panel5" role="tabpanel">
+						    	<div class="row">
+							        {% for menu in menus %}
+									<!-- Modal -->
+										<div class="modal fade" id="modal{{ menu.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:black">
+										    <div class="modal-dialog" role="document">
+										        <div class="modal-content">
+										            <div class="modal-header">
+										                <h5 class="modal-title">{{ menu.name }} - {{ menu.price }} €</h5>
+										                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										                    <span aria-hidden="true">&times;</span>
+										                </button>
+										            </div>
+										            <div class="modal-body">
+										            	<input type="hidden" value="{{ menu.id }}" id="idMenu">
+										            	<input type="hidden" value="{{ menu.type }}" id="typeMenu">
+										            	<input type="hidden" value="{{ menu.name }}" id="nameMenu">
+										            	<input type="hidden" value="{{ menu.price }}" id="priceMenu">
+										            	{% if menu.type == 0 %}
+											            		<div class="inline">
+																	<div class="form-check">
+																		<select class="mdb-select colorful-select dropdown-success selection1" name="selection1">
+																		    {% for entry in products[0] %}
+																		    	<option value="{{ entry.id }}">{{ entry.name }}</option>
+																		    {% endfor %}
+																		</select>
+																		<label>{{ trans.entry }}</label>
+																    </div>
+																</div>
+																<div class="inline">
+																	<div class="form-check">
+																		<select class="mdb-select colorful-select dropdown-success selection2" name="selection2">
+																		    {% for meal in products[1] %}
+																		    	<option value="{{ meal.id }}">{{ meal.name }}</option>
+																		    {% endfor %}
+																		</select>
+																		<label>{{ trans.meal }}</label>
+																    </div>
+																</div>
+										            	{% endif  %}
+										            	{% if menu.type == 1 %}
+										            		<div class="inline">
+																<div class="form-check">
+																	<select class="mdb-select colorful-select dropdown-success selection1" name="selection1">
+																	    {% for salads in products[2] %}
+																	    	<option value="{{ salads.id }}">{{ salads.name }}</option>
+																	    {% endfor %}
+																	</select>
+																	<label>{{ trans.salad }}</label>
+															    </div>
+															</div>
+										            		<div class="inline">
+																<div class="form-check">
+																	<select class="mdb-select colorful-select dropdown-success selection2" name="selection2">
+																	    {% for drink in products[4] %}
+																	    	<option value="{{ drink.id }}">{{ meal.drink }}</option>
+																	    {% endfor %}
+																	</select>
+																	<label>{{ trans.drink }}</label>
+															    </div>
+															</div>
+										            	{% endif  %}	
+										            	{% if menu.type == 2 %}
+										            		<div class="inline">
+																<div class="form-check">
+																	<select class="mdb-select colorful-select dropdown-success selection1" name="selection1">
+																	    {% for entry in products[0] %}
+																	    	<option value="{{ entry.id }}">{{ entry.name }}</option>
+																	    {% endfor %}
+																	</select>
+																	<label>{{ trans.entry }}</label>
+															    </div>
+															</div>
+															<div class="inline">
+																<div class="form-check">
+																	<select class="mdb-select colorful-select dropdown-success selection2" name="selection2">
+																	    {% for meal in products[1] %}
+																	    	<option value="{{ meal.id }}">{{ meal.name }}</option>
+																	    {% endfor %}
+																	</select>
+																	<label>{{ trans.meal }}</label>
+															    </div>
+															</div>
+															<div class="inline">
+																<div class="form-check">
+																	<select class="mdb-select colorful-select dropdown-success selection3" name="selection3">
+																	    {% for dessert in products[3] %}
+																	    	<option value="{{ dessert.id }}">{{ dessert.name }}</option>
+																	    {% endfor %}
+																	</select>
+																	<label>{{ trans.dessert }}</label>
+															    </div>
+															</div>
+															<div class="inline">
+																<div class="form-check">
+																	<select class="mdb-select colorful-select dropdown-success selection4" name="selection4">
+																	    {% for drink in products[1] %}
+																	    	<option value="{{ drink.id }}">{{ drink.name }}</option>
+																	    {% endfor %}
+																	</select>
+																	<label>{{ trans.drink }}</label>
+															    </div>
+															</div>
+										            	{% endif  %}			
+										            </div>
+										            <div class="modal-footer">
+										                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+										                <button type="button" class="btn btn-success addModal">{{ trans.add }}</button>
+										            </div>
+										        </div>
+										    </div>
+										</div>
+										<button type="button" class="btn rgba-green-light" data-toggle="modal" data-target="#modal{{ menu.id }}">
+									        <div class="col-md-1 d-inline">
+									                    <h5>
+									                        <strong>
+									                            <a class="white-text">{{ menu.name }}
+									                            </a>
+
+									                            <small class="text-muted">({% if menu.type == 0 %}{{ trans.atLunch }}{% endif %}{% if menu.type == 1 %}{{ trans.atDiner }}{% endif %}{% if menu.type == 2 %}{{ trans.anytime }}{% endif %})</small>
+									                        </strong>
+									                    </h5>
+									                    <h4 class="font-weight-bold light-blue-text">
+									                        <strong>{{ menu.price }}€</strong>
+									                    </h4>
+									        </div>
+								    	</button>
+							        {% endfor %}
+						    	</div>
+						    </div>
+						    <!--/.Panel 1-->
+						    <!--Panel 2-->
+						    <div class="tab-pane fade" id="panel6" role="tabpanel">
+								<ul class="nav md-pills nav-justified pills-success">
+							    <li class="nav-item">
+							        <a class="nav-link active" data-toggle="tab" href="#panel10" role="tab">{{ trans.entry }}</a>
+							    </li>
+							    <li class="nav-item">
+							        <a class="nav-link" data-toggle="tab" href="#panel11" role="tab">{{ trans.meal }}</a>
+							    </li>
+							    <li class="nav-item">
+							        <a class="nav-link" data-toggle="tab" href="#panel12" role="tab">{{ trans.salad }}</a>
+							    </li>
+							    <li class="nav-item">
+							        <a class="nav-link" data-toggle="tab" href="#panel13" role="tab">{{ trans.dessert }}</a>
+							    </li>
+							    <li class="nav-item">
+							        <a class="nav-link" data-toggle="tab" href="#panel14" role="tab">{{ trans.drink }}</a>
+							    </li>
+							</ul>
+
+							<!-- Tab panels -->
+							<div class="tab-content">
+								<div class="tab-pane fade in show active" id="panel10" role="tabpanel">
+									<div class="row">
+										{% for product in products[0] %}
+											<div class="col-md-1 d-inline addMe" id="{{ product.id }}" style="cursor: pointer;">
+									            <div class="card align-items-center rgba-green-light">
+									            	
+									                <div class="">
+									                    <img src="/assets/images/products/{{ product.img }}" class="img-fluid" width="auto" height="auto" alt="">
+									                </div>
+									                <div class="card-body p-0 text-center">
+									                    <h5>
+									                        <strong>
+									                            <a class="white-text">{{ product.name }}
+									                            </a>
+									                        </strong>
+									                    </h5>
+									                    <h4 class="font-weight-bold light-blue-text">
+									                        <strong>{{ product.price }}€</strong>
+									                    </h4>
+									                </div>
+									            </div>
+									        </div>
+								        {% endfor %}
+							    	</div>
+							    </div>
+							    <!--Panel 1-->
+							    <div class="tab-pane fade" id="panel11" role="tabpanel">
+							    	<div class="row">
+										{% for product in products[1] %}
+											<div class="col-md-1 d-inline addMe" id="{{ product.id }}" style="cursor: pointer;">
+									            <div class="card align-items-center rgba-green-light">
+									            	
+									                <div class="">
+									                    <img src="/assets/images/products/{{ product.img }}" class="img-fluid" width="auto" height="auto" alt="">
+									                </div>
+									                <div class="card-body p-0 text-center">
+									                    <h5>
+									                        <strong>
+									                            <a class="white-text">{{ product.name }}
+									                            </a>
+									                        </strong>
+									                    </h5>
+									                    <h4 class="font-weight-bold light-blue-text">
+									                        <strong>{{ product.price }}€</strong>
+									                    </h4>
+									                </div>
+									            </div>
+									        </div>
+								        {% endfor %}
+							    	</div>
+							    </div>
+							    <!--/.Panel 1-->
+
+							    <!--Panel 2-->
+							    <div class="tab-pane fade" id="panel12" role="tabpanel">
+							        <div class="row">
+										{% for product in products[2] %}
+											<div class="col-md-1 d-inline addMe" id="{{ product.id }}" style="cursor: pointer;">
+									            <div class="card align-items-center rgba-green-light">
+									            	
+									                <div class="">
+									                    <img src="/assets/images/products/{{ product.img }}" class="img-fluid" width="auto" height="auto" alt="">
+									                </div>
+									                <div class="card-body p-0 text-center">
+									                    <h5>
+									                        <strong>
+									                            <a class="white-text">{{ product.name }}
+									                            </a>
+									                        </strong>
+									                    </h5>
+									                    <h4 class="font-weight-bold light-blue-text">
+									                        <strong>{{ product.price }}€</strong>
+									                    </h4>
+									                </div>
+									            </div>
+									        </div>
+								        {% endfor %}
+							    	</div>
+							    </div>
+							    <!--/.Panel 2-->
+
+							    <!--Panel 3-->
+							    <div class="tab-pane fade" id="panel13" role="tabpanel">
+							        <div class="row">
+										{% for product in products[3] %}
+											<div class="col-md-1 d-inline  addMe" id="{{ product.id }}" style="cursor: pointer;">
+									            <div class="card align-items-center rgba-green-light">
+									            	
+									                <div class="">
+									                    <img src="/assets/images/products/{{ product.img }}" class="img-fluid" width="auto" height="auto" alt="">
+									                </div>
+									                <div class="card-body p-0 text-center">
+									                    <h5>
+									                        <strong>
+									                            <a class="white-text">{{ product.name }}
+									                            </a>
+									                        </strong>
+									                    </h5>
+									                    <h4 class="font-weight-bold light-blue-text">
+									                        <strong>{{ product.price }}€</strong>
+									                    </h4>
+									                </div>
+									            </div>
+									        </div>
+								        {% endfor %}
+							    	</div>
+							    </div>
+							    <!--/.Panel 3-->
+
+							    <!--Panel 4-->
+							    <div class="tab-pane fade" id="panel14" role="tabpanel">
+							        <div class="row">
+										{% for product in products[4] %}
+											<div class="col-md-1 d-inline addMe" id="{{ product.id }}" style="cursor: pointer;">
+									            <div class="card align-items-center rgba-green-light">
+									            	
+									                <div class="">
+									                    <img src="/assets/images/products/{{ product.img }}" class="img-fluid" width="auto" height="auto" alt="">
+									                </div>
+									                <div class="card-body p-0 text-center">
+									                    <h5>
+									                        <strong>
+									                            <a class="white-text">{{ product.name }}
+									                            </a>
+									                        </strong>
+									                    </h5>
+									                    <h4 class="font-weight-bold light-blue-text">
+									                        <strong>{{ product.price }}€</strong>
+									                    </h4>
+									                </div>
+									            </div>
+									        </div>
+								        {% endfor %}
+							    	</div>
+							    </div>
+							    
+							    <!--/.Panel 4-->
+
+							</div>
+						    </div>
+						    <!--/.Panel 2-->
+						    <!--Panel 3-->
+						    <div class="tab-pane fade" id="panel7" role="tabpanel">
+						        <br>
+						        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+						    </div>
+						    <!--/.Panel 3-->
+						</div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block footer %}{% endblock %}
+{% block javascript %}
+	{% include 'cashDesk/js/cashDesk.js' %}
+{% endblock %}
+{% block sidenav %}{% endblock %}
