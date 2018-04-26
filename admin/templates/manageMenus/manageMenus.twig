@@ -1,0 +1,182 @@
+{% extends 'base.twig' %}
+
+{% set bodyClass = 'fixed-sn mdb-skin' %}
+{% block content %}
+
+<main class="pt-5 mx-lg-5">
+    <div class="container-fluid mt-5">
+    	<!--Top Table UI-->
+		<div class="card p-2 mb-5">
+
+		    <!--Grid row-->
+		    <div class="row">
+
+		        <!--Grid column-->
+		        <div class="col-lg-3 col-md-6">
+
+		            <form class="form-inline mt-2 ml-2">
+		                <input class="form-control my-0 py-0" type="text" placeholder="{{ trans.search }}" style="max-width: 150px;">
+		                <button class="btn btn-sm btn-primary ml-2 px-1"><i class="fa fa-search"></i>  </button>
+		            </form>
+
+		        </div>
+		        <!--Grid column-->
+
+		    </div>
+		    <!--Grid row-->
+
+		</div>
+		<!--Top Table UI-->
+
+		<div class="card card-cascade narrower">
+
+		    <!--Card image-->
+		    <div class="view gradient-card-header success-color-dark narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+		        <a href="" class="white-text mx-3">{{ trans.menusManagement }}</a>
+
+		        <div>
+		            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-white btn-rounded btn-sm px-2 modifyMenu"><i class="fa fa-pencil mt-0"></i></button>
+		        </div>
+
+		    </div>
+		    <!--/Card image-->
+
+		    <div class="px-4">
+
+		        <div class="table-wrapper">
+		            <!--Table-->
+		            <table class="table table-hover mb-0">
+
+		                <!--Table head-->
+		                <thead>
+		                    <tr>
+		                        <th>
+		                        </th>
+		                        <th class="th-lg">{{ trans.name }} </th>
+		                        <th class="th-lg">{{ trans.menuType }}</th>
+		                        <th class="th-lg">{{ trans.price }}</th>
+		                        <th class="th-lg">{{ trans.online }}</th>
+		                    </tr>
+		                </thead>
+		                <!--Table head-->
+
+		                <!--Table body-->
+		                <tbody>
+		                	{% for menu in menus %}
+
+							<!-- Modal -->
+							<div class="modal fade" id="modify{{ menu.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							    <div class="modal-dialog modal-full-height modal-right" role="document">
+							        <div class="modal-content">
+							            <div class="modal-header">
+							                <h5 class="modal-title" id="exampleModalLabel">{{ menu.name }}
+							                	{% if menu.active == 1 %}
+                                        	<span class="badge badge-success badge-pill" id="inputRatioHour">{{ trans.active }}</span>
+                                        	{% else %}
+                                        	<span class="badge badge-warning badge-pill" id="inputRatioHour">{{ trans.disable }}</span>
+                                        	{% endif %}</h5>
+							                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							                    <span aria-hidden="true">&times;</span>
+							                </button>
+							            </div>
+							            <form action="var/FormDispatcher.php" method="POST" id="modifyMenuForm">
+								            <div class="modal-body">
+							                	<input type="hidden" name="formName" value="modifyMenus">
+							                	<input type="hidden" name="id" value="{{ menu.id }}">
+							                	<div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="md-form form-group">
+                                                            <input type="text" class="form-control" id="inputName" name="name" value="{{ menu.name }}">
+                                                            <label for="inputName">{{ trans.name }}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="md-form form-group">
+                                                            <input type="number" class="form-control" id="inputPrice" name="price" value="{{ menu.price }}">
+                                                            <label for="inputPrice">{{ trans.price }}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                	<div class="col-md-12">
+                                                        <div class="inline">
+															<div class="form-check">
+																<select class="mdb-select colorful-select dropdown-success" name="type" form="modifyMenuForm">
+																    <option value="0">{{ trans.atLunch }}</option>
+																    <option value="1">{{ trans.atDiner }}</option>
+																    <option value="2">{{ trans.anytime }}</option>
+																</select>
+																<label>{{ trans.menuType }}</label>
+														    </div>
+														</div>
+													</div>
+                                                </div>
+                                                <div class="row">
+                                                	<div class="col-md-12">
+                                                        <div class="md-form form-group">
+                                                           	{{ trans.activating }}
+                                                           <div class="switch">
+															    <label>
+															        {{ trans.no }}
+															        <input id="switchMenu{{ menu.id }}" name="active" type="checkbox" {% if menu.active == 1 %}checked="checked"{% endif %}>
+															        <span class="lever m-3"></span>
+															        {{ trans.yes }}
+															    </label>
+															</div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+								            </div>
+								            <div class="modal-footer">
+								                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+								                <button type="submit" class="btn btn-primary">{{ trans.saveChanges }}</button>
+								            </div>
+							            </form>
+							        </div>
+							    </div>
+							</div>
+                                
+		                    <tr>
+		                        <th scope="row">
+		                            <input class="form-check-input checkThisMenu" type="radio" name="exampleRadios" id="check{{ menu.id }}" value="{{ menu.id }}">
+                                    <label class="form-check-label" for="check{{ menu.id }}">
+		                        </th>
+		                        <td>{{ menu.name }}</td>
+		                        <td>
+		                        	{% if menu.type == 0 %}
+		                        		{{ trans.atLunch }}
+		                        	{% endif %}
+		                        	{% if menu.type == 1 %}
+		                        		{{ trans.atDiner }}
+		                        	{% endif %}
+		                        	{% if menu.type == 2 %}
+		                        		{{ trans.anytime }}
+		                        	{% endif %}
+		                        </td>
+		                        <td>{{ menu.price }} €</td>
+		                        <td>{% if menu.active == 1 %}
+		                        	<span class="badge badge-success badge-pill">{{ trans.active }}</span>
+		                       		{% else %}
+		                       		<span class="badge badge-warning badge-pill">{{ trans.disable }}</span>
+		                       		{% endif %}</td>
+		                        </td><td>
+		                    </tr>
+		                    {% endfor %}
+		                </tbody>
+		                <!--Table body-->
+		            </table>
+		            <!--Table-->
+		        </div>
+
+		        <hr class="my-0">
+		    </div>
+		</div>
+	</div>
+</main>
+{% endblock %}
+{% block javascript %}
+	{% include 'manageMenus/js/manageMenus.js' %}
+{% endblock %}

@@ -64,18 +64,21 @@
                             <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.restaurantManagement }}<i class="fa fa-angle-down rotate-icon"></i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="?url=manageMenus" class="waves-effect"> {{ trans.menus }}</a>
+                                        <li><a href="?url=manageProducts" class="waves-effect"> {{ trans.productsManagement }}</a>
+                                        </li>
+                                        <li><a href="?url=manageMenus" class="waves-effect"> {{ trans.menusManagement }}</a>
                                         </li>
                                         <li><a href="#" class="waves-effect"> {{ trans.modifyWebSite }}</a>
-                                        </li>
-                                        <li><a href="#" class="waves-effect"> {{ trans.inventoryManagement }}</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
+                            <li><a href="?url=inventoryManagement" class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.inventoryManagement }}</a>
+                            </li>
                             <li><a href="?url=employeesManagement" class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.employeesManagement }}</a>
                             </li>
                         {% endif %}
+                        <li><a class="waves-effect arrow-r" href="?url=cashDesk"><i class="fa fa-chevron-right"></i> {{ trans.cashDesk }}</a>
                         <li><a class="waves-effect arrow-r" data-toggle="modal" data-target="#centralCheck"><i class="fa fa-chevron-right"></i> {{ trans.checking }}</a>
                         </li>
                         {% if access_level >= 2 %}

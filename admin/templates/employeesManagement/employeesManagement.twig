@@ -25,7 +25,7 @@
                                 <i class="fa fa-remove mt-0"></i>
                             </button>
 
-                            <a href="?url=addEmployee">
+                            <a href="?url=addProduct.twig">
                                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 font-weight-bold">
                                 {{ trans.addEmployee }}
                                 </button>
@@ -272,14 +272,4 @@
 {% endblock %}
 {% block javascript %}
 	{% include 'employeesManagement/js/employeesManagement.js' %}
-    {% if success == true %}
-    <script>
-         toastr["success"](" {{ trans.modifySuccess }} ");
-    </script>
-    {% endif %}
-    {% if error == true %}
-        <script>
-            toastr["error"](" {{ trans.modifyError }} ");
-        </script>
-    {% endif %}
 {% endblock %}

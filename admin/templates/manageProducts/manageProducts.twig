@@ -1,0 +1,318 @@
+{% extends 'base.twig' %}
+
+{% set bodyClass = 'fixed-sn mdb-skin' %}
+{% block content %}
+
+<main class="pt-5 mx-lg-5">
+    <div class="container-fluid mt-5">
+    	<!--Top Table UI-->
+		<div class="card p-2 mb-5">
+
+		    <!--Grid row-->
+		    <div class="row">
+		        
+		        <!--Grid column-->
+
+		        <!--Grid column-->
+		        <div class="col-lg-3 col-md-6 justify-content-end">
+
+		            <form class="form-inline mt-2 ml-2 ">
+		                <input class="form-control my-0 py-0" type="text" placeholder="{{ trans.search }}" style="max-width: 150px;">
+		                <button class="btn btn-sm btn-primary ml-2 px-1"><i class="fa fa-search"></i>  </button>
+		            </form>
+
+		        </div>
+		        <!--Grid column-->
+
+		    </div>
+		    <!--Grid row-->
+
+		</div>
+		<!--Top Table UI-->
+		{% for productType in products %}
+		<div class="card card-cascade narrower">
+
+		    <!--Card image-->
+		    <div class="view gradient-card-header success-color-dark narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+		    	{% if productType[0].type == 0 %}
+		        <a href="" class="white-text mx-3">{{ trans.entryManagement }}</a>
+		        {% endif %}
+		        {% if productType[0].type == 1 %}
+		        <a href="" class="white-text mx-3">{{ trans.mealManagement }}</a>
+		        {% endif %}
+		    	{% if productType[0].type == 2 %}
+		        <a href="" class="white-text mx-3">{{ trans.saladsManagement }}</a>
+		        {% endif %}
+		        {% if productType[0].type == 3 %}
+		        <a href="" class="white-text mx-3">{{ trans.dessertManagement }}</a>
+		        {% endif %}
+		        {% if productType[0].type == 4 %}
+		        <a href="" class="white-text mx-3">{{ trans.drinkManagement }}</a>
+		        {% endif %}
+
+		        <div>
+		        	{% if access_level >= 2 %}
+		            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 modifyProduct"><i class="fa fa-pencil mt-0"></i></button>
+		            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 deleteProduct"><i class="fa fa-remove mt-0"></i></button>
+		            {% endif %}
+		            <a href="?url=addProduct">
+	                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2 font-weight-bold">
+	                    {{ trans.addProduct }}
+	                    </button>
+	                </a>
+		        </div>
+
+		    </div>
+		    <!--/Card image-->
+
+		    <div class="px-4">
+
+		        <div class="table-wrapper">
+		            <!--Table-->
+		            <table class="table table-hover mb-0 ">
+
+		                <!--Table head-->
+		                <thead>
+		                    <tr>
+		                        <th>
+		                        </th>
+		                        <th class="th-lg"><a>{{ trans.productName }}</a></th>
+		                        <th class="th-lg"><a href="">{{ trans.productDescription }}</a></th>
+		                        <th class="th-lg"><a href="">{{ trans.price }} (€)</a></th>
+		                        <th class="th-lg"><a href="">{{ trans.menuComposit }}</a></th>
+		                        <th class="th-lg"><a href="">{{ trans.active }}</a></th>
+		                    </tr>
+		                </thead>
+		                <!--Table head-->
+
+		                <!--Table body-->
+		                <tbody>
+		                	{% for product in productType %}
+		                	<div class="modal fade" id="delete_{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content text-center">
+                                        <!--Header-->
+                                        <div class="modal-header d-flex justify-content-center">
+                                            <p class="heading">
+                                            {% if product.active == '1' %}
+                                            	{{ trans.deleteConfirmProduct }}
+                                            {% else %}
+                                            	{{ trans.productDeletedAlready }}
+                                            {% endif %}
+                                        	</p>
+                                        </div>
+
+                                        <!--Body-->
+                                        <div class="modal-body">
+                                            <p>{{ product.name }}</p>
+                                            <i class="fa fa-times fa-4x animated rotateIn"></i>
+                                        </div>
+
+                                        <!--Footer-->
+                                        <div class="modal-footer flex-center">
+                                        	{% if product.active == '0' %}
+                                        	<a type="button" class="btn  btn-primary-modal waves-effect" data-dismiss="modal">{{ trans.ok }}</a>
+                                        	{% else %}
+                                            <form action="var/FormDispatcher.php" method="POST">
+                                                <input type="hidden" name="formName" value="delProduct">
+                                                <input type="hidden" name="id" value="{{ product.id }}">
+                                                <button type="submit" class="btn  btn-outline-secondary-modal">{{ trans.yes }}</button>
+                                                <a type="button" class="btn  btn-primary-modal waves-effect" data-dismiss="modal">{{ trans.no }}</a>
+                                            </form>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <!--/.Content-->
+                                </div>
+                            </div>
+		                	<div class="modal fade right" id="{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-full-height modal-right" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">{{ product.name }}
+                                                    	{% if product.active == 1 %}
+                                                    	<span class="badge badge-success badge-pill" id="inputRatioHour">{{ trans.active }}</span>
+                                                    	{% else %}
+                                                    	<span class="badge badge-warning badge-pill" id="inputRatioHour">{{ trans.disable }}</span>
+                                                    	{% endif %}
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form action="var/FormDispatcher.php" method="POST" enctype="multipart/form-data" id="formModifyMenus">
+                                                	<input type="hidden" name="formName" value="productManagementModify">
+                                                	<input type="hidden" name="id" value="{{ product.id }}">
+                                                	<div class="modal-body" id="classic{{ product.id }}">
+	                                                    <div class="form-row">
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" id="inputName" name="name" value="{{ product.name }}">
+	                                                                <label for="inputName">{{ trans.name }}</label>
+	                                                            </div>
+	                                                        {#</div>
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="number" name="price" class="form-control" id="inputPrice" value="{{ product.price }}">
+	                                                                <label for="inputPrice">{{ trans.price }} (€)</label>
+	                                                            </div>#}
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="row">
+	                                                        <div class="col-md-12">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" id="inputDescription" name="description" value="{{ product.description }}">
+	                                                                <label for="inputEmail">{{ trans.productDescription }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="row">
+	                                                        <div class="col-md-12">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" id="inputAllergens" name="allergens" value="{{ product.allergens }}">
+	                                                                <label for="inputAllergens">{{ trans.productAllergens }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="row">
+	                                                        <div class="col-md-12">
+	                                                        	{#<div class="inline">
+		                                                        	<div class="form-check">
+		                                                        		<select class="mdb-select colorful-select dropdown-primary" name="selectedMenu[]" form="formModifyMenus" multiple>
+																	    <option value="" disabled selected>{{ trans.selectMenu }}</option>
+																	    {% for menu in menus %}
+																	    <option value="{{ menu.id_menu }}" {% if menu.id_product is defined and menu.id_product == product.id %}selected{% endif %}>{{ menu.name }}</option>
+																	    {% endfor %}
+																		</select>
+																		<label>{{ trans.selectMenu }}</label>
+		                                                        	</div>
+	                                                        	</div>#}
+	                                                        	<div class="md-form form-group">
+	                                                                <input type="number" name="price" class="form-control" id="inputPrice" value="{{ product.price }}">
+	                                                                <label for="inputPrice">{{ trans.price }} (€)</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="row">
+	                                                    	<div class="col-md-12">
+	                                                            <div class="md-form form-group">
+	                                                               	{{ trans.menuComposit }}
+	                                                               <div class="switch">
+																	    <label>
+																	        {{ trans.no }}
+																	        <input id="switchMenu{{ product.id }}" name="menu_composit" type="checkbox" {% if product.menu_composit == 1 %} %}checked="checked"{% endif %}>
+																	        <span class="lever m-3"></span>
+																	        {{ trans.yes }}
+																	    </label>
+																	</div>
+	                                                                
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="row">
+	                                                        <div class="col-md-12">
+	                                                            <div class="md-form form-group">
+	                                                               <div class="switch">
+	                                                               	{{ trans.activating }}
+																	    <label>
+																	        {{ trans.no }}
+																	        <input id="switchActive" name="active" type="checkbox" {% if product.active == 1 %}checked="checked"{% endif %}>
+																	        <span class="lever m-3"></span>
+																	        {{ trans.yes }}
+																	    </label>
+																	</div>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    <div class="row pt-4">
+	                                                    	<div class="col-md-12">
+	                                                    		<center>
+	                                                    			<img src="/assets/images/products/{{ product.img }}" alt="Image not found - {{ product.name }}" width="200" height="200" >
+	                                                    		</center>
+	                                                    	</div>
+	                                                    </div>
+	                                                    <div class="row pt-4">
+	                                                    	<div class="col-md-12">
+	                                                    		<div class="file-field">
+															        <div class="btn btn-primary btn-sm float-left">
+															            <span>{{ trans.fileUpload }}</span>
+															            <input type="file" name="fileSend">
+															        </div>
+															        <div class="file-path-wrapper">
+															           <input class="file-path validate" name="file" type="text" placeholder="{{ trans.yourFile }}">
+															        </div>
+															    </div>
+	                                                    	</div>
+	                                                    </div>
+                                                    </div>
+                                                    <div class="modal-body" id="stock{{ product.id }}" style="display: none">
+                                                    	{% for compo in product['compo'] %}
+                                                    	<div class="row">
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                            	<input type="hidden" name="id_composition{{ compo.id }}" value="{{ compo.id }}">
+	                                                                <input type="text" class="form-control" id="compo{{ compo.id }}" name="compo{{ compo.id }}" value="{{ compo.name }}">
+	                                                                <label for="name{{ compo.id }}">{{ trans.name }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                        <div class="col-md-6">
+	                                                            <div class="md-form form-group">
+	                                                                <input type="text" class="form-control" name="quantity{{ compo.id }}" value="{{ compo.quantity }}">
+	                                                                <label for="quantity{{ compo.quantity }}">{{ trans.quantity }}</label>
+	                                                            </div>
+	                                                        </div>
+	                                                    </div>
+	                                                    {% endfor %}
+                                                    </div>
+                                                    <button type="button" class="btn btn-primary swap">{{ trans.consumption }}</button>
+                                                    <div class="modal-footer">
+	                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+	                                                    <button type="submit" class="btn btn-primary">{{ trans.saveChanges }}</button>
+	                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+		                    <tr class="clickable">
+		                        <th scope="row">
+		                            <input class="form-check-input checkThisProduct" type="radio" name="exampleRadios" id="check{{ product.id }}" value="{{ product.id }}">
+                                    <label class="form-check-label" for="check{{ product.id }}">
+		                        </th>
+		                        <td>{{ product.name }}</td>
+		                        <td>{{ product.description }}</td>
+		                        <td>{{ product.price }}</td>
+		                        <td>
+		                        	{% if product.menu_composit == 1 %}
+		                        		{{ trans.yes }}
+		                        	{% else %}
+		                        		{{ trans.no }}
+		                        	{% endif %}
+		                    	</td>
+		                        <td>
+		                        	{% if product.active == 1 %}
+		                        	<span class="badge badge-success badge-pill">{{ trans.active }}</span>
+		                       		{% else %}
+		                       		<span class="badge badge-warning badge-pill">{{ trans.disable }}</span>
+		                       		{% endif %}
+		                       	</td>
+		                    </tr>
+		                    {% endfor %}
+		                </tbody>
+		                <!--Table body-->
+		            </table>
+		            <!--Table-->
+		        </div>
+
+		        <hr class="my-0">
+			</div>
+		</div>
+		<br><br>
+		{% endfor %}
+	</div>
+</main>
+{% endblock %}
+{% block javascript %}
+	{% include 'manageProducts/js/manageProducts.js' %}
+{% endblock %}
