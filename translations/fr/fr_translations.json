@@ -87,6 +87,7 @@
 			"contractStart":"Début de contrat",
 			"contractEnd":"Fin de contrat",
 			"saveChanges":"Sauvegarder",
+			"salesInterface":"Interface de caisse",
 			"close":"Fermer",
 			"contractLast":"Nombre de jours restant du contrat",
 			"vacationDayLast":"Jours de congés utilisés",

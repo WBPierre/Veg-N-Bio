@@ -87,6 +87,7 @@
 			"contractStart":"Start of contract",
 			"contractEnd":"End of contract",
 			"saveChanges":"Save changes",
+			"salesInterface": "Sales interface",
 			"close":"Close",
 			"contractLast":"Days before contract ends",
 			"vacationDayLast":"Vacations day used",
