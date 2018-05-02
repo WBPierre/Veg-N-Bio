@@ -1,6 +1,48 @@
 {
 	"index":{
-		"metaTitle":"Home"
+		"metaTitle":"Home",
+		"fetures":"Our program",
+		"about":"About us",
+		"products":"Our products",
+		"restaurantLocation":"Where are we ?",
+		"welcomeToOur":"Welcome to our",
+		"veganWorld":"Vegan World",
+		"weOfferBest":"We serve the best Vegan food",
+		"ourVeganProduct":"Fresh and Good",
+		"aFrenchBrand":"The new French Concept",
+		"welcome":"Welcome",
+		"natural":"100% Natural",
+		"alwaysFresh":"Always Fresh",
+		"organicProducts":"Organic products",
+		"bestQuality":"Premium quality",
+		"naturalText":"Our products come from certified farmers, responsible, and all located in France.",
+		"alwaysFreshText":"All our dishes are made from fresh products, picked at most 48 hours before being on your plate.",
+		"organicProductsText":"All our products come from organic farming.",
+		"bestQualityText":"The best quality for a lowest price.",
+		"withLoveToNature":"With love to nature",
+		"aboutText1":"Open since 2013 in the heart of Paris, we strive to make you live a way to consume. In a fast-food but good-food style, and especially good for health, we make sure that you have access to the best products that our country has created.",
+		"aboutText2":"Thanks to a network of certified farmers, we created with a team of 3 people at the origin, a different vision of consumption. After 5 years of development, we are always happy to serve you and participate in the development of the French economy.",
+		"aboutList1":"Founded in 2013",
+		"aboutList2":"More than 50 employees",
+		"aboutList3":"A network of 150 certified farmers",
+		"takeATour":"Take a seat, and visit one of our restaurants!",
+		"startTour":"Start the visit",
+		"ourRestaurants":"Our restaurants",
+		"openingHours":"Opening hours",
+		"monToThu":"Mon - Thu",
+		"friToSat":"Fri - Sat",
+		"dim":"Sunday",
+		"bookATable":"Book a table",
+		"account":"My account",
+		"yourEmail":"Your email",
+		"yourPwd":"Your password",
+		"repeatPwd":"Repeat your password",
+		"login":"Log in",
+		"notAMember":"Not a member ?",
+		"signUp":"Sign Up",
+		"forgotPwd":"Forgot password ?",
+		"alreadyHaveAnAccount":"Already have an account ?",
+		"close":"Close"
 	},
 	"admin":{
 		"login":{
@@ -107,7 +149,9 @@
 			"cancel":"Cancel",
 			"validate":"Validate",
 			"moneyGiven":"Cash received",
-			"return":"Return"
+			"return":"Return",
+			"locate":"Localisation",
+			"deliveryTime":"Estimated delivery"
 		}
 	}
 }
