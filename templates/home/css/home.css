@@ -1,0 +1,7 @@
+<style>
+.listRestaurants .active{
+    background-color:#007E33;
+    border-color:#007E33;
+    color:white !important;
+}
+</style>

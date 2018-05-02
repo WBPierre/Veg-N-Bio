@@ -1,0 +1,121 @@
+{% extends 'base.twig' %}
+{% block content %}
+	{% include 'home/css/home.css' %}
+	<main>
+		<div class="container">
+			<section class="section mt-5 feature-box" id="features">
+				<h1 class="text-center font-bold mt-5 pt-5 mb-3 drk-grey-text wow fadeIn" data-wow-delay="0.2s">
+					<em>{{ trans.ourVeganProduct }}</em>
+				</h1>
+				<p class="text-center font-up grey-text font-bold mb-5 pb-4 wow fadeIn" data-wow-delay="0.2s">{{ trans.weOfferBest }}</p>
+				<div class="row wow fadeIn" data-wow-delay="0.4s">
+					<div class="col-md-4">
+						<div class="row text-center pb-5">
+							<div class="col-md-12">
+								<i class="fa fa-home fa-3x brown-text pb-3"></i>
+								<h4 class="feature-title">{{ trans.natural }}</h4>
+								<p class="grey-text">{{ trans.naturalText }}</p>
+							</div>
+						</div>
+						<div class="row text-center pb-5">
+							<div class="col-md-12">
+								<i class="fa fa-umbrella fa-3x brown-text pb-3"></i>
+								<h4 class="feature-title">{{ trans.alwaysFresh }}</h4>
+								<p class="grey-text">{{ trans.alwaysFreshText }}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 pb-3 flex-center">
+						<img src="../assets/images/burgerVeggan.jpg" alt="" class="z-depth-0 img-fluid ">
+					</div>
+					<div class="col-md-4">
+						<div class="row text-center pb-5">
+							<div class="col-md-12">
+								<i class="fa fa-users fa-3x brown-text pb-3"></i>
+								<h4 class="feature-title">{{ trans.organicProducts }}</h4>
+								<p class="grey-text">{{ trans.organicProductsText }}</p>
+							</div>
+						</div>
+						<div class="row text-center pb-5">
+							<div class="col-md-12">
+								<i class="fa fa-dashboard fa-3x brown-text pb-3"></i>
+								<h4 class="feature-title">{{ trans.bestQuality }}</h4>
+								<p class="grey-text">{{ trans.bestQualityText }}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<hr class="wow fadeIn" data-wow-delay="0.4s">
+			<section class="section about mb-5 pb-5" id="about">
+				<h1 class="text-center font-bold mt-5 pt-5 mb-3 drk-grey-text wow fadeIn" data-wow-delay="0.2s">
+					<em>{{ trans.about }}</em>
+				</h1>
+				<p class="text-center font-up font-bold grey-text mb-5 pb-4 wow fadeIn" data-wow-delay="0.2s">{{ trans.withLoveToNature }}</p>
+				<div class="row">
+					<div class="col-xl-5 mr-auto col-lg-6 wow fadeIn" data-wow-delay="0.4s">
+						<img src="../assets/images/salleRestaurant.jpg" class="img-fluid rounded z-depth-1-half "
+							 alt="My photo">
+					</div>
+					<div class="col-xl-6 col-lg-6 pb-3 wow fadeIn" data-wow-delay="0.4s">
+						<p class="" align="justify">{{ trans.aboutText1 }}</p>
+
+						<p class="" align="justify">{{ trans.aboutText2 }}</p>
+
+						<ul>
+							<li>{{ trans.aboutList1 }}</li>
+							<li>{{ trans.aboutList2 }}</li>
+							<li>{{ trans.aboutList3 }}</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="streak streak-photo streak-md hm-black-strong-1" style="background-image: url('../assets/images/banniereLegumes.jpg');">
+			<div class="mask pattern-1 flex-center">
+				<div class="text-center text-white wow fadeIn" data-wow-delay="0.4s">
+					<h2 class="font-bold mb-3 pt-4 mt-4">{{ trans.takeATour }}</h2>
+					<div class="row mt-5 mb-5">
+						<div class="col-md-12 col-lg-12 waves-effect" style="cursor: pointer">
+							<hr class="white mx-5">
+							<h1 class="display-4 font-bold white-text">
+								<strong>{{ trans.startTour }}</strong>
+							</h1>
+							<hr class="white mx-5">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<hr class="wow fadeIn" data-wow-delay="0.4s">
+			<div id="restaurantLocation">
+			<section class="section map-section" id="mapID">
+                <h1 class="text-center font-bold mt-5 pt-5 mb-3 wow fadeIn" data-wow-delay="0.2s">
+                    <em>{{ trans.ourRestaurants }}</em>
+                </h1>
+                <p class="text-center font-up grey-text font-bold mb-5 pb-4 wow fadeIn" data-wow-delay="0.2s">{{ trans.restaurantLocation }}</p>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="list-group listRestaurants" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="list-Nation-list" data-toggle="list" role="tab" aria-controls="home">Nation</a>
+                            <a class="list-group-item list-group-item-action" id="list-Bastille-list" data-toggle="list" role="tab" aria-controls="profile">Bastille</a>
+                            <a class="list-group-item list-group-item-action" id="list-Republique-list" data-toggle="list" role="tab" aria-controls="messages">République</a>
+                            <a class="list-group-item list-group-item-action" id="list-PlaceItalie-list" data-toggle="list" role="tab" aria-controls="settings">Place d'Italie</a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="map-section" id="nav-tabContent">
+                            <div class="col-lg-12" id="map"></div>
+                        </div>
+                    </div>
+                </div>
+			</section>
+			</div>
+		</div>
+	</main>
+{% endblock %}
+
+{% block javascript %}
+	{% include 'home/js/home.js' %}
+{% endblock %}

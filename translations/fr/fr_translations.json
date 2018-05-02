@@ -1,6 +1,48 @@
 {
 	"index":{
-		"metaTitle":"Accueil"
+		"metaTitle":"Accueil",
+		"features":"Notre programme",
+		"about":"A propos de nous",
+		"products":"Nos produits",
+		"restaurantLocation":"Où sommes-nous ?",
+		"welcomeToOur":"Bienvenue dans notre",
+		"veganWorld":"monde Vegan !",
+		"weOfferBest":"Nous servons les meilleurs produits Vegan",
+		"ourVeganProduct":"Frais et Bon",
+		"aFrenchBrand":"Le nouveau concept français",
+		"welcome":"Bienvenue",
+		"natural":"100% Naturel",
+		"alwaysFresh":"Toujours frais",
+		"organicProducts":"Produits organiques",
+		"bestQuality":"Qualité premium",
+		"naturalText":"Nos produits proviennent d'agriculteurs certifiés, responsables, et tous localisés en France.",
+		"alwaysFreshText":"Tous nos plats sont réalisés à partir de produits frais, cueillis au maximum 48h avant d'être dans votre assiette.",
+		"organicProductsText":"Tous nos produits sont issus de l'agriculture biologique.",
+		"bestQualityText":"La meilleure qualité pour un prix au plus bas.",
+		"withLoveToNature":"Avec l'amour du biologique",
+		"aboutText1":"Ouvert depuis 2013 au coeur de Paris, nous nous efforçons de vous apporter une différente façon de consommer. Dans un style fast-food mais good-food, et surtout bon pour la santé, nous faisons en sorte que vous ayez accès aux meilleurs produits que notre pays créé.",
+		"aboutText2":"Grâce à un réseau d'agriculteurs certifiés, nous avons créé avec une équipe de 3 personnes à l'origine, une vision différente de la consommation. Après 5 ans de développement, nous sommes toujours aussi heureux de vous servir et de participer au développement de l'économie française.",
+		"aboutList1":"Fondé en 2013",
+		"aboutList2":"Plus de 50 employés",
+		"aboutList3":"Un réseau de 150 agriculteurs certifiés",
+		"takeATour":"Prenez place, et visitez l'un de nos restaurants !",
+		"startTour":"Commencer la visite",
+		"ourRestaurants":"Nos restaurants",
+		"openingHours":"Heures d'ouverture",
+		"monToThu":"Lun - Jeu",
+		"friToSat":"Ven - Sam",
+		"dim":"Dimanche",
+		"bookATable":"Réserver une table",
+		"account":"Mon compte",
+		"yourEmail":"Votre email",
+		"yourPwd":"Votre mot de passe",
+		"repeatPwd":"Confirmation de mot de passe",
+		"login":"Se connecter",
+		"notAMember":"Pas encore de compte ?",
+		"signUp":"Inscrivez-vous",
+		"forgotPwd":"Mot de passe oublié ?",
+		"alreadyHaveAnAccount":"Vous avez déjà un compte ?",
+		"close":"Fermer"
 	},
 	"admin":{
 		"login":{
@@ -110,7 +152,9 @@
 			"cancel":"Annuler",
 			"validate":"Valider",
 			"moneyGiven":"Argent reçu",
-			"return":"Rendu"
+			"return":"Rendu",
+			"locate":"Localisation",
+			"deliveryTime":"Livraison estimée"
 		}
 	}
 }
