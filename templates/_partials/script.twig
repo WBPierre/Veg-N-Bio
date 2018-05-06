@@ -5,3 +5,81 @@
 <script type="text/javascript" src="../../assets/MDB/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="../../assets/MDB/js/mdb.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#swapSignUp').on('click',function(){
+            $('#signUpPanel').click();
+        });
+        $('#swapLogin').on('click',function(){
+            $('#signInPanel').click();
+        });
+
+        $('#logMeOn').on('click',function(){
+            var success = 0;
+            var email = $('#modalLRInput10').val();
+            var password = $('#modalLRInput11').val();
+            if(email.length >= 0){
+                if(password.length >= 0){
+                    $.ajax({
+                        method: "POST",
+                        url: "/var/connection.php",
+                        data: { log: "login", email: email, pwd: password }
+                    })
+                        .done(function(text) {
+                            if(text === "0"){
+                                success = 0;
+                            }else{
+                                if(text === "1"){
+                                    success = 2;
+                                }else{
+                                    success = 1;
+                                    var returned = text;
+                                }
+                            }
+                        });
+                }
+            }
+            if(success == 1){
+                toastr["success"](loginSuccess);
+                $('#modalLRForm').modal('hide');
+                $('#changeName').html(returned);
+            }else{
+                if(success != 2){
+                    toastr["warning"](loginFail);
+                }else{
+                    toastr["warning"](signUpInWait);
+                }
+            }
+
+        });
+        $('#signMeOn').on('click',function(){
+            var success = 0;
+            var email = $('#modalLRInput12').val();
+            var password = $('#modalLRInput13').val();
+            var confirm = $('#modalLRInput14').val();
+            if(email.length >= 0 && password.length >= 0 && confirm.length >= 0){
+                if(password === confirm){
+                    $.ajax({
+                        method: "POST",
+                        url: "/var/connection.php",
+                        data: { log: "signin", email: email, pwd: password, confirm: confirm }
+                    })
+                        .done(function(text) {
+                            if(text === "0"){
+                                success = 0;
+                            }else{
+                                success = 1;
+                            }
+                        });
+                }
+            }
+            if(success == 0){
+                toastr["warning"](signUpFail);
+            }else{
+                toastr["success"](signUpSuccess);
+            }
+
+        });
+    });
+</script>

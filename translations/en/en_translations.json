@@ -42,7 +42,12 @@
 		"signUp":"Sign Up",
 		"forgotPwd":"Forgot password ?",
 		"alreadyHaveAnAccount":"Already have an account ?",
-		"close":"Close"
+		"close":"Close",
+		"logInSuccess":"You are now connected",
+		"logInFail":"Identification failed",
+		"signUpFail":"Resgistration impossible",
+		"signUpSuccess":"Inscription completed ! Please confirm it using the link in your mails",
+		"accountInWait":"Account still not validated. Please check your webmail"
 	},
 	"admin":{
 		"login":{

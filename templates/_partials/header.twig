@@ -11,10 +11,10 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs tabs-2 success-color-dark" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i> {{ trans.login }}</a>
+                        <a class="nav-link active" id="signInPanel" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i> {{ trans.login }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> {{ trans.signUp }}</a>
+                        <a class="nav-link" id="signUpPanel" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> {{ trans.signUp }}</a>
                     </li>
                 </ul>
 
@@ -37,13 +37,13 @@
                                 <label data-error="wrong" data-success="right" for="modalLRInput11">{{ trans.yourPwd }}</label>
                             </div>
                             <div class="text-center mt-2">
-                                <button class="btn btn-success">{{ trans.login }} <i class="fa fa-sign-in ml-1"></i></button>
+                                <button class="btn btn-success" id="logMeOn">{{ trans.login }} <i class="fa fa-sign-in ml-1"></i></button>
                             </div>
                         </div>
                         <!--Footer-->
                         <div class="modal-footer">
                             <div class="options text-center text-md-right mt-1">
-                                <p>{{ trans.notAMember }} <a href="#" class="blue-text">{{ trans.signUp }}</a></p>
+                                <p>{{ trans.notAMember }} <a id="swapSignUp" class="blue-text">{{ trans.signUp }}</a></p>
                                 <p><a href="#" class="blue-text">{{ trans.forgotPwd }}</a></p>
                             </div>
                             <button type="button" class="btn btn-outline-success waves-effect ml-auto" data-dismiss="modal">{{ trans.close }}</button>
@@ -76,14 +76,14 @@
                             </div>
 
                             <div class="text-center form-sm mt-2">
-                                <button class="btn btn-success">{{ trans.signUp }} <i class="fa fa-sign-in ml-1"></i></button>
+                                <button class="btn btn-success" id="signMeOn">{{ trans.signUp }} <i class="fa fa-sign-in ml-1"></i></button>
                             </div>
 
                         </div>
                         <!--Footer-->
                         <div class="modal-footer">
                             <div class="options text-right">
-                                <p class="pt-1">{{ trans.alreadyHaveAnAccount }} <a href="#" class="blue-text">{{ trans.login }}</a></p>
+                                <p class="pt-1">{{ trans.alreadyHaveAnAccount }} <a href="#" id="swapLogin" class="blue-text">{{ trans.login }}</a></p>
                             </div>
                             <button type="button" class="btn btn-outline-success waves-effect ml-auto" data-dismiss="modal">{{ trans.close }}</button>
                         </div>
@@ -126,7 +126,7 @@
                 </ul>
                 <ul class="nav navbar-nav nav-flex-icons ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#modalLRForm"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">{{ trans.account }}</span></a>
+                        <a class="nav-link" data-toggle="modal" data-target="#modalLRForm"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.account }}</span></a>
                     </li>
                 </ul>
             </div>
