@@ -42,7 +42,12 @@
 		"signUp":"Inscrivez-vous",
 		"forgotPwd":"Mot de passe oublié ?",
 		"alreadyHaveAnAccount":"Vous avez déjà un compte ?",
-		"close":"Fermer"
+		"close":"Fermer",
+		"logInSuccess":"Vous êtes désormais connecté !",
+		"logInFail":"Identifiants erronés",
+		"signUpFail":"Impossible de vous inscrire avec ces informations",
+		"signUpSuccess":"Inscription effectuée ! Merci de la confirmer en utilisant le lien qui vous a été envoyé par email",
+		"accountInWait":"Compte en attente de valdiation. Merci de vérifiez votre boite mail"
 	},
 	"admin":{
 		"login":{
