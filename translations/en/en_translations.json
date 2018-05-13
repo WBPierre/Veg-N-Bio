@@ -6,7 +6,8 @@
 		"products":"Our products",
 		"restaurantLocation":"Where are we ?",
 		"welcomeToOur":"Welcome to our",
-		"veganWorld":"Vegan World",
+        "order": "Order",
+      "veganWorld":"Vegan World",
 		"weOfferBest":"We serve the best Vegan food",
 		"ourVeganProduct":"Fresh and Good",
 		"aFrenchBrand":"The new French Concept",
@@ -47,8 +48,19 @@
 		"logInFail":"Identification failed",
 		"signUpFail":"Resgistration impossible",
 		"signUpSuccess":"Inscription completed ! Please confirm it using the link in your mails",
-		"accountInWait":"Account still not validated. Please check your webmail"
-	},
+		"accountInWait":"Account still not validated. Please check your webmail",
+        "galery": "Galerie",
+        "apetizer": "Apetizer",
+        "dishes": "Dishes",
+        "dessert": "Dessert",
+        "seeGalery": "See Galery",
+        "menuOrder": "Menus",
+        "makeOrder": "Veg-N-Order",
+        "drink":"Drinks",
+        "salad": "Salads",
+        "chooseMenu": "Choose your menu",
+        "descriptionGalery": "Welcome in our galery, click on a category to see the different dishes that we propose "
+    },
 	"admin":{
 		"login":{
 			"metaTitle":"Connexion",
@@ -157,7 +169,7 @@
 			"moneyGiven":"Cash received",
 			"return":"Return",
 			"locate":"Localisation",
-			"deliveryTime":"Estimated delivery"
+			"deliveryTime":"Estimated delivery",
 		}
 	}
 }

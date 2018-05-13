@@ -6,7 +6,8 @@
 		"products":"Nos produits",
 		"restaurantLocation":"Où sommes-nous ?",
 		"welcomeToOur":"Bienvenue dans notre",
-		"veganWorld":"monde Vegan !",
+        "order":"Commander",
+        "veganWorld":"monde Vegan !",
 		"weOfferBest":"Nous servons les meilleurs produits Vegan",
 		"ourVeganProduct":"Frais et Bon",
 		"aFrenchBrand":"Le nouveau concept français",
@@ -47,8 +48,20 @@
 		"logInFail":"Identifiants erronés",
 		"signUpFail":"Impossible de vous inscrire avec ces informations",
 		"signUpSuccess":"Inscription effectuée ! Merci de la confirmer en utilisant le lien qui vous a été envoyé par email",
-		"accountInWait":"Compte en attente de valdiation. Merci de vérifiez votre boite mail"
-	},
+		"accountInWait":"Compte en attente de valdiation. Merci de vérifiez votre boite mail",
+        "galery": "Galerie",
+        "apetizer": "Entrées",
+        "dishes": "Plats",
+        "dessert": "Desserts",
+        "seeGalery": "Voir la galerie",
+        "menuOrder": "Menus",
+        "makeOrder": "Veg-n-Commande",
+        "drink":"Boissons",
+        "salad": "Salades",
+        "chooseMenu": "Choisissez votre menu",
+        "descriptionGalery": "Bienvenue sur notre galerie, cliquez sur une catégorie pour voir les produits que l'on propose"
+
+    },
 	"admin":{
 		"login":{
 			"metaTitle":"Connexion",
