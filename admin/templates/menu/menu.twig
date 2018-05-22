@@ -1,0 +1,185 @@
+{% extends 'base.twig' %}
+
+{% set bodyClass = 'fixed-sn mdb-skin' %}
+{% block content %}
+    <div class="p-3 mb-5"></div>
+    <div class="card card-cascade narrower p-4">
+        <div class="view gradient-card-header aqua-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+            <a href="" class="white-text mx-3">{{  trans.menu.drink }}</a>
+            <div>
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-pencil mt-0"></i></button>
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-trash mt-0"></i></button>
+            </div>
+        </div>
+        <div class="px-4">
+            <div class="table-wrapper">
+                <table class="table table-hover mb-0">
+                    <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="checkbox">
+                            <label for="checkbox" class="mr-2 label-table"></label>
+                        </th>
+                        <th class="th-lg"><a>{{ trans.menu.name }} <i class="fa fa-sort ml-1"></i></a></th>
+                        <th class="th-lg"><a href="">{{ trans.menu.price }}<i class="fa fa-sort ml-1"></i></a></th>
+                        <th class="th-lg"><a href="">{{ trans.menu.quantity }}<i class="fa fa-sort ml-1"></i></a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" id="checkbox1">
+                            <label for="checkbox1" class="label-table"></label>
+                        </th>
+                        <td>Jus de carotte</td>
+                        <td>2.50€</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" id="checkbox2">
+                            <label for="checkbox2" class="label-table"></label>
+                        </th>
+                        <td>Jus de pomme</td>
+                        <td>1.80€</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" id="checkbox3">
+                            <label for="checkbox3" class="label-table"></label>
+                        </th>
+                        <td>Jus d'orange</td>
+                        <td>1.50€</td>
+                        <td>18</td>
+                    </tr>
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+            </div>
+
+            <hr class="my-0">
+        </div>
+    </div>
+    <div class="card card-cascade narrower p-4">
+        <div class="view gradient-card-header peach-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+            <a href="" class="white-text mx-3">{{  trans.menu.burger }}</a>
+            <div>
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-pencil mt-0"></i></button>
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-trash mt-0"></i></button>
+            </div>
+
+        </div>
+        <div class="px-4">
+            <div class="table-wrapper">
+                <table class="table table-hover mb-0">
+                    <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="checkbox">
+                            <label for="checkbox" class="mr-2 label-table"></label>
+                        </th>
+                        <th class="th-lg"><a>{{ trans.menu.name }} <i class="fa fa-sort ml-1"></i></a></th>
+                        <th class="th-lg"><a href="">{{ trans.menu.price }}<i class="fa fa-sort ml-1"></i></a></th>
+                        <th class="th-lg"><a href="">{{ trans.menu.quantity }}<i class="fa fa-sort ml-1"></i></a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" id="checkbox1">
+                            <label for="checkbox1" class="label-table"></label>
+                        </th>
+                        <td>Jus de carotte</td>
+                        <td>2.50€</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" id="checkbox2">
+                            <label for="checkbox2" class="label-table"></label>
+                        </th>
+                        <td>Jus de pomme</td>
+                        <td>1.80€</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" id="checkbox3">
+                            <label for="checkbox3" class="label-table"></label>
+                        </th>
+                        <td>Jus d'orange</td>
+                        <td>1.50€</td>
+                        <td>18</td>
+                    </tr>
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+            </div>
+
+            <hr class="my-0">
+        </div>
+    </div>
+    <div class="card card-cascade narrower p-4">
+        <div class="view gradient-card-header purple-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+            <a href="" class="white-text mx-3">{{  trans.menu.sandwich }}</a>
+            <div>
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-pencil mt-0"></i></button>
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-trash mt-0"></i></button>
+            </div>
+
+        </div>
+        <div class="px-4">
+            <div class="table-wrapper">
+                <table class="table table-hover mb-0">
+                    <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="checkbox">
+                            <label for="checkbox" class="mr-2 label-table"></label>
+                        </th>
+                        <th class="th-lg"><a>{{ trans.menu.name }} <i class="fa fa-sort ml-1"></i></a></th>
+                        <th class="th-lg"><a href="">{{ trans.menu.price }}<i class="fa fa-sort ml-1"></i></a></th>
+                        <th class="th-lg"><a href="">{{ trans.menu.quantity }}<i class="fa fa-sort ml-1"></i></a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" id="checkbox1">
+                            <label for="checkbox1" class="label-table"></label>
+                        </th>
+                        <td>Jus de carotte</td>
+                        <td>2.50€</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" id="checkbox2">
+                            <label for="checkbox2" class="label-table"></label>
+                        </th>
+                        <td>Jus de pomme</td>
+                        <td>1.80€</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" id="checkbox3">
+                            <label for="checkbox3" class="label-table"></label>
+                        </th>
+                        <td>Jus d'orange</td>
+                        <td>1.50€</td>
+                        <td>18</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr class="my-0">
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {% include 'menu/js/menu.js' %}
+{% endblock %}

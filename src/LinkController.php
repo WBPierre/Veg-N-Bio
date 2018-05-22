@@ -13,7 +13,6 @@
  */
 class LinkController{
 
-
     /*
         Nothing for now
      */

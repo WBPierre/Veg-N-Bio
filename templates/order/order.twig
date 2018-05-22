@@ -1,0 +1,93 @@
+{% extends 'base2Front.twig' %}
+{% block content %}
+
+    <div class="container-fluid mt-2">
+        <!-- Nav tabs -->
+        <div class="tabs-wrapper">
+            <ul class="nav classic-tabs tabs-success" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link waves-light" href="/" role="tab"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i><br>Retour au site</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light active" data-toggle="tab" href="#panel61" role="tab"><i class="fa fa-bars fa-2x" aria-hidden="true"></i><br>{{ trans.menuOrder }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel62" role="tab"><i class="fa fa-leaf fa-2x" aria-hidden="true"></i><br>{{ trans.apetizer }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel63" role="tab"><i class="fa fa-cutlery fa-2x" aria-hidden="true"></i><br>{{ trans.dishes }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel64" role="tab"><i class="fa fa-birthday-cake fa-2x" aria-hidden="true"></i><br>{{ trans.dessert }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel64" role="tab"><i class="fa fa-glass fa-2x" aria-hidden="true"></i><br>{{ trans.drink }}</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab panels -->
+        <div class="tab-content card col-lg-8 float-left">
+            <h4 class="card-title text-center">{{ trans.chooseMenu }}</h4>
+            <!--MENUS-->
+            <div class="tab-pane fade in show active col-lg-12" id="panel61" role="tabpanel">
+                <div class="card col-md-3 m-2 p-1 float-left">
+                    <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
+                    <p class="card-text text-center">Title</p>
+                </div>
+                <div class="card col-md-3 m-2  p-1 float-left">
+                    <img src="../../assets/images/burger.jpg"  align="center" height="200">
+                    <p class="card-text text-center">Title</p>
+                </div>
+                <div class="card col-md-3 m-2 p-1 float-left">
+                    <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
+                    <p class="card-text text-center">Title</p>
+                </div>
+
+                <div class="card col-md-3 m-2 p-1 float-left">
+                    <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
+                    <p class="card-text text-center">Title</p>
+                </div>
+
+            </div>
+            <!--/.Panel 1-->
+
+            <!--ENTREES-->
+            <div class="tab-pane fade" id="panel62" role="tabpanel">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+
+            </div>
+            <!--/.Panel 2-->
+
+            <!--PLATS-->
+            <div class="tab-pane fade" id="panel63" role="tabpanel">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+
+            </div>
+            <!--/.Panel 3-->
+
+            <!--DESSERTS-->
+            <div class="tab-pane fade" id="panel64" role="tabpanel">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+
+            </div>
+            <!--/.Panel 4-->
+
+        </div>
+        <div class="offset-2 col-lg-4 p-2 card success-color no-radius">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    {% include 'showMenu/js/showMenu.js' %}
+{% endblock %}

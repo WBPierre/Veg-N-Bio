@@ -6,7 +6,8 @@
 		"products":"Our products",
 		"restaurantLocation":"Where are we ?",
 		"welcomeToOur":"Welcome to our",
-		"veganWorld":"Vegan World",
+        "order": "Order",
+      "veganWorld":"Vegan World",
 		"weOfferBest":"We serve the best Vegan food",
 		"ourVeganProduct":"Fresh and Good",
 		"aFrenchBrand":"The new French Concept",
@@ -116,6 +117,7 @@
 			"contractStart":"Start of contract",
 			"contractEnd":"End of contract",
 			"saveChanges":"Save changes",
+			"salesInterface": "Sales interface",
 			"close":"Close",
 			"contractLast":"Days before contract ends",
 			"vacationDayLast":"Vacations day used",
@@ -180,7 +182,7 @@
 			"moneyGiven":"Cash received",
 			"return":"Return",
 			"locate":"Localisation",
-			"deliveryTime":"Estimated delivery"
+			"deliveryTime":"Estimated delivery",
 		}
 	}
 }
