@@ -60,7 +60,18 @@
 		"activate":"Activer",
 		"order":"Commander",
 		"myProfile":"Mon profil",
-		"logOut":"Se déconnecter"
+		"logOut":"Se déconnecter",
+		"galery": "Galerie",
+		"apetizer": "Entrées",
+		"dishes": "Plats",
+		"dessert": "Desserts",
+		"seeGalery": "Voir la galerie",
+		"menuOrder": "Menus",
+		"makeOrder": "Veg-n-Commande",
+		"drink":"Boissons",
+		"salad": "Salades",
+		"chooseMenu": "Choisissez votre menu",
+		"descriptionGalery": "Bienvenue sur notre galerie, cliquez sur une catégorie pour voir les produits que l'on propose"
 	},
 	"admin":{
 		"login":{

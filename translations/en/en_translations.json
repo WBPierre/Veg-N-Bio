@@ -60,7 +60,18 @@
 		"activate":"Activate",
 		"order":"Order",
 		"myProfile":"My profile",
-		"logOut":"Log out"
+		"logOut":"Log out",
+		"galery": "Galerie",
+		"apetizer": "Apetizer",
+		"dishes": "Dishes",
+		"dessert": "Dessert",
+		"seeGalery": "See Galery",
+		"menuOrder": "Menus",
+		"makeOrder": "Veg-N-Order",
+		"drink":"Drinks",
+		"salad": "Salads",
+		"chooseMenu": "Choose your menu",
+		"descriptionGalery": "Welcome in our galery, click on a category to see the different dishes that we propose "
 	},
 	"admin":{
 		"login":{
