@@ -16,6 +16,7 @@
         });
 
         $('#logMeOn').on('click',function(){
+            var returned = "";
             var success = 0;
             var email = $('#modalLRInput10').val();
             var password = $('#modalLRInput11').val();
@@ -24,17 +25,18 @@
                     $.ajax({
                         method: "POST",
                         url: "/var/connection.php",
+                        async: false,
                         data: { log: "login", email: email, pwd: password }
                     })
                         .done(function(text) {
-                            if(text === "0"){
+                            if(text == 0){
                                 success = 0;
                             }else{
-                                if(text === "1"){
+                                if(text == 1){
                                     success = 2;
                                 }else{
                                     success = 1;
-                                    var returned = text;
+                                    returned = text;
                                 }
                             }
                         });
@@ -44,17 +46,24 @@
                 toastr["success"](loginSuccess);
                 $('#modalLRForm').modal('hide');
                 $('#changeName').html(returned);
+                var dropdown = '<li class="nav-item dropdown">';
+                dropdown +=  '<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+returned+'</a>';
+                dropdown += '<div class="dropdown-menu dropdown-success" aria-labelledby="navbarDropdownMenuLink">';
+                    dropdown += '<a class="dropdown-item" href="#">{{ trans.myProfile }}</a>';
+                dropdown += '<a class="dropdown-item" href="/var/logOut.php">{{ trans.logOut }}</a></div></li>';
+                $('#linkAccount').html(dropdown);
+                $('#orderDef').html('<a class="nav-link" href="?url=order"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.order }}</span></a>');
             }else{
-                if(success != 2){
+                if(success == 0){
                     toastr["warning"](loginFail);
                 }else{
-                    toastr["warning"](signUpInWait);
+                    toastr["info"](signUpInWait);
                 }
             }
 
         });
         $('#signMeOn').on('click',function(){
-            var success = 0;
+            let success = 0;
             var email = $('#modalLRInput12').val();
             var password = $('#modalLRInput13').val();
             var confirm = $('#modalLRInput14').val();
@@ -63,11 +72,14 @@
                     $.ajax({
                         method: "POST",
                         url: "/var/connection.php",
+                        async: false,
                         data: { log: "signin", email: email, pwd: password, confirm: confirm }
                     })
                         .done(function(text) {
-                            if(text === "0"){
+                            if(text == 0){
                                 success = 0;
+                            }else if(text == 2){
+                                success = 2;
                             }else{
                                 success = 1;
                             }
@@ -76,10 +88,29 @@
             }
             if(success == 0){
                 toastr["warning"](signUpFail);
+            }else if(success == 2){
+                toastr["info"](signUpInWait);
             }else{
                 toastr["success"](signUpSuccess);
             }
 
+        });
+        $('.mdb-select').material_select();
+        $('.datepicker').pickadate({
+            {% if lang == 'fr' %}
+            monthsFull: ['Janvier', 'Févirer', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+            monthsShort: ['Jan', 'Fév', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
+            weekdaysFull: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+            weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+            today: 'Aujourd\'hui',
+            clear: 'Reset',
+            close: 'Fermer',
+            labelMonthNext: 'Mois suivant',
+            labelMonthPrev: 'Mois précédent',
+            labelMonthSelect: 'Sélectionnez un mois',
+            labelYearSelect: 'Sélectionnez une année',
+            {% endif %}
+            format: 'yyyy-mm-dd'
         });
     });
 </script>

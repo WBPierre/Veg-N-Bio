@@ -28,6 +28,6 @@ $twig = new Twig_Environment($loader,[
  */
 
 if(!isset($_SESSION['lang']) && empty($_SESSION['lang'])){
-	$lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-	$_SESSION['lang'] = substr($lang, 0,2);
+    $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+    $_SESSION['lang'] = substr($lang, 0,2);
 }

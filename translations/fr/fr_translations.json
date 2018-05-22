@@ -47,7 +47,20 @@
 		"logInFail":"Identifiants erronés",
 		"signUpFail":"Impossible de vous inscrire avec ces informations",
 		"signUpSuccess":"Inscription effectuée ! Merci de la confirmer en utilisant le lien qui vous a été envoyé par email",
-		"accountInWait":"Compte en attente de valdiation. Merci de vérifiez votre boite mail"
+		"accountInWait":"Compte en attente de valdiation. Merci de vérifiez votre boite mail",
+		"completeToActivate":"Merci de completer ces informations pour activer votre compte",
+		"name":"Nom",
+		"firstname":"Prénom",
+		"gender":"Genre",
+		"birthdate":"Date de naissance",
+		"phone":"Téléphone",
+		"man":"Homme",
+		"woman":"Femme",
+		"other":"Autre",
+		"activate":"Activer",
+		"order":"Commander",
+		"myProfile":"Mon profil",
+		"logOut":"Se déconnecter"
 	},
 	"admin":{
 		"login":{

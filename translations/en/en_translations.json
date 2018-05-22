@@ -47,7 +47,20 @@
 		"logInFail":"Identification failed",
 		"signUpFail":"Resgistration impossible",
 		"signUpSuccess":"Inscription completed ! Please confirm it using the link in your mails",
-		"accountInWait":"Account still not validated. Please check your webmail"
+		"accountInWait":"Account still not validated. Please check your webmail",
+		"completeToActivate":"Please, complete this form in order to activate your account",
+		"name":"Name",
+		"firstname":"firstname",
+		"gender":"Gender",
+		"birthdate":"Birthdate",
+		"phone":"Phone",
+		"man":"Man",
+		"woman":"Woman",
+		"other":"Other",
+		"activate":"Activate",
+		"order":"Order",
+		"myProfile":"My profile",
+		"logOut":"Log out"
 	},
 	"admin":{
 		"login":{
