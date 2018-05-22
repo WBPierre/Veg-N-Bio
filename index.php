@@ -12,8 +12,16 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
     $request = $db->fetchAll('SELECT * FROM vnb_users WHERE id = :id',[ 'id' => $_SESSION['id']]);
     $name = $request[0]['firstname']." ".$request[0]['name'];
     switch($_GET['url']){
+        case 'visit':
+            header('Location: ThreeJS/index.html');
+            break;
         case 'order':
-            echo $twig->render('order/order.twig', [ 'trans' => $string, 'name'=>$name ] );
+            echo $twig->render('order/order.twig', ['trans' => $string]);
+            break;
+        case 'showMenu':
+            $request = new ProductController();
+            $array = $request->getAllProducts();
+            echo $twig->render('showMenu/showMenu.twig', ['products' => $array,'trans' => $string]);
             break;
         default:
             echo $twig->render('home/home.twig', [ 'trans' => $string, 'name'=>$name, 'intro' => true ] );
@@ -34,7 +42,7 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
             echo $twig->render('showMenu/showMenu.twig', ['products' => $array,'trans' => $string]);
             break;
         default:
-            echo $twig->render('home/home.twig', ['trans' => $string]);
+            echo $twig->render('home/home.twig', ['trans' => $string, 'intro' => true]);
             break;
     }
 }
