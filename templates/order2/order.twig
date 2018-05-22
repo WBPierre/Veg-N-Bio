@@ -1,0 +1,118 @@
+{% extends 'base.twig' %}
+{% block content %}
+{% include 'order/css/order.css' %}
+    <!-- Cart -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-side modal-bottom-right" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="view intro-2 hm-stylish-strong" style="height:100vh; z-index:0;">
+    <div class="full-bg-img flex-center">
+        <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-2 offset-md-10">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                        See cart
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-white  rgba-black-light">
+                <ul class="nav md-pills nav-justified pills-secondary success-color-dark w-100">
+                    <li class="nav-item white-text">
+                        <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab">Active</a>
+                    </li>
+                    <li class="nav-item white-text">
+                        <a class="nav-link" data-toggle="tab" href="#panel11" role="tab">Link</a>
+                    </li>
+                    <li class="nav-item white-text">
+                        <a class="nav-link" data-toggle="tab" href="#panel12" role="tab">Link</a>
+                    </li>
+                    <li class="nav-item white-text">
+                        <a class="nav-link" data-toggle="tab" href="#panel13" role="tab">Help</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panels -->
+                <div class="tab-content" style="height:50vh">
+
+                    <!--Panel 1-->
+                    <div class="tab-pane fade in show active" id="panel11" role="tabpanel">
+                        <br>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+                            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
+                            porro voluptate odit minima.</p>
+
+                    </div>
+                    <!--/.Panel 1-->
+
+                    <!--Panel 2-->
+                    <div class="tab-pane fade" id="panel12" role="tabpanel">
+                        <br>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+                            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
+                            porro voluptate odit minima.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+                            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
+                            porro voluptate odit minima.</p>
+
+                    </div>
+                    <!--/.Panel 2-->
+
+                    <!--Panel 3-->
+                    <div class="tab-pane fade" id="panel13" role="tabpanel">
+                        <br>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+                            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
+                            porro voluptate odit minima.</p>
+
+                    </div>
+                    <!--/.Panel 3-->
+
+                    <!--Panel 4-->
+                    <div class="tab-pane fade" id="panel14" role="tabpanel">
+                        <br>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+                            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
+                            porro voluptate odit minima.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+                            reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
+                            porro voluptate odit minima.</p>
+
+                    </div>
+                    <!--/.Panel 4-->
+
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block javascript %}
+<script>
+
+</script>
+{% endblock %}

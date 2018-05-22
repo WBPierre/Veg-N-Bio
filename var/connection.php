@@ -12,9 +12,10 @@ if($_POST['log'] == "login"){
             $db = new DatabaseController();
             $response = $db->fetchAll('SELECT * FROM vnb_users WHERE email = :email', [ 'email' => $data['email'] ]);
             if(count($response) == 1){
-                if(password_verify($data['password'], $response[0]['password'])){
+                $verify = password_verify($data['password'], $response[0]['password']);
+                if($verify === true){
                     if($response[0]['active'] == 0){
-                        die(1);
+                        die("1");
                     }
                     $_SESSION['logUser'] = true;
                     $_SESSION['id'] = $response[0]['id'];
@@ -22,13 +23,6 @@ if($_POST['log'] == "login"){
                     $name .= '.'.$response[0]['name'];
                     die($name);
                 }else{
-                    $headers = "From: d.pierrebox@gmail.com\r\n";
-                    $headers .= "MIME-Version: 1.0\r\n";
-                    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                    $mail = file_get_contents("../emails/header.html");
-                    $mail.= "TEST 123";
-                    $mail .= file_get_contents("../emails/footer.html");
-                    mail('d.pierrebox@gmail.com', 'test', $mail,$headers);
                     die("0");
                 }
             }else{
@@ -46,15 +40,24 @@ if($_POST['log'] == 'signin'){
         }
         $data = [
             'email' => $_POST['email'],
-            'password' => $_POST['password'],
+            'password' => $_POST['pwd'],
             'active' => 0,
             'access_level' => 0
         ];
         if (filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+            $key = md5(uniqid());
+            $data['activation_key'] = $key;
             $db = new DatabaseController();
-            $response = $db->insert('INSERT INTO vnb_users(email,password, active, access_level) VALUES (:email, :password, :active, :access_level)', $data);
-            die("1");
+            $request = $db->fetchAll('SELECT * FROM vnb_users WHERE email = :email',[ 'email' => $data['email']]);
+            if( count($request) > 0){
+                EmailController::sendActivation($request[0]['email'],$request[0]['activation_key']);
+                die("2");
+            }
+
+            $response = $db->insert('INSERT INTO vnb_users(email,password, active, activation_key, access_level) VALUES (:email, :password, :active, :activation_key, :access_level)', $data);
+            EmailController::sendActivation($data['email'],$data['activation_key']);
+            die(var_dump($data));
         }
     }
     die("0");
