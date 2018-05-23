@@ -6,9 +6,9 @@
 			<section class="section mt-5 feature-box" id="features">
 				<a href="?url=showMenu" class="btn rgba-white-strong dark-grey-text font-bold">{{ trans.seeGalery }}</a>
 				{% if name is defined %}
-					<a href="?url=order" class="btn rgba-yellow-strong dark-grey-text font-bold">{{ trans.order }}</a>
+					<a data-toggle="modal" data-target="#chooseType" class="btn rgba-yellow-strong dark-grey-text font-bold">{{ trans.order }}</a>
 				{% else %}
-					<a data-toggle="modal" data-target="#modalLRForm" class="btn rgba-yellow-strong dark-grey-text font-bold">{{ trans.order }}</a>
+					<a data-toggle="modal" data-target="#modalLRForm" id="orderLinkHome" class="btn rgba-yellow-strong dark-grey-text font-bold">{{ trans.order }}</a>
 				{% endif %}
 				<h1 class="text-center font-bold mt-5 pt-5 mb-3 drk-grey-text wow fadeIn" data-wow-delay="0.2s">
 					<em>{{ trans.ourVeganProduct }}</em>

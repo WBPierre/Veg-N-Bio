@@ -72,7 +72,13 @@
 		"drink":"Drinks",
 		"salad": "Salads",
 		"chooseMenu": "Choose your menu",
-		"descriptionGalery": "Welcome in our galery, click on a category to see the different dishes that we propose "
+		"descriptionGalery": "Welcome in our galery, click on a category to see the different dishes that we propose ",
+		"backToWebsite":"Back to the home",
+		"yourOrder":"Your order",
+		"selectRestaurant":"Select a restaurant",
+		"delivery":"Delivery",
+		"onPlace":"On the spot",
+		"confirm":"Confirm"
 	},
 	"admin":{
 		"login":{

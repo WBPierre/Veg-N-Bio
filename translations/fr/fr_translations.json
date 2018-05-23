@@ -72,7 +72,13 @@
 		"drink":"Boissons",
 		"salad": "Salades",
 		"chooseMenu": "Choisissez votre menu",
-		"descriptionGalery": "Bienvenue sur notre galerie, cliquez sur une catégorie pour voir les produits que l'on propose"
+		"descriptionGalery": "Bienvenue sur notre galerie, cliquez sur une catégorie pour voir les produits que l'on propose",
+		"backToWebsite":"Retour au site",
+		"yourOrder":"Votre commande",
+		"selectRestaurant":"Sélectionner un restaurant",
+		"delivery":"Livraison",
+		"onPlace":"Sur place",
+		"confirm":"Confirmer"
 	},
 	"admin":{
 		"login":{

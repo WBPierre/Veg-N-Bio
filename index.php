@@ -16,12 +16,15 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
             header('Location: ThreeJS/index.html');
             break;
         case 'order':
-            echo $twig->render('order/order.twig', ['trans' => $string]);
+            $request = new ProductController();
+            $array = $request->getAllProducts();
+            $menu = $request->getAllMenus(true);
+            echo $twig->render('order/order.twig', [ 'trans' => $string, 'menus' => $menu, 'products' => $array ]);
             break;
         case 'showMenu':
             $request = new ProductController();
             $array = $request->getAllProducts();
-            echo $twig->render('showMenu/showMenu.twig', ['products' => $array,'trans' => $string]);
+            echo $twig->render('showMenu/showMenu.twig', ['products' => $array, 'trans' => $string, 'name' => $name ]);
             break;
         default:
             echo $twig->render('home/home.twig', [ 'trans' => $string, 'name'=>$name, 'intro' => true ] );

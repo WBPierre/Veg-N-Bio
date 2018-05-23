@@ -1,12 +1,13 @@
-{% extends 'base2Front.twig' %}
+{% extends 'base.twig' %}
+{% block header %}{% endblock %}
 {% block content %}
-
+    <main style="background: url('/assets/images/bg_cashDesk.jpg')no-repeat center center fixed;background-size: cover; height:100vh;">
     <div class="container-fluid mt-2">
         <!-- Nav tabs -->
         <div class="tabs-wrapper">
             <ul class="nav classic-tabs tabs-success" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link waves-light" href="/" role="tab"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i><br>Retour au site</a>
+                    <a class="nav-link waves-light" href="/" role="tab"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i><br>{{ trans.backToWebsite }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-light active" data-toggle="tab" href="#panel61" role="tab"><i class="fa fa-bars fa-2x" aria-hidden="true"></i><br>{{ trans.menuOrder }}</a>
@@ -28,36 +29,31 @@
 
         <!-- Tab panels -->
         <div class="tab-content card col-lg-8 float-left">
-            <h4 class="card-title text-center">{{ trans.chooseMenu }}</h4>
             <!--MENUS-->
             <div class="tab-pane fade in show active col-lg-12" id="panel61" role="tabpanel">
-                <div class="card col-md-3 m-2 p-1 float-left">
-                    <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
-                    <p class="card-text text-center">Title</p>
-                </div>
-                <div class="card col-md-3 m-2  p-1 float-left">
-                    <img src="../../assets/images/burger.jpg"  align="center" height="200">
-                    <p class="card-text text-center">Title</p>
-                </div>
-                <div class="card col-md-3 m-2 p-1 float-left">
-                    <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
-                    <p class="card-text text-center">Title</p>
-                </div>
-
-                <div class="card col-md-3 m-2 p-1 float-left">
-                    <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
-                    <p class="card-text text-center">Title</p>
-                </div>
-
+                <h4 class="card-title text-center">{{ trans.chooseMenu }}</h4>
+                {% for menu in menus %}
+                    <div class="card col-md-3 m-2 p-1 float-left">
+                        <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
+                        <p class="card-text text-center">{{ menu.name }} - {{ menu.price }} €</p>
+                    </div>
+                {% endfor %}
             </div>
             <!--/.Panel 1-->
 
             <!--ENTREES-->
-            <div class="tab-pane fade" id="panel62" role="tabpanel">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
 
-            </div>
+                <!--MENUS-->
+                <div class="tab-pane fade col-lg-12" id="panel62" role="tabpanel">
+                    <h4 class="card-title text-center">{{ trans.apetize }}</h4>
+                    {% for product in products[0] %}
+                        <div class="card col-md-3 m-2 p-1 float-left">
+                            <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                            <p class="card-text text-center">{{ product.name }} - {{ product.price }} €</p>
+                            <p class="text-muted">{{ product.allergens }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
             <!--/.Panel 2-->
 
             <!--PLATS-->
@@ -85,9 +81,11 @@
             </ul>
         </div>
     </div>
-
+</main>
 {% endblock %}
+{% block footer %}{% endblock %}
 
 {% block javascript %}
     {% include 'showMenu/js/showMenu.js' %}
+    {% include 'order/js/order.js' %}
 {% endblock %}
