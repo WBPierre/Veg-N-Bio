@@ -52,7 +52,9 @@
                     dropdown += '<a class="dropdown-item" href="#">{{ trans.myProfile }}</a>';
                 dropdown += '<a class="dropdown-item" href="/var/logOut.php">{{ trans.logOut }}</a></div></li>';
                 $('#linkAccount').html(dropdown);
-                $('#orderDef').html('<a class="nav-link" href="?url=order"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.order }}</span></a>');
+                $('#orderDef').html('<a class="nav-link" data-toggle="modal" data-target="#chooseType"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.order }}</span></a>');
+                $('#orderLinkHome').removeAttr("data-target");
+                $('#orderLinkHome').Attr("data-target","#chooseType");
             }else{
                 if(success == 0){
                     toastr["warning"](loginFail);
@@ -95,7 +97,6 @@
             }
 
         });
-        $('.mdb-select').material_select();
         $('.datepicker').pickadate({
             {% if lang == 'fr' %}
             monthsFull: ['Janvier', 'Févirer', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],

@@ -1,302 +1,169 @@
-{% extends 'base2Front.twig' %}
-{% block header %}{% include '_partials/header2Front.twig' %}{% endblock %}
+{% extends 'base.twig' %}
 
 {% block content %}
-    <!--Modal: Login / Register Form-->
-    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog cascading-modal" role="document">
-            <!--Content-->
-            <div class="modal-content">
-
-                <!--Modal cascading tabs-->
-                <div class="modal-c-tabs">
-
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs tabs-2 success-color-dark" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="signInPanel" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i> {{ trans.login }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="signUpPanel" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> {{ trans.signUp }}</a>
-                        </li>
-                    </ul>
-
-                    <!-- Tab panels -->
-                    <div class="tab-content">
-                        <!--Panel 7-->
-                        <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-
-                            <!--Body-->
-                            <div class="modal-body mb-1">
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-envelope prefix"></i>
-                                    <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput10">{{ trans.yourEmail }}</label>
-                                </div>
-
-                                <div class="md-form form-sm mb-4">
-                                    <i class="fa fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput11">{{ trans.yourPwd }}</label>
-                                </div>
-                                <div class="text-center mt-2">
-                                    <button class="btn btn-success" id="logMeOn">{{ trans.login }} <i class="fa fa-sign-in ml-1"></i></button>
-                                </div>
-                            </div>
-                            <!--Footer-->
-                            <div class="modal-footer">
-                                <div class="options text-center text-md-right mt-1">
-                                    <p>{{ trans.notAMember }} <a id="swapSignUp" class="blue-text">{{ trans.signUp }}</a></p>
-                                    <p><a href="#" class="blue-text">{{ trans.forgotPwd }}</a></p>
-                                </div>
-                                <button type="button" class="btn btn-outline-success waves-effect ml-auto" data-dismiss="modal">{{ trans.close }}</button>
-                            </div>
-
-                        </div>
-                        <!--/.Panel 7-->
-
-                        <!--Panel 8-->
-                        <div class="tab-pane fade" id="panel8" role="tabpanel">
-
-                            <!--Body-->
-                            <div class="modal-body">
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-envelope prefix"></i>
-                                    <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput12">{{ trans.yourEmail }}</label>
-                                </div>
-
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput13">{{ trans.yourPwd }}</label>
-                                </div>
-
-                                <div class="md-form form-sm mb-4">
-                                    <i class="fa fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput14">{{ trans.repeatPwd }}</label>
-                                </div>
-
-                                <div class="text-center form-sm mt-2">
-                                    <button class="btn btn-success" id="signMeOn">{{ trans.signUp }} <i class="fa fa-sign-in ml-1"></i></button>
-                                </div>
-
-                            </div>
-                            <!--Footer-->
-                            <div class="modal-footer">
-                                <div class="options text-right">
-                                    <p class="pt-1">{{ trans.alreadyHaveAnAccount }} <a href="#" id="swapLogin" class="blue-text">{{ trans.login }}</a></p>
-                                </div>
-                                <button type="button" class="btn btn-outline-success waves-effect ml-auto" data-dismiss="modal">{{ trans.close }}</button>
-                            </div>
-                        </div>
-                        <!--/.Panel 8-->
-                    </div>
-
-                </div>
-            </div>
-            <!--/.Content-->
-        </div>
-    </div>
-
-<header>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar success-color-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">Veg'N'Bio</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav nav-flex-icons ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#modalLRForm"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.account }}</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="mb-2">a</div>
-
+<main style="background: url('/assets/images/bg_cashDesk.jpg')no-repeat center center fixed;background-size: cover;">
     <div class="container">
-        <!-- Section About -->
-        <section id="specials" class="section feature-box text-center mt-5 mb-5">
-            <!-- Section title -->
-            <h2 class="section-heading text-center mb-5 text-uppercase font-weight-bold wow fadeIn" data-wow-delay="0.2s">{{ trans.galery }}</h2>
-            <p class="text-center w-responsive mx-auto my-5 wow fadeIn" data-wow-delay="0.2s">{{ trans.descriptionGalery }}</p>
-            <!-- First row -->
-            <div class="row  wow fadeIn" data-wow-delay="0.4s">
-                <!-- First column -->
-                <div class="col-md-4 mb-6">
-                    <!--Panel-->
-                    <div id="choice1" class="card card-body  green darken-3 hoverable">
-                        <i class="fa fa-leaf fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
-                        <h5 class="feature-title font-weight-bold white-text text-uppercase">{{ trans.apetizer }}</h5>
+        <section class="section  view hm-black-strong-1 jarallax mt-5">
+            <!-- Section About -->
+            <section id="specials" class="section feature-box text-center mt-5 mb-5 text-white">
+                <!-- Section title -->
+                <h2 class="section-heading text-center mb-5 text-uppercase font-weight-bold wow fadeIn" data-wow-delay="0.2s">{{ trans.galery }}</h2>
+                <p class="text-center w-responsive mx-auto my-5 wow fadeIn" data-wow-delay="0.2s">{{ trans.descriptionGalery }}</p>
+                <!-- First row -->
+                <div class="row  wow fadeIn" data-wow-delay="0.4s">
+                    <!-- First column -->
+                    <div class="col-md-4 mb-6">
+                        <!--Panel-->
+                        <div id="choice1" class="card card-body  green darken-3 hoverable">
+                            <i class="fa fa-leaf fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
+                            <h5 class="feature-title font-weight-bold white-text text-uppercase">{{ trans.apetizer }}</h5>
+                        </div>
+                        <!--/.Panel-->
                     </div>
-                    <!--/.Panel-->
-                </div>
-                <!-- /First column -->
-                <!-- Second column -->
-                <div class="col-md-4 mb-6">
-                    <!--Panel-->
-                    <div id="choice2" class="card card-body amber hoverable">
-                        <i class="fa fa-cutlery fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
-                        <h5 class="feature-title white-text text-uppercase">{{ trans.dishes }}</h5>
+                    <!-- /First column -->
+                    <!-- Second column -->
+                    <div class="col-md-4 mb-6">
+                        <!--Panel-->
+                        <div id="choice2" class="card card-body amber hoverable">
+                            <i class="fa fa-cutlery fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
+                            <h5 class="feature-title white-text text-uppercase">{{ trans.dishes }}</h5>
+                        </div>
+                        <!--/.Panel-->
                     </div>
-                    <!--/.Panel-->
-                </div>
-                <!-- /.Second column -->
-                <!-- Third column -->
-                <div class="col-md-4 mb-6">
-                    <!--Panel-->
-                    <div id="choice3" class="card card-body light-blue darken-3 hoverable">
-                        <i class="fa fa-birthday-cake fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
-                        <h5 class="feature-title white-text text-uppercase">{{ trans.dessert }}</h5>
+                    <!-- /.Second column -->
+                    <!-- Third column -->
+                    <div class="col-md-4 mb-6">
+                        <!--Panel-->
+                        <div id="choice3" class="card card-body light-blue darken-3 hoverable">
+                            <i class="fa fa-birthday-cake fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
+                            <h5 class="feature-title white-text text-uppercase">{{ trans.dessert }}</h5>
+                        </div>
+                        <!--/.Panel-->
                     </div>
-                    <!--/.Panel-->
-                </div>
-                <div class="col-md-4 mb-6 mt-2">
-                    <!--Panel-->
-                    <div id="choice4" class="card card-body cyan lighten-3 hoverable">
-                        <i class="fa fa-leaf fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
-                        <h5 class="feature-title white-text text-uppercase">{{ trans.salad}}</h5>
+                    <div class="col-md-4 mb-6 mt-2">
+                        <!--Panel-->
+                        <div id="choice4" class="card card-body cyan lighten-3 hoverable">
+                            <i class="fa fa-leaf fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
+                            <h5 class="feature-title white-text text-uppercase">{{ trans.salad}}</h5>
+                        </div>
+                        <!--/.Panel-->
                     </div>
-                    <!--/.Panel-->
-                </div>
-                <div class="offset-4 col-md-4 mb-6 mt-2">
-                    <!--Panel-->
-                    <div id="choice5" class="card card-body deep-purple lighten-1 hoverable">
-                        <i class="fa fa-glass fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
-                        <h5 class="feature-title white-text text-uppercase">{{ trans.drink }}</h5>
+                    <div class="offset-4 col-md-4 mb-6 mt-2">
+                        <!--Panel-->
+                        <div id="choice5" class="card card-body deep-purple lighten-1 hoverable">
+                            <i class="fa fa-glass fa-3x mb-4 mt-3 white-text" aria-hidden="true"></i>
+                            <h5 class="feature-title white-text text-uppercase">{{ trans.drink }}</h5>
+                        </div>
+                        <!--/.Panel-->
                     </div>
-                    <!--/.Panel-->
-                </div>
 
+                </div>
+                <!-- /.First row -->
+            </section>
+            <!-- /.Second section -->
+            <!--Carousel Wrapper-->
+            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+                <!--Indicators-->
+
+                <!--/.Indicators-->
+
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox">
+                    <!--ENTREE -->
+                    <div class="carousel-item active">
+                        <h4 class="card-title text-center text-white">{{ trans.apetizer }}</h4>
+                        {% for product in products[0] %}
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ product.name }}</h4>
+                                        <p class="card-text">{{ product.description }}</p>
+                                        <p class="card-title font-bold">{{ product.price }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- PLAT -->
+
+                    <div class="carousel-item">
+                        <h4 class="card-title text-center text-white">{{ trans.dishes }}</h4>
+                        {% for product in products[1] %}
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ product.name }}</h4>
+                                        <p class="card-text">{{ product.description }}</p>
+                                        <p class="card-title font-bold">{{ product.price }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    <!--Third slide-->
+                    <div class="carousel-item">
+                        <h4 class="card-title text-center text-white">{{ trans.dessert }}</h4>
+                        {% for product in products[3] %}
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ product.name }}</h4>
+                                        <p class="card-text">{{ product.description }}</p>
+                                        <p class="card-title font-bold">{{ product.price }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="carousel-item">
+                        <h4 class="card-title text-center text-white">{{ trans.salad }}</h4>
+                        {% for product in products[2] %}
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ product.name }}</h4>
+                                        <p class="card-text">{{ product.description }}</p>
+                                        <p class="card-title font-bold">{{ product.price }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="carousel-item">
+                        <h4 class="card-title text-center text-white">{{ trans.drink }}</h4>
+                        {% for product in products[4] %}
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ product.name }}</h4>
+                                        <p class="card-text">{{ product.description }}</p>
+                                        <p class="card-title font-bold">{{ product.price }}€</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!--/.Slides-->
+                <ol class="carousel-indicators">
+                    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                    <li data-target="#multi-item-example" data-slide-to="1"></li>
+                    <li data-target="#multi-item-example" data-slide-to="2"></li>
+                    <li data-target="#multi-item-example" data-slide-to="3"></li>
+                    <li data-target="#multi-item-example" data-slide-to="4"></li>
+                </ol>
             </div>
-            <!-- /.First row -->
         </section>
-        <!-- /.Second section -->
-        <!--Carousel Wrapper-->
-        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-            <!--Indicators-->
-            <ol class="carousel-indicators">
-                <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                <li data-target="#multi-item-example" data-slide-to="1"></li>
-                <li data-target="#multi-item-example" data-slide-to="2"></li>
-                <li data-target="#multi-item-example" data-slide-to="3"></li>
-                <li data-target="#multi-item-example" data-slide-to="4"></li>
-            </ol>
-            <!--/.Indicators-->
-
-            <!--Slides-->
-            <div class="carousel-inner" role="listbox">
-                <!--ENTREE -->
-                <div class="carousel-item active">
-                    <h4 class="card-title text-center">{{ trans.apetizer }}</h4>
-                    {% for product in products[0] %}
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">{{ product.name }}</h4>
-                                    <p class="card-text">{{ product.description }}</p>
-                                    <p class="card-title font-bold">{{ product.price }}€</p>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-                <!-- PLAT -->
-
-                <div class="carousel-item">
-                    <h4 class="card-title text-center">{{ trans.dishes }}</h4>
-                    {% for product in products[1] %}
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">{{ product.name }}</h4>
-                                    <p class="card-text">{{ product.description }}</p>
-                                    <p class="card-title font-bold">{{ product.price }}€</p>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-
-                </div>
-                <!--Third slide-->
-                <div class="carousel-item">
-                    <h4 class="card-title text-center">{{ trans.dessert }}</h4>
-                    {% for product in products[3] %}
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">{{ product.name }}</h4>
-                                    <p class="card-text">{{ product.description }}</p>
-                                    <p class="card-title font-bold">{{ product.price }}€</p>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="carousel-item">
-                    <h4 class="card-title text-center">{{ trans.salad }}</h4>
-                    {% for product in products[2] %}
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">{{ product.name }}</h4>
-                                    <p class="card-text">{{ product.description }}</p>
-                                    <p class="card-title font-bold">{{ product.price }}€</p>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="carousel-item">
-                    <h4 class="card-title text-center">{{ trans.drink }}</h4>
-                    {% for product in products[4] %}
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top" src="/assets/images/products/{{ product.img }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">{{ product.name }}</h4>
-                                    <p class="card-text">{{ product.description }}</p>
-                                    <p class="card-title font-bold">{{ product.price }}€</p>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <!--/.Slides-->
-
-        </div>
     </div>
-
+</main>
 {% endblock %}
-
+{% block footer %}{% endblock %}
 {% block javascript %}
     {% include 'showMenu/js/showMenu.js' %}
 {% endblock %}
