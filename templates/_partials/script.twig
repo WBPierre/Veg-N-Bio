@@ -15,6 +15,9 @@
             $('#signInPanel').click();
         });
 
+        $('#submitLangugage').on('click',function(){
+            $('#formLanguage').submit();
+        })
         $('#logMeOn').on('click',function(){
             var returned = "";
             var success = 0;
@@ -53,8 +56,8 @@
                 dropdown += '<a class="dropdown-item" href="/var/logOut.php">{{ trans.logOut }}</a></div></li>';
                 $('#linkAccount').html(dropdown);
                 $('#orderDef').html('<a class="nav-link" data-toggle="modal" data-target="#chooseType"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.order }}</span></a>');
-                $('#orderLinkHome').removeAttr("data-target");
-                $('#orderLinkHome').Attr("data-target","#chooseType");
+                $('.orderLinkHome').removeAttr("data-target");
+                $('.orderLinkHome').attr("data-target","#chooseType");
             }else{
                 if(success == 0){
                     toastr["warning"](loginFail);
@@ -95,7 +98,6 @@
             }else{
                 toastr["success"](signUpSuccess);
             }
-
         });
         $('.datepicker').pickadate({
             {% if lang == 'fr' %}
