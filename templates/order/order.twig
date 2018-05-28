@@ -13,7 +13,10 @@
                     <a class="nav-link waves-light active" data-toggle="tab" href="#panel61" role="tab"><i class="fa fa-bars fa-2x" aria-hidden="true"></i><br>{{ trans.menuOrder }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-light" data-toggle="tab" href="#panel62" role="tab"><i class="fa fa-leaf fa-2x" aria-hidden="true"></i><br>{{ trans.apetizer }}</a>
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel62" role="tab"><i class="fa fa-cutlery fa-2x" aria-hidden="true"></i><br>{{ trans.apetizer }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel66" role="tab"><i class="fa fa-leaf fa-2x" aria-hidden="true"></i><br>{{ trans.salad }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-light" data-toggle="tab" href="#panel63" role="tab"><i class="fa fa-cutlery fa-2x" aria-hidden="true"></i><br>{{ trans.dishes }}</a>
@@ -22,7 +25,7 @@
                     <a class="nav-link waves-light" data-toggle="tab" href="#panel64" role="tab"><i class="fa fa-birthday-cake fa-2x" aria-hidden="true"></i><br>{{ trans.dessert }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-light" data-toggle="tab" href="#panel64" role="tab"><i class="fa fa-glass fa-2x" aria-hidden="true"></i><br>{{ trans.drink }}</a>
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel65" role="tab"><i class="fa fa-glass fa-2x" aria-hidden="true"></i><br>{{ trans.drink }}</a>
                 </li>
             </ul>
         </div>
@@ -43,32 +46,65 @@
 
             <!--ENTREES-->
 
-                <!--MENUS-->
-                <div class="tab-pane fade col-lg-12" id="panel62" role="tabpanel">
-                    <h4 class="card-title text-center">{{ trans.apetize }}</h4>
-                    {% for product in products[0] %}
-                        <div class="card col-md-3 m-2 p-1 float-left">
-                            <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
-                            <p class="card-text text-center">{{ product.name }} - {{ product.price }} €</p>
-                            <p class="text-muted">{{ product.allergens }}</p>
-                        </div>
-                    {% endfor %}
-                </div>
+            <!--ENTREES-->
+            <div class="tab-pane fade col-lg-12" id="panel62" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.apetize }}</h4>
+                {% for product in products[0] %}
+                    <div class="card col-md-3 m-2 p-1 float-left">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center">{{ product.name }} - {{ product.price }} €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
+            </div>
             <!--/.Panel 2-->
-
+            <!-- DRINKS -->
+            <div class="tab-pane fade col-lg-12" id="panel66" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.salad }}</h4>
+                {% for product in products[2] %}
+                    <div class="card col-md-3 m-2 p-1 float-left">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center">{{ product.name }} - {{ product.price }} €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
+            </div>
             <!--PLATS-->
-            <div class="tab-pane fade" id="panel63" role="tabpanel">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-
+            <div class="tab-pane fade col-lg-12" id="panel63" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.dishes }}</h4>
+                {% for product in products[1] %}
+                    <div class="card col-md-3 m-2 p-1 float-left">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center">{{ product.name }} - {{ product.price }} €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
             </div>
             <!--/.Panel 3-->
 
             <!--DESSERTS-->
-            <div class="tab-pane fade" id="panel64" role="tabpanel">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-
+            <div class="tab-pane fade col-lg-12" id="panel64" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.dessert }}</h4>
+                {% for product in products[3] %}
+                    <div class="card col-md-3 m-2 p-1 float-left">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center">{{ product.name }} - {{ product.price }} €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
             </div>
             <!--/.Panel 4-->
+            <!-- DRINKS -->
+            <div class="tab-pane fade col-lg-12" id="panel65" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.drink }}</h4>
+                {% for product in products[4] %}
+                    <div class="card col-md-3 m-2 p-1 float-left">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center">{{ product.name }} - {{ product.price }} €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
+            </div>
 
         </div>
         <div class="offset-2 col-lg-4 p-2 card success-color no-radius">

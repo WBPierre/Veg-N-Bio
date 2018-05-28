@@ -1,144 +1,148 @@
 {% if name is not defined %}
-<!--Modal: Login / Register Form-->
-<div id="modalDef">
-    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog cascading-modal" role="document">
-            <!--Content-->
-            <div class="modal-content">
+    <!--Modal: Login / Register Form-->
+    <div id="modalDef">
+        <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+                <!--Content-->
+                <div class="modal-content">
 
-                <!--Modal cascading tabs-->
-                <div class="modal-c-tabs">
+                    <!--Modal cascading tabs-->
+                    <div class="modal-c-tabs">
 
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs tabs-2 success-color-dark" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="signInPanel" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i> {{ trans.login }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="signUpPanel" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> {{ trans.signUp }}</a>
-                        </li>
-                    </ul>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tabs-2 success-color-dark" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="signInPanel" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i> {{ trans.login }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="signUpPanel" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> {{ trans.signUp }}</a>
+                            </li>
+                        </ul>
 
-                    <!-- Tab panels -->
-                    <div class="tab-content">
-                        <!--Panel 7-->
-                        <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                        <!-- Tab panels -->
+                        <div class="tab-content">
+                            <!--Panel 7-->
+                            <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
 
-                            <!--Body-->
-                            <div class="modal-body mb-1">
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-envelope prefix"></i>
-                                    <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput10">{{ trans.yourEmail }}</label>
+                                <!--Body-->
+                                <div class="modal-body mb-1">
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fa fa-envelope prefix"></i>
+                                        <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput10">{{ trans.yourEmail }}</label>
+                                    </div>
+
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fa fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput11">{{ trans.yourPwd }}</label>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <button class="btn btn-success" id="logMeOn">{{ trans.login }} <i class="fa fa-sign-in ml-1"></i></button>
+                                    </div>
+                                </div>
+                                <!--Footer-->
+                                <div class="modal-footer">
+                                    <div class="options text-center text-md-right mt-1">
+                                        <p>{{ trans.notAMember }} <a id="swapSignUp" class="blue-text">{{ trans.signUp }}</a></p>
+                                        <p><a href="#" class="blue-text">{{ trans.forgotPwd }}</a></p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-success waves-effect ml-auto" data-dismiss="modal">{{ trans.close }}</button>
                                 </div>
 
-                                <div class="md-form form-sm mb-4">
-                                    <i class="fa fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput11">{{ trans.yourPwd }}</label>
+                            </div>
+                            <!--/.Panel 7-->
+
+                            <!--Panel 8-->
+                            <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+                                <!--Body-->
+                                <div class="modal-body">
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fa fa-envelope prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">{{ trans.yourEmail }}</label>
+                                    </div>
+
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fa fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput13">{{ trans.yourPwd }}</label>
+                                    </div>
+
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fa fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput14">{{ trans.repeatPwd }}</label>
+                                    </div>
+
+                                    <div class="text-center form-sm mt-2">
+                                        <button class="btn btn-success" id="signMeOn">{{ trans.signUp }} <i class="fa fa-sign-in ml-1"></i></button>
+                                    </div>
+
                                 </div>
-                                <div class="text-center mt-2">
-                                    <button class="btn btn-success" id="logMeOn">{{ trans.login }} <i class="fa fa-sign-in ml-1"></i></button>
+                                <!--Footer-->
+                                <div class="modal-footer">
+                                    <div class="options text-right">
+                                        <p class="pt-1">{{ trans.alreadyHaveAnAccount }} <a href="#" id="swapLogin" class="blue-text">{{ trans.login }}</a></p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-success waves-effect ml-auto" data-dismiss="modal">{{ trans.close }}</button>
                                 </div>
                             </div>
-                            <!--Footer-->
-                            <div class="modal-footer">
-                                <div class="options text-center text-md-right mt-1">
-                                    <p>{{ trans.notAMember }} <a id="swapSignUp" class="blue-text">{{ trans.signUp }}</a></p>
-                                    <p><a href="#" class="blue-text">{{ trans.forgotPwd }}</a></p>
-                                </div>
-                                <button type="button" class="btn btn-outline-success waves-effect ml-auto" data-dismiss="modal">{{ trans.close }}</button>
-                            </div>
-
+                            <!--/.Panel 8-->
                         </div>
-                        <!--/.Panel 7-->
 
-                        <!--Panel 8-->
-                        <div class="tab-pane fade" id="panel8" role="tabpanel">
-
-                            <!--Body-->
-                            <div class="modal-body">
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-envelope prefix"></i>
-                                    <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput12">{{ trans.yourEmail }}</label>
-                                </div>
-
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fa fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput13">{{ trans.yourPwd }}</label>
-                                </div>
-
-                                <div class="md-form form-sm mb-4">
-                                    <i class="fa fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput14">{{ trans.repeatPwd }}</label>
-                                </div>
-
-                                <div class="text-center form-sm mt-2">
-                                    <button class="btn btn-success" id="signMeOn">{{ trans.signUp }} <i class="fa fa-sign-in ml-1"></i></button>
-                                </div>
-
-                            </div>
-                            <!--Footer-->
-                            <div class="modal-footer">
-                                <div class="options text-right">
-                                    <p class="pt-1">{{ trans.alreadyHaveAnAccount }} <a href="#" id="swapLogin" class="blue-text">{{ trans.login }}</a></p>
-                                </div>
-                                <button type="button" class="btn btn-outline-success waves-effect ml-auto" data-dismiss="modal">{{ trans.close }}</button>
-                            </div>
-                        </div>
-                        <!--/.Panel 8-->
                     </div>
-
                 </div>
+                <!--/.Content-->
             </div>
-            <!--/.Content-->
         </div>
     </div>
-</div>
 {% endif %}
+
 <div class="modal fade" id="chooseType" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ trans.yourOrder }}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body mt-4">
-                <div class="container">
-                    <div class="row">
-                        <select class="mdb-select">
-                            <option value="" disabled selected>Test</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                        <label>{{ trans.selectRestaurant }}</label>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="switch">
-                            <label>
-                                {{ trans.onPlace }}
-                                <input type="checkbox">
-                                <span class="lever"></span>
-                                {{ trans.delivery }}
-                            </label>
+            <form action="var/formDispatcher.php" method="POST">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ trans.yourOrder }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <input type="hidden" name="formName" value="preOrder">
+                            <div class="row mt-4">
+                                <select class="mdb-select">
+                                    {% for key,value in restaurant %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label>{{ trans.selectRestaurant }}</label>
+                            </div>
+                            <hr>
+                            <div class="row mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input filled-in success-color-dark" type="checkbox" value="1" id="filledInCheckbox1" name="deliveryVar">
+                                    <label class="form-check-label" for="filledInCheckbox1">
+                                        {{ trans.delivery }}
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-dismiss="modal">{{ trans.close }}</button>
-                <a href="?url=order"><button type="button" class="btn btn-success">{{ trans.confirm }}</button></a>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+                    <button type="submit" class="btn btn-primary">{{ trans.confirm }}</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 <header>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar success-color-dark">
@@ -165,52 +169,66 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <form action="/var/formDispatcher.php" method="POST" id="formLanguage">
+                            <input type="hidden" name="formName" value="switchLang">
+                            <a class="nav-link" id="submitLangugage">
+                                {% if lang == "fr" %}
+                                    <input type="hidden" name="lang" value="en">
+                                    <i class="fa fa-flag"></i> EN
+                                {% else %}
+                                    <i class="fa fa-flag"></i> FR
+                                    <input type="hidden" name="lang" value="fr">
+                                {% endif %}
+                            </a>
+                        </form>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav nav-flex-icons ml-auto">
                     <li id="orderDef">
-                    {% if name is defined %}
-                        <a class="nav-link" data-toggle="modal" data-target="#chooseType"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.order }}</span></a>
-                    {% endif %}
+                        {% if name is defined %}
+                            <a class="nav-link orderLinkHome" data-toggle="modal" data-target="#chooseType"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.order }}</span></a>
+                        {% endif %}
                     </li>
                     <li class="nav-item" id="linkAccount">
                         {% if name is not defined %}
                         <a class="nav-link"  data-toggle="modal" data-target="#modalLRForm"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.account }}</span></a>
                         {% else %}
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ name }}</a>
-                                <div class="dropdown-menu dropdown-success" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">{{ trans.myProfile }}</a>
-                                    <a class="dropdown-item" href="/var/logOut.php">{{ trans.logOut }}</a>
-                                </div>
-                            </li>
-                        {% endif %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ name }}</a>
+                        <div class="dropdown-menu dropdown-success" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">{{ trans.myProfile }}</a>
+                            <a class="dropdown-item" href="/var/logOut.php">{{ trans.logOut }}</a>
+                        </div>
+                    </li>
+                    {% endif %}
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-{% if intro is defined %}
-    <!-- Intro Section -->
-    <div id="home" class="view hm-black-strong-1 jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(../../assets/images/vegan-flatlay-1800x1200.jpg);">
+    {% if intro is defined %}
+        <!-- Intro Section -->
+        <div id="home" class="view hm-black-strong-1 jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(../../assets/images/vegan-flatlay-1800x1200.jpg);">
 
-        <div class="full-bg-img">
-            <div class="container flex-center">
-                <div class="row smooth-scroll">
-                    <div class="col-md-12 text-center white-text">
-                        <div class="wow fadeInDown" data-wow-delay="0.2s">
-                            <hr class="white">
-                            <h1 class="white-text display-4 font-bold">
-                                <em>{{ trans.welcomeToOur }}
-                                    <strong>{{ trans.veganWorld }}</strong>
-                                </em>
-                            </h1>
-                            <hr class="white">
-                            <h5 class="font-up white-text mb-5 mt-5 font-bold spacing">{{ trans.aFrenchBrand }}</h5>
+            <div class="full-bg-img">
+                <div class="container flex-center">
+                    <div class="row smooth-scroll">
+                        <div class="col-md-12 text-center white-text">
+                            <div class="wow fadeInDown" data-wow-delay="0.2s">
+                                <hr class="white">
+                                <h1 class="white-text display-4 font-bold">
+                                    <em>{{ trans.welcomeToOur }}
+                                        <strong>{{ trans.veganWorld }}</strong>
+                                    </em>
+                                </h1>
+                                <hr class="white">
+                                <h5 class="font-up white-text mb-5 mt-5 font-bold spacing">{{ trans.aFrenchBrand }}</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-{%  endif %}
+    {%  endif %}
 </header>

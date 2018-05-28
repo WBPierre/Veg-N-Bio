@@ -17,7 +17,7 @@ class LanguageController{
 				$trans = file_get_contents(ROOT.'/translations/'.$lang.'/'.$lang.'_translations.json');
 				break;
 			default:
-				$trans = file_get_contents(ROOT.'translations/en/en_translations.json');
+				$trans = file_get_contents(ROOT.'/translations/en/en_translations.json');
 		}
 		return json_decode($trans);
 	}

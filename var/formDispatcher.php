@@ -28,4 +28,25 @@ switch($_POST['formName']){
             $error = true;
         }
         break;
+    case 'preOrder':
+        if($check){
+            $array = $validator->treatData();
+            if(isset($array['deliveryVar']) && !empty($array['deliveryVar']) && $array['deliveryVar'] == "1"){
+                $_SESSION['order']['delivery'] = true;
+            }
+            $_SESSION['order']['restaurant'] = $array['restaurant'];
+           header('Location: /?url=order');
+        }
+        break;
+    case 'switchLang':
+        if($check){
+            $array = $validator->treatData();
+            if($array['lang'] == "fr"){
+                $_SESSION['lang'] = "fr";
+            }else{
+                $_SESSION['lang'] = "en";
+            }
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+        }
+        break;
 }
