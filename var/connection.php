@@ -14,11 +14,11 @@ if($_POST['log'] == "login"){
             if(count($response) == 1){
                 $verify = password_verify($data['password'], $response[0]['password']);
                 if($verify === true){
+                    $_SESSION['logUser'] = true;
+                    $_SESSION['id'] = $response[0]['id'];
                     if($response[0]['active'] == 0){
                         die("1");
                     }
-                    $_SESSION['logUser'] = true;
-                    $_SESSION['id'] = $response[0]['id'];
                     $name = strtoupper(substr($response[0]['firstname'],0,1));
                     $name .= '.'.$response[0]['name'];
                     die($name);

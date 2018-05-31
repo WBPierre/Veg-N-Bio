@@ -23,7 +23,11 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
 			$data = new EmployeeManagerController();
 			$array = $data->getAllEmployees();
 			echo $twig->render('employeesManagement/employeesManagement.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'employees' => $array, 'alert' => $url ] );
-			break;		
+			break;
+        case 'discountManagement':
+            $response = $request->fetchAll('SELECT * FROM vnb_discount');
+            echo $twig->render('discountManagement/discountManagement.twig', [ 'discounts' => $response, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url ] );
+            break;
 		case 'addEmployee':
 			if($_SESSION['access_level'] >= 2){
 				echo $twig->render('employeesManagement/addEmployee.twig', [ '','badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url ] );

@@ -77,7 +77,16 @@
 		"selectRestaurant":"Select a restaurant",
 		"delivery":"Delivery",
 		"onPlace":"On the spot",
-		"confirm":"Confirm"
+		"confirm":"Confirm",
+		"atLunch":"Served at lunch",
+		"atDiner":"Served at diner",
+		"anytime":"Served at anytime",
+		"cancel":"Cancel",
+		"add":"Add",
+		"cartEmpty":"Cart is empty",
+		"haveADiscount":"Have a discount ?",
+		"discount":"Discount",
+		"enterCodeDiscount":"Please enter the code of the discount below :"
 	},
 	"admin":{
 		"login":{
@@ -187,7 +196,12 @@
 			"moneyGiven":"Cash received",
 			"return":"Return",
 			"locate":"Localisation",
-			"deliveryTime":"Estimated delivery"
+			"deliveryTime":"Estimated delivery",
+			"addDiscount":"Add a discount",
+			"code":"Code",
+			"value":"Value",
+			"dateLast":"Days before end",
+			"deleteConfirmDiscount":"Do you really want to delete this discount ?"
 		}
 	}
 }

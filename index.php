@@ -18,6 +18,9 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
         case 'visit':
             header('Location: ThreeJS/index.html');
             break;
+        case 'profil':
+            echo $twig->render('users/users.twig', [ 'trans' => $string,'lang' => $_SESSION['lang'] ]);
+            break;
         case 'order':
             $request = new ProductController();
             $array = $request->getAllProducts();
