@@ -77,7 +77,16 @@
 		"selectRestaurant":"Sélectionner un restaurant",
 		"delivery":"Livraison",
 		"onPlace":"Sur place",
-		"confirm":"Confirmer"
+		"confirm":"Confirmer",
+		"atLunch":"Servi au déjeuner",
+		"atDiner":"Servi au diner",
+		"anytime":"Servi tout le temps",
+		"cancel":"Annuler",
+		"add":"Ajouter",
+		"cartEmpty":"Panier vide",
+		"haveADiscount":"Vous avez une réduction ?",
+		"discount":"Réduction",
+		"enterCodeDiscount":"Veuillez rentrer le code de réduction ci-dessous :"
 	},
 	"admin":{
 		"login":{
@@ -189,7 +198,12 @@
 			"moneyGiven":"Argent reçu",
 			"return":"Rendu",
 			"locate":"Localisation",
-			"deliveryTime":"Livraison estimée"
+			"deliveryTime":"Livraison estimée",
+			"addDiscount":"Ajouter une offre",
+			"code":"Code",
+			"value":"Valeur",
+			"dateLast":"Jours restant",
+			"deleteConfirmDiscount":"Voulez-vous vraiment supprimer cette offre ?"
 		}
 	}
 }

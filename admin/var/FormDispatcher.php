@@ -46,6 +46,35 @@ switch($_POST['formName']){
 		}
 		break;
 
+    case 'addDiscount':
+        if($check){
+            $array = $validator->treatData();
+            $db = new DatabaseController();
+            $array['value'] = intval($array['value']);
+            $array['duration'] = intval($array['duration']);
+            if(isset($array['active']) && !empty($array['active']) && $array['active'] == "on"){
+                $array['active'] = 1;
+            }else{
+                $array['active'] = 0;
+            }
+            if(!$db->insert('INSERT INTO vnb_discount(code, duration, value, active) VALUES (:code, :duration, :value, :active)',$array)){
+                $error = true;
+            }
+        }else{
+            $error = true;
+        }
+        break;
+    case 'delDiscount':
+        if($check){
+            $array = $validator->treatData();
+            $db = new DatabaseController();
+            if(!$db->update('UPDATE vnb_discount SET active = 0 WHERE id = :id',$array)){
+                $error = true;
+            }
+        }else{
+            $error = true;
+        }
+        break;
 	case 'modifyMenus':
 		if($check){
 			$data = $validator->treatData();

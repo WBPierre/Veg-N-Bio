@@ -31,7 +31,7 @@ switch($_POST['formName']){
     case 'preOrder':
         if($check){
             $array = $validator->treatData();
-            if(isset($array['deliveryVar']) && !empty($array['deliveryVar']) && $array['deliveryVar'] == "1"){
+            if(isset($array['deliveryVar']) && !empty($array['deliveryVar'])){
                 $_SESSION['order']['delivery'] = true;
             }
             $_SESSION['order']['restaurant'] = $array['restaurant'];
