@@ -29,13 +29,13 @@
                                     <div class="md-form form-sm mb-5">
                                         <i class="fa fa-envelope prefix"></i>
                                         <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput10">{{ trans.yourEmail }}</label>
+                                        <label data-error="{{ trans.wrong }}" data-success="{{ trans.valid }}" for="modalLRInput10">{{ trans.yourEmail }}</label>
                                     </div>
 
                                     <div class="md-form form-sm mb-4">
                                         <i class="fa fa-lock prefix"></i>
                                         <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput11">{{ trans.yourPwd }}</label>
+                                        <label data-error="{{ trans.wrong }}" data-success="{{ trans.valid }}" for="modalLRInput11">{{ trans.yourPwd }}</label>
                                     </div>
                                     <div class="text-center mt-2">
                                         <button class="btn btn-success" id="logMeOn">{{ trans.login }} <i class="fa fa-sign-in ml-1"></i></button>
@@ -45,7 +45,7 @@
                                 <div class="modal-footer">
                                     <div class="options text-center text-md-right mt-1">
                                         <p>{{ trans.notAMember }} <a id="swapSignUp" class="blue-text">{{ trans.signUp }}</a></p>
-                                        <p><a href="#" class="blue-text">{{ trans.forgotPwd }}</a></p>
+                                        <p><a href="?url=forgotPassword" class="blue-text">{{ trans.forgotPwd }}</a></p>
                                     </div>
                                     <button type="button" class="btn btn-outline-success waves-effect ml-auto" data-dismiss="modal">{{ trans.close }}</button>
                                 </div>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <div class="col-md-12">
+                        <div class="col-md-12" id="selectOption">
                             <input type="hidden" name="formName" value="preOrder">
                             <div class="row mt-4">
                                 <select class="mdb-select" form="preOrderForm" name="restaurant">
@@ -125,8 +125,8 @@
                             <hr>
                             <div class="row mt-4">
                                 <div class="form-check">
-                                    <input class="form-check-input filled-in success-color-dark" type="checkbox" value="1" id="filledInCheckbox1" name="deliveryVar">
-                                    <label class="form-check-label" for="filledInCheckbox1">
+                                    <input class="form-check-input filled-in success-color-dark" type="checkbox" value="1" id="deliveryCheckBox" name="deliveryVar">
+                                    <label class="form-check-label" for="deliveryCheckBox">
                                         {{ trans.delivery }}
                                     </label>
                                 </div>

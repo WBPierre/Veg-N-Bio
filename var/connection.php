@@ -62,4 +62,9 @@ if($_POST['log'] == 'signin'){
     }
     die("0");
 }
+if($_POST['log'] == 'address'){
+    $db = new DatabaseController();
+    $rest = $db->fetchAll('SELECT * FROM vnb_users_address WHERE id_user = :id',[ 'id' => $_SESSION['id'] ]);
+    die(json_encode($rest));
+}
 die("0");

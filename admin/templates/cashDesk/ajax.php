@@ -96,6 +96,10 @@ foreach($arr as $key=>$value){
 		}
 	}
 }
+if(!$error){
+    OrderController::updateStock();
+    include "../../var/generateInvoice.php";
+}
 if($error){
 	echo false;
 }else{

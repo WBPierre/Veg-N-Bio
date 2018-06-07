@@ -30,7 +30,7 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
             break;
 		case 'addEmployee':
 			if($_SESSION['access_level'] >= 2){
-				echo $twig->render('employeesManagement/addEmployee.twig', [ '','badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url ] );
+				echo $twig->render('employeesManagement/addEmployee.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url ] );
 				break;
 			}
 		case 'manageProducts':
@@ -45,7 +45,8 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
 			if($_SESSION['access_level'] >= 2){
 				$request = new ProductController();
 				$array = $request->getAllMenus(true);
-				echo $twig->render('manageProducts/addProduct.twig', [ 'array' => $array, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url ] );
+				$component = $request->getComposant();
+				echo $twig->render('manageProducts/addProduct.twig', [ 'component' => $component, 'array' => $array, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url ] );
 				break;
 			}
 		case 'manageMenus':
@@ -62,12 +63,16 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
 			echo $twig->render('cashDesk/cashDesk.twig', [ 'menus' => $menu, 'products' => $array, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
 			break;
 		case 'inventoryManagement':
+		    $data = ProductController::getStock();
+		    $control = new InventoryManagementController();
+		    $request = $control->getAllOffers();
 			if($_SESSION['access_level'] >= 2 ){
-				echo $twig->render('inventoryManagement/inventoryManagement.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
+				echo $twig->render('inventoryManagement/inventoryManagement.twig', [ 'stock' => $data, 'array' => $request ,'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
 			}
 			break;
 		default:
-			echo $twig->render('dashboard/dashboard.twig', [ 'badge' => $badge, 'time' => $time,'id' => $_SESSION['id'], 'access_level' => $_SESSION['access_level'], 'trans' => $string, 'alert' => $url ] );
+		    $data = DashboardController::getAllData();
+		    echo $twig->render('dashboard/dashboard.twig', [ 'data' => $data, 'badge' => $badge, 'time' => $time,'id' => $_SESSION['id'], 'access_level' => $_SESSION['access_level'],'lang' => $_SESSION['lang'],  'trans' => $string, 'alert' => $url ] );
 	}
 }else{
 	$string = LanguageController::translate('login');

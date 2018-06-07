@@ -33,9 +33,19 @@ switch($_POST['formName']){
             $array = $validator->treatData();
             if(isset($array['deliveryVar']) && !empty($array['deliveryVar'])){
                 $_SESSION['order']['delivery'] = true;
+                if(isset($array['adress']) && !empty($array['adress'])){
+                    $_SESSION['order']['address'] = intval($array['adress']);
+                }else{
+                    $error = true;
+                }
             }
             $_SESSION['order']['restaurant'] = $array['restaurant'];
-           header('Location: /?url=order');
+            if(!$error){
+                header('Location: /?url=order');
+            }else{
+                header('Location: /');
+            }
+
         }
         break;
     case 'switchLang':

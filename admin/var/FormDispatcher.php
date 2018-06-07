@@ -27,14 +27,10 @@ switch($_POST['formName']){
 			if($number == 1){
 				if(password_verify($_POST['password'], $employee[0]['password'])){
 					$_SESSION['adminLog'] = true;
-					$_SESSION['access_level'] = $employee[0]['access_level'];
-					// if(preg_match('/error/', $_SERVER['HTTP_REFERER'])){
-					// 	$url = $_SERVER['HTTP_REFERER'];
-					// 	$url = preg_replace('/\?error/', "", $url);
-					// 	header('Location: '.$url);
-					// }else{
-					// 	header('Location: '.$_SERVER['HTTP_REFERER']);
-					// }
+					$_SESSION['access_level'] = intval($employee[0]['access_level']);
+					$_SESSION['id'] = intval($employee[0]['id']);
+					$rest = $data->fetchAll('SELECT id_restaurant FROM vnb_contract WHERE id_employee = '.$employee[0]['id']);
+					$_SESSION['id_restaurant'] = intval($rest[0]['id_restaurant']);
 				}else{
 					$error = true;
 				}
@@ -176,7 +172,7 @@ switch($_POST['formName']){
 				if(substr($key,0,10) == 'ingredient'){
 					$id = intval(substr($key,10));
 					if($value != ""){
-						$arrayCheck[$i]['name'] = $data['ingredient'.$id];
+						$arrayCheck[$i]['id_component'] = $data['ingredient'.$id];
 						$arrayCheck[$i]['quantity'] = intval($data['quantity'.$id]);
 						$i++;
 					}
@@ -192,6 +188,10 @@ switch($_POST['formName']){
 					unset($data[$key]);
 				}
 			}
+			if($data['price'] <= 0){
+			    $error = true;
+			    break;
+            }
 			// $data['id_restaurant'] = $_SESSION['id_restaurant'];
 			$data['id_restaurant'] = 1;
 			if(!$request->insert("INSERT INTO vnb_restaurant_product(id_restaurant, name, description, allergens, type, price, menu_composit, active, img) VALUES (:id_restaurant, :name, :description, :allergens, :type, :price, :menu_composit, :active, :file)",$data)){
@@ -202,9 +202,9 @@ switch($_POST['formName']){
 			}
 			foreach($arrayCheck as $key=>$value){
 				$compo['id_product'] = intval($id['id']);
-				$compo['name'] = $value['name'];
+				$compo['id_component'] = intval($value['id_component']);
 				$compo['quantity'] = intval($value['quantity']);
-				if(!$request->insert("INSERT INTO  vnb_restaurant_product_composition(id_product, name, quantity) VALUES (:id_product, :name, :quantity)",$compo)){
+				if(!$request->insert("INSERT INTO  vnb_restaurant_product_composition(id_product, id_component, quantity) VALUES (:id_product, :id_component, :quantity)",$compo)){
 						$error = true;
 					}
 			}
@@ -313,6 +313,16 @@ switch($_POST['formName']){
 			$error = true;
 		}
 		break;
-
+    case 'switchLang':
+        if($check){
+            $array = $validator->treatData();
+            if($array['lang'] == "fr"){
+                $_SESSION['lang'] = "fr";
+            }else{
+                $_SESSION['lang'] = "en";
+            }
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+        }
+        break;
 }
 LinkController::redirect($error);
