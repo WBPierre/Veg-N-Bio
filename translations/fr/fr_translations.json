@@ -86,7 +86,9 @@
 		"cartEmpty":"Panier vide",
 		"haveADiscount":"Vous avez une réduction ?",
 		"discount":"Réduction",
-		"enterCodeDiscount":"Veuillez rentrer le code de réduction ci-dessous :"
+		"enterCodeDiscount":"Veuillez rentrer le code de réduction ci-dessous :",
+		"valid":"Valide",
+		"wrong":"Faux"
 	},
 	"admin":{
 		"login":{
@@ -97,7 +99,9 @@
 			"yourPwd":"Votre mot de passe",
 			"signUp":"Se connecter",
 			"signUpThroughCard":"Se connecter via un badge",
-			"logInFail":"Identifiants erronés"
+			"logInFail":"Identifiants erronés",
+			"actionError":"Action impossible",
+			"actionSuccess":"Action effectuée"
 		},
 		"dashboard":{
 			"metaTitle":"Dashboard",
@@ -203,7 +207,41 @@
 			"code":"Code",
 			"value":"Valeur",
 			"dateLast":"Jours restant",
-			"deleteConfirmDiscount":"Voulez-vous vraiment supprimer cette offre ?"
+			"deleteConfirmDiscount":"Voulez-vous vraiment supprimer cette offre ?",
+			"productOffer":"Offre",
+			"contact":"Contacter",
+			"mail":"Email",
+			"inProcess":"En cours de livraison",
+			"confirmRecept":"Confirmez la réception",
+			"order":"Commander",
+			"dayOfInscription":"Date d'inscription",
+			"lastInscription":"Derniers inscrits",
+			"lastEmployees":"Nouveaux employés",
+			"sales":"Ventes",
+			"internetOrder":"Commande sur internet",
+			"mobileOrder":"Commande sur mobile",
+			"restaurantOrder":"Commande en restaurant",
+			"supportMessage":"Message sur le support",
+			"salesStats":"Statistiques de ventes",
+			"bread":"Pain",
+			"tomatoes":"Tomate",
+			"numberOfOrders":"Suivi des commandes",
+			"january":"Janvier",
+			"february":"Février",
+			"march":"Mars",
+			"april":"Avril",
+			"may":"Mai",
+			"june":"Juin",
+			"july":"Juillet",
+			"august":"Août",
+			"september":"Septembre",
+			"october":"Octobre",
+			"november":"Novembre",
+			"december":"Décembre",
+			"latestOrder":"Dernières commandes en €",
+			"seeStock":"Voir les stocks",
+			"backToProductCard":"Retour à la fiche produit",
+			"selectComponant":"Sélectionnez un composant"
 		}
 	}
 }

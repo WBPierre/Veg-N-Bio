@@ -50,6 +50,8 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
             $array = $request->getAllProducts();
             echo $twig->render('showMenu/showMenu.twig', ['products' => $array,'trans' => $string, 'lang' => $_SESSION['lang']]);
             break;
+        case 'forgotPassword':
+            echo $twig->render('password/password.twig', ['trans' => $string, 'lang' => $_SESSION['lang']]);
         default:
             echo $twig->render('home/home.twig', ['trans' => $string, 'intro' => true, 'restaurant' => $restaurant, 'lang' => $_SESSION['lang'] ]);
             break;

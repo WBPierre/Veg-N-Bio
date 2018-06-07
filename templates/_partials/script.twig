@@ -7,6 +7,7 @@
 <script type="text/javascript" src="../../assets/MDB/js/mdb.min.js"></script>
 
 <script>
+    var check = 0;
     $(document).ready(function(){
         $('#swapSignUp').on('click',function(){
             $('#signUpPanel').click();
@@ -17,7 +18,30 @@
 
         $('#submitLangugage').on('click',function(){
             $('#formLanguage').submit();
-        })
+        });
+        $('#deliveryCheckBox').on('change',function(){
+            check++;
+            if(check%2 == 1){
+                $.ajax({
+                    method: "POST",
+                    url: "/var/connection.php",
+                    async: false,
+                    data: { log: "address" }
+                })
+                .done(function(text) {
+                    var html = "<hr>";
+                    html += "<div class=\"row mt-4\">";
+                    $.each( JSON.parse(text), function( key, value ) {
+                        html += "<div class=\"form-check mb-4\">";
+                        html += '<input class="form-check-input with-gap" type="radio" name="adress" id="'+value.name+'" value="'+value.id+'">';
+                        html += '<label class="form-check-label" for="'+value.name+'">'+value.name+'</label></div>';
+                    });
+                    $('#selectOption').append(html);
+                });
+            }else{
+                $('#test123').remove();
+            }
+        });
         $('#logMeOn').on('click',function(){
             var returned = "";
             var success = 0;

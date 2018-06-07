@@ -45,7 +45,7 @@
                 <!-- Logo -->
                 <li>
                     <div class="logo-wrapper waves-light">
-                        <a href="/admin/"><img src="/assets/images/logo.png" class="img-fluid flex-center"></a>
+                        
                     </div>
                 </li>
                 <li>
@@ -83,9 +83,6 @@
                             <li><a class="waves-effect arrow-r" href="?url=discountManagement"><i class="fa fa-chevron-right"></i> {{ trans.offerManagement }}</a>
                             </li>
                         {% endif %}
-                        
-                        <li><a class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.support }}</a>
-                        </li>
                     </ul>
                 </li>
                 <!--/. Side navigation links -->
@@ -101,11 +98,25 @@
             </div>
             <!-- Breadcrumb-->
             <div class="breadcrumb-dn mr-auto">
-                <p>Veg'N'Bio</p>
+                <p><b>Veg'N'Bio</b></p>
             </div>
             <ul class="nav navbar-nav nav-flex-icons ml-auto">
                 <li class="nav-item">
                     <a href="var/logOut.php" class="nav-link"><i class="fa fa-chevron-right"></i> {{ trans.logOut }}</a>
+                </li>
+                <li class="nav-item">
+                    <form action="var/FormDispatcher.php" method="POST" id="formLanguage">
+                        <input type="hidden" name="formName" value="switchLang">
+                        <a class="nav-link" id="submitLangugage">
+                            {% if lang == "fr" %}
+                                <input type="hidden" name="lang" value="en">
+                                <i class="fa fa-flag"></i> EN
+                            {% else %}
+                                <i class="fa fa-flag"></i> FR
+                                <input type="hidden" name="lang" value="fr">
+                            {% endif %}
+                        </a>
+                    </form>
                 </li>
             </ul>
         </nav>
