@@ -239,7 +239,11 @@
 			"latestOrder":"Latest orders in €",
 			"seeStock":"See the stock",
 			"backToProductCard":"Back to product card",
-			"selectComponant":"Select a product composer"
+			"selectComponant":"Select a product composer",
+      "kitchenInterface":"Kitchen interface",
+			"onlineOrder": "Online order",
+			"modalOnlineTitle": "Please enter the order number",
+			"numberOrder": "Number Order"
 		}
 	}
 }
