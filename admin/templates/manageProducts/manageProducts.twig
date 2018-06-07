@@ -152,12 +152,6 @@
 	                                                                <input type="text" class="form-control" id="inputName" name="name" value="{{ product.name }}">
 	                                                                <label for="inputName">{{ trans.name }}</label>
 	                                                            </div>
-	                                                        {#</div>
-	                                                        <div class="col-md-6">
-	                                                            <div class="md-form form-group">
-	                                                                <input type="number" name="price" class="form-control" id="inputPrice" value="{{ product.price }}">
-	                                                                <label for="inputPrice">{{ trans.price }} (€)</label>
-	                                                            </div>#}
 	                                                        </div>
 	                                                    </div>
 	                                                    <div class="row">
@@ -178,17 +172,6 @@
 	                                                    </div>
 	                                                    <div class="row">
 	                                                        <div class="col-md-12">
-	                                                        	{#<div class="inline">
-		                                                        	<div class="form-check">
-		                                                        		<select class="mdb-select colorful-select dropdown-primary" name="selectedMenu[]" form="formModifyMenus" multiple>
-																	    <option value="" disabled selected>{{ trans.selectMenu }}</option>
-																	    {% for menu in menus %}
-																	    <option value="{{ menu.id_menu }}" {% if menu.id_product is defined and menu.id_product == product.id %}selected{% endif %}>{{ menu.name }}</option>
-																	    {% endfor %}
-																		</select>
-																		<label>{{ trans.selectMenu }}</label>
-		                                                        	</div>
-	                                                        	</div>#}
 	                                                        	<div class="md-form form-group">
 	                                                                <input type="number" name="price" class="form-control" id="inputPrice" value="{{ product.price }}">
 	                                                                <label for="inputPrice">{{ trans.price }} (€)</label>
@@ -253,8 +236,8 @@
 	                                                        <div class="col-md-6">
 	                                                            <div class="md-form form-group">
 	                                                            	<input type="hidden" name="id_composition{{ compo.id }}" value="{{ compo.id }}">
-	                                                                <input type="text" class="form-control" id="compo{{ compo.id }}" name="compo{{ compo.id }}" value="{{ compo.name }}">
-	                                                                <label for="name{{ compo.id }}">{{ trans.name }}</label>
+	                                                                <input type="text" class="form-control" id="compo{{ compo.id }}" name="compo{{ compo.id }}" value="{{ compo.name }}" disabled>
+	                                                                <label for="name{{ compo.id }}" class="disabled">{{ trans.name }}</label>
 	                                                            </div>
 	                                                        </div>
 	                                                        <div class="col-md-6">
@@ -314,5 +297,9 @@
 </main>
 {% endblock %}
 {% block javascript %}
+	<script>
+		var backToProduct = "{{ trans.backToProductCard }}";
+		var comsumption = "{{ trans.consumption }}";
+	</script>
 	{% include 'manageProducts/js/manageProducts.js' %}
 {% endblock %}
