@@ -115,12 +115,35 @@
 				    <div class="card-body text-center">
 				        <button type="button" class="btn btn-success">{{ trans.useDiscount }}
 				        </button>
+						<button id="onlineOrderButton" type="button" class="btn btn-info">{{ trans.onlineOrder }}
+				        </button>
 				        <button type="button" class="btn btn-warning" id="clearOrder">{{ trans.clearOrder }}
 				        </button>
 				    </div>
 				</div>
 			</div>
-
+			<div id="onlineModal" class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-md" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title black-text" id="exampleModalLabel">{{ trans.modalOnlineTitle }}</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="md-form">
+								<input type="text" id="inputIconEx2" class="form-control">
+								<label for="inputIconEx2">{{ trans.numberOrder }}</label>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="col-md-4">
 				<div class="card card-image transparent rgba-black-strong">
 				    <div class="card-body">

@@ -62,6 +62,12 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
 				echo $twig->render('inventoryManagement/inventoryManagement.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
 			}
 			break;
+        case 'kitchenInterface':
+            $request = new ProductController();
+            $array = $request->getAllProducts();
+            $menu = $request->getAllMenus(true);
+            echo $twig->render('kitchenInterface/kitchenInterface.twig', [ 'menus' => $menu, 'products' => $array, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
+            break;
 		default:
 			echo $twig->render('dashboard/dashboard.twig', [ 'badge' => $badge, 'time' => $time,'id' => $_SESSION['id'], 'access_level' => $_SESSION['access_level'], 'trans' => $string, 'alert' => $url ] );
 	}

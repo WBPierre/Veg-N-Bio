@@ -183,6 +183,12 @@
 			"return":"Return",
 			"locate":"Localisation",
 			"deliveryTime":"Estimated delivery",
+			"kitchenInterface":"Kitchen interface",
+			"onlineOrder": "Online order",
+			"modalOnlineTitle": "Please enter the order number",
+			"numberOrder": "Number Order"
+
+
 		}
 	}
 }

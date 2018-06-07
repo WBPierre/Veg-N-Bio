@@ -184,7 +184,12 @@
 			"moneyGiven":"Argent reçu",
 			"return":"Rendu",
 			"locate":"Localisation",
-			"deliveryTime":"Livraison estimée"
+			"deliveryTime":"Livraison estimée",
+			"kitchenInterface": "Interface de cuisine",
+			"onlineOrder": "Commande en ligne",
+			"modalOnlineTitle": "Veuillez saisir le numéro de commande",
+			"numberOrder": "Numéro de commande"
+
 		}
 	}
 }
