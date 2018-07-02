@@ -242,7 +242,13 @@
 			"selectComponant":"Select a product composer",
 			"userManagement":"User management",
 			"deleteConfirmUser":"Do you really want to delete this user ?",
-			"confirm":"Confirmation"
+			"confirm":"Confirmation",
+			"orderExplorer":"Orders explorer",
+			"orderDate":"Date of order",
+			"orderType":"Type of order",
+			"delivery":"Delivery",
+			"onPlace":"On the spot",
+			"invoice":"Invoice"
 		}
 	}
 }

@@ -244,7 +244,13 @@
 			"selectComponant":"Sélectionnez un composant",
 			"userManagement":"Gestion des utilisateurs",
 			"deleteConfirmUser":"Voulez-vous vraiment supprimer cet utilisateur ?",
-			"confirm":"Confirmation"
+			"confirm":"Confirmation",
+			"orderExplorer":"Explorateur de commandes",
+			"orderDate":"Date de commande",
+			"orderType":"Type de commande",
+			"delivery":"Livraison",
+			"onPlace":"Sur place",
+			"invoice":"Facture"
 		}
 	}
 }

@@ -1,0 +1,58 @@
+{% extends 'base.twig' %}
+
+{% set bodyClass = 'fixed-sn mdb-skin' %}
+{% block content %}
+
+    <main class="pt-5 mx-lg-5">
+        <div class="container-fluid mt-5">
+            <!--Card-->
+            <div class="card card-cascade narrower">
+                <!--Card header-->
+                <div class="view py-3 gradient-card-header info-color-dark mx-4 d-flex justify-content-between align-items-center">
+
+                    <p class="white-text mx-3"><b>{{ trans.orderExplorer }}</p>
+
+                </div>
+                <!--/Card header-->
+
+                <!--Card content-->
+                <div class="card-body">
+
+                    <div class="table-responsive">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="th-lg">{{ trans.id }}</th>
+                                <th class="th-lg">{{ trans.name }} {{ trans.firstname }}</th>
+                                <th class="th-lg">{{ trans.orderDate }}</th>
+                                <th class="th-lg">{{ trans.total }}</th>
+                                <th class="th-lg">{{ trans.invoice }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>{{ order.id }}</td>
+                                    <td>{{ order.firstname }} {{ order.name }}</td>
+                                    <td>{{ order.date_inserted }}</td>
+                                    <td>{{ order.total }} €</td>
+                                    <td><a href="invoice/invoice_{{ order.id }}.pdf" target="_blank"><span class="badge badge-info badge-pill">{{ trans.invoice }}<i class="fa fa-arrow-up ml-1"></i></span></a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <hr class="my-0">
+                </div>
+                <!--/.Card content-->
+
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block javascript %}
+{% include 'userManagement/js/userManagement.js' %}
+{% endblock %}

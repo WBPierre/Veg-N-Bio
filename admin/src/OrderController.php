@@ -92,4 +92,15 @@ Class OrderController{
             $update = $db->update('UPDATE vnb_restaurant_stock SET stock_value = '.$getDiff.' WHERE id = '.$request['0']['id']);
         }
     }
+
+    public static function getAllOrders(){
+        $db = new DatabaseController();
+        $getAll = $db->fetchAll('SELECT vnb_order.id, vnb_order.date_inserted, vnb_order.total, vnb_users.name, vnb_users.firstname FROM vnb_order, vnb_users WHERE vnb_order.id_restaurant = :id_restaurant AND vnb_order.id_user = vnb_users.id', [ 'id_restaurant' => $_SESSION['id_restaurant']]);
+        sort($getAll);
+        foreach($getAll as $key=>$value){
+            $getAll[$key]['date_inserted'] = date( "d/m/Y - H:i:s", strtotime($value['date_inserted']));
+
+        }
+        return $getAll;
+    }
 }
