@@ -41,7 +41,6 @@ switch($_POST['formName']){
 			$error = true;
 		}
 		break;
-
     case 'addDiscount':
         if($check){
             $array = $validator->treatData();
@@ -218,11 +217,7 @@ switch($_POST['formName']){
 		}else{
 			$error = true;
 		}
-		// if($error){
-		// 	header('Location: '.$_SERVER['HTTP_REFERER']);
-		// }else{
-		// 	header('Location: /admin/?url=manageMenus');
-		// }
+
 		break;
 	case 'checking':
 		$data = $validator->treatData();
@@ -257,6 +252,30 @@ switch($_POST['formName']){
 			$error = true;
 		}
 		break;
+    case 'userManagementModify':
+        if($check){
+            $data = $validator->treatData();
+            $request = new DatabaseController();
+            if($data['password'] === $data['passwordConfirm']){
+                unset($data['passwordConfirm']);
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                
+                if(!$request->update("UPDATE vnb_users SET 
+                name = :name,
+                firstname = :firstname,
+                birthdate = :birthdate,
+                phone = :phone,
+                password = :password,
+                email = :email WHERE id = :id",$data)){
+                    $error = true;
+                }
+            }else{
+                $error = true;
+            }
+        }else{
+            $error = true;
+        }
+        break;
 	case 'delEmployee':
 		$data = $validator->treatData();
 		$request = new DatabaseController();
@@ -267,6 +286,16 @@ switch($_POST['formName']){
 			$error = true;
 		}
 		break;
+    case 'delUser':
+        $data = $validator->treatData();
+        $request = new DatabaseController();
+        if(!$request->update("UPDATE vnb_users SET 
+				active = -1, 
+				access_level = -1 
+				WHERE id = :id", $data)){
+            $error = true;
+        }
+        break;
 	case 'addEmployee':
 		if($check){
 			$data = $validator->treatData();
@@ -293,10 +322,11 @@ switch($_POST['formName']){
 			if(!$error){
 				$id = $request->fetch('SELECT id FROM vnb_users WHERE id = LAST_INSERT_ID()');
 			}
+			$identification = rand(11111111, 99999999);
 			$data2 = [
 				'id_employee' => intval($id['id']),
 				'job' => 'Waiter',
-				'identification' => 77778888,
+				'identification' => $identification,
 				'contract_type' => $data['contractRadio'],
 				'contract_start' => $data['contractStart'],
 				'contract_end' => $data['contractEnd'],
@@ -312,6 +342,10 @@ switch($_POST['formName']){
 		}else{
 			$error = true;
 		}
+		if(!$error){
+            shell_exec("/var/www/dev/admin/admin/var/C/xmlParser/execute ".intval($id['id'])." ".intval($_SESSION['id_restaurant'])." 2>&1");
+            shell_exec("/var/www/dev/admin/admin/var/C/QRcode/execute ".$data['name']."_".$data['firstname']." ".$identification." 2>&1");
+        }
 		break;
     case 'switchLang':
         if($check){

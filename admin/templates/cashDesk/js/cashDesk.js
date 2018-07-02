@@ -165,7 +165,7 @@
 							toastr.warning('{{ trans.actionError }}');
 						}
             		
-            		// $('#clearOrder').click();
+            		$('#clearOrder').click();
         		}});
 			}
 	}

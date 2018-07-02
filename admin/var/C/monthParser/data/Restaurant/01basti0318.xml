@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+<employee id ="44">
+<gender>Sir</gender>
+<name>DELMER</name>
+<firstname>Pierre</firstname>
+<email>test@test.com</email>
+<birthdate format="YYYY-MM-DD ">1997-03-01</birthdate>
+<phone>0612345678</phone>
+<job>Waiter</job>
+<contract>CDI</contract>
+<contractStart format="YYYY-MM-DD">2018-03-01</contractStart>
+<contractEnd format="YYYY-MM-DD">2018-06-09</contractEnd>
+<hourNumber>20</hourNumber>
+<vacationDayTotal>25</vacationDayTotal>
+</employee>
+<employee id ="44">
+<gender>Sir</gender>
+<name>DELMER</name>
+<firstname>Pierre</firstname>
+<email>test@test.com</email>
+<birthdate format="YYYY-MM-DD ">1997-03-01</birthdate>
+<phone>0612345678</phone>
+<job>Waiter</job>
+<contract>CDI</contract>
+<contractStart format="YYYY-MM-DD">2018-03-01</contractStart>
+<contractEnd format="YYYY-MM-DD">2018-06-09</contractEnd>
+<hourNumber>20</hourNumber>
+<vacationDayTotal>25</vacationDayTotal>
+</employee>
+</employees>

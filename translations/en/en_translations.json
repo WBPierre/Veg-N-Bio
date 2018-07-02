@@ -239,7 +239,10 @@
 			"latestOrder":"Latest orders in €",
 			"seeStock":"See the stock",
 			"backToProductCard":"Back to product card",
-			"selectComponant":"Select a product composer"
+			"selectComponant":"Select a product composer",
+			"userManagement":"User management",
+			"deleteConfirmUser":"Do you really want to delete this user ?",
+			"confirm":"Confirmation"
 		}
 	}
 }

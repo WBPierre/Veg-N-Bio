@@ -70,6 +70,11 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
 				echo $twig->render('inventoryManagement/inventoryManagement.twig', [ 'stock' => $data, 'array' => $request ,'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
 			}
 			break;
+        case 'userManagement':
+            $data = new UserController();
+            $array = $data->getAllUsers();
+            echo $twig->render('userManagement/userManagement.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'users' => $array, 'alert' => $url ] );
+            break;
 		default:
 		    $data = DashboardController::getAllData();
 		    echo $twig->render('dashboard/dashboard.twig', [ 'data' => $data, 'badge' => $badge, 'time' => $time,'id' => $_SESSION['id'], 'access_level' => $_SESSION['access_level'],'lang' => $_SESSION['lang'],  'trans' => $string, 'alert' => $url ] );
