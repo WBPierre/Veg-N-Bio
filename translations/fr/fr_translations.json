@@ -245,7 +245,10 @@
 			"latestOrder":"Dernières commandes en €",
 			"seeStock":"Voir les stocks",
 			"backToProductCard":"Retour à la fiche produit",
-			"selectComponant":"Sélectionnez un composant"
+			"selectComponant":"Sélectionnez un composant",
+			"userManagement":"Gestion des utilisateurs",
+			"deleteConfirmUser":"Voulez-vous vraiment supprimer cet utilisateur ?",
+			"confirm":"Confirmation"
 		}
 	}
 }

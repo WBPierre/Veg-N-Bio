@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1522316946 source:d:\esgi\projet annuel\c\xmlparser\sql.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock.h>
+	<MYSQL/mysql.h>
+	"core.h"
+
+1522316597 source:d:\esgi\projet annuel\c\xmlparser\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock.h>
+	<MYSQL/mysql.h>
+	"struct.h"
+	"core.h"
+	"sql.h"
+
+1522316722 d:\esgi\projet annuel\c\xmlparser\struct.h
+
+1522316573 d:\esgi\projet annuel\c\xmlparser\core.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock.h>
+	<MYSQL/mysql.h>
+	"struct.h"
+	"sql.h"
+
+1522316482 d:\esgi\projet annuel\c\xmlparser\sql.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock.h>
+	<MYSQL/mysql.h>
+
+1522316774 source:d:\esgi\projet annuel\c\xmlparser\core.c
+	"core.h"
+

@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1522688585 source:d:\esgi\projet annuel\c\monthparser\main.c
+	<stdio.h>
+	<stdlib.h>
+	<sys/stat.h>
+	"core.h"
+
+1522689090 d:\esgi\projet annuel\c\monthparser\core.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<dirent.h>
+	<errno.h>
+	"struct.h"
+
+1522689242 source:d:\esgi\projet annuel\c\monthparser\core.c
+	"core.h"
+
+1522689034 d:\esgi\projet annuel\c\monthparser\struct.h
+

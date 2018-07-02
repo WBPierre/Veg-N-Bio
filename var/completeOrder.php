@@ -112,6 +112,7 @@ foreach($products as $key=>$value){
 }
 if(!$error){
     OrderController::updateStock();
-    require "generateInvoice.php";
+    require_once "generateInvoice.php";
+    getPDF($idOrder);
 }
 LinkController::redirect($error);
