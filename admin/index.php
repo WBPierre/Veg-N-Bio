@@ -80,6 +80,10 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
             $menu = $request->getAllMenus(true);
             echo $twig->render('kitchenInterface/kitchenInterface.twig', [ 'menus' => $menu, 'products' => $array, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
             break;
+        case 'orderExplorer':
+            $data = OrderController::getAllOrders();
+            echo $twig->render('orderExplorer/orderExplorer.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'orders' => $data, 'alert' => $url ] );
+            break;
 		default:
 		    $data = DashboardController::getAllData();
 		    echo $twig->render('dashboard/dashboard.twig', [ 'data' => $data, 'badge' => $badge, 'time' => $time,'id' => $_SESSION['id'], 'access_level' => $_SESSION['access_level'],'lang' => $_SESSION['lang'],  'trans' => $string, 'alert' => $url ] );
