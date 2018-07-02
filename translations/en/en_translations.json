@@ -243,6 +243,10 @@
 			"userManagement":"User management",
 			"deleteConfirmUser":"Do you really want to delete this user ?",
 			"confirm":"Confirmation"
+      "kitchenInterface":"Kitchen interface",
+			"onlineOrder": "Online order",
+			"modalOnlineTitle": "Please enter the order number",
+			"numberOrder": "Number Order"
 		}
 	}
 }

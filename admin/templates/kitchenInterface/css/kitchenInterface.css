@@ -1,0 +1,10 @@
+<style>
+.view{
+    background: url('/assets/images/bg_cashDesk.jpg') center;
+    background-size: cover;
+    height: 100vh;
+}
+.content{
+    color: white;
+}
+</style>

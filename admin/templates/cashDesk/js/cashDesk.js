@@ -85,6 +85,12 @@
 		 	pay();
 		 	$('#payModalSuccess').modal('hide');
 		 });
+
+
+		 $('#onlineOrderButton').click(function(){
+             $('#onlineModal').modal('show');
+
+         })
 	});
 	function addQuantity(id){
 		var price = parseFloat($('#row'+id).find('td.price').html());
@@ -164,7 +170,6 @@
 						}else{
 							toastr.warning('{{ trans.actionError }}');
 						}
-            		
             		$('#clearOrder').click();
         		}});
 			}
