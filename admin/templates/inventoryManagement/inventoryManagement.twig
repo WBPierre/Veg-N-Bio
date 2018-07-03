@@ -37,8 +37,7 @@
 
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Save changes</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
 								</div>
 							</div>
 						</div>
@@ -62,47 +61,62 @@
 
 		</div>
 		<div class="row">
-			{% for key, producers in array['incourse'] %}
+			{% for key, producers in array %}
 				<!-- Column -->
 				<div class="col-md-3 mb-4 d-flex align-items-stretch">
 
 					<!--Card-->
+					{% if producers['state'] == 0 %}
+					<div class="card">
+					{% else %}
 					<div class="card"  style="border:3px solid yellow;">
+					{% endif %}
 
 						<!--Card image-->
 						<div class="view">
-							<img src="/assets/images/product_components/{{ producers['img'] }}" class="img-fluid" alt="{{ producers['9'] }}">
+							<img src="/assets/images/announce/{{ producers['coverPicture'] }}" class="img-fluid" alt="{{ producers['title'] }}">
 						</div>
 
 						<!--Card content-->
 						<div class="card-body">
 							<!--Title-->
+                            {% if producers['state'] == 0 %}
+							<h4 class="card-title">{{ trans.productOffer }}</h4>
+                            {% else %}
 							<h4 class="card-title">{{ trans.inProcess }}</h4>
+                            {% endif %}
 							<!--Text-->
 
 							<ul class="list-group">
 								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.name }} : {{ producers['firstname'] }} {{ producers['13'] }}
+                                    {{ trans.name }} : {{ producers['producer']['firstname'] }} {{ producers['producer']['name'] }}
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.quantityProduct }} : {{ producers['quantity'] }} (kg)
+                                    <button type="button" class="btn btn-success">{{ trans.seeInside }}</button>
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.locate }} : {{ producers['zip_code'] }}
+                                    {{ trans.locate }} : {{ producers['title'] }}
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.phone }} : <a href="tel:{{ producers['phone'] }}">{{ producers['phone'] }}</a>
+                                    {{ trans.phone }} : <a href="tel:{{ producers['producer']['phone'] }}">{{ producers['producer']['phone'] }}</a>
 								</li>
 								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.mail }} : <a href="mailto:{{ producers['email'] }}">{{ producers['email'] }}</a>
+                                    {{ trans.mail }} : <a href="mailto:{{ producers['producer']['email'] }}">{{ producers['producer']['email'] }}</a>
 								</li>
 							</ul>
 
 						</div>
 						<div class="card-footer text-center">
-							<a href="var/stockManagement.php?confirm={{ producers['0'] }}">
+                            {% if producers['state'] == "0" %}
+								<a href="var/stockManagement.php?order={{ producers[0] }}">
+									<button type="button" class="btn btn-default">{{ trans.order }}</button>
+								</a>
+                            {% endif %}
+                            {% if producers['state'] == "1" %}
+								<a href="var/stockManagement.php?confirm={{ producers[0] }}">
 								<button type="button" class="btn btn-default">{{ trans.confirmRecept }}</button>
 							</a>
+                            {% endif %}
 						</div>
 
 					</div>
@@ -110,54 +124,6 @@
 
 				</div>
 			{% endfor %}
-            {% for key, producers in array['available'] %}
-				<!-- Column -->
-				<div class="col-md-3 mb-4 d-flex align-items-stretch">
-
-					<!--Card-->
-					<div class="card">
-
-						<!--Card image-->
-						<div class="view">
-							<img src="/assets/images/product_components/{{ producers['img'] }}" class="img-fluid" alt="{{ producers['9'] }}">
-						</div>
-
-						<!--Card content-->
-						<div class="card-body">
-							<!--Title-->
-							<h4 class="card-title">{{ trans.productOffer }}</h4>
-							<!--Text-->
-
-							<ul class="list-group">
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.name }} : {{ producers['firstname'] }} {{ producers['13'] }}
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.quantityProduct }} : {{ producers['quantity'] }} (kg)
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.locate }} : {{ producers['zip_code'] }}
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.phone }} : <a href="tel:{{ producers['phone'] }}">{{ producers['phone'] }}</a>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ trans.mail }} : <a href="mailto:{{ producers['email'] }}">{{ producers['email'] }}</a>
-								</li>
-							</ul>
-
-						</div>
-						<div class="card-footer text-center">
-							<a href="var/stockManagement.php?order={{ producers['0'] }}">
-								<button type="button" class="btn btn-default">{{ trans.order }}</button>
-							</a>
-						</div>
-
-					</div>
-					<!--/.Card-->
-
-				</div>
-            {% endfor %}
 		<!-- Column -->
 		</div>
 	</main>

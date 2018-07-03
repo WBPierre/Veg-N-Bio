@@ -1,7 +1,7 @@
 {
 	"index":{
 		"metaTitle":"Home",
-		"fetures":"Our program",
+		"features":"Our program",
 		"about":"About us",
 		"products":"Our products",
 		"restaurantLocation":"Where are we ?",
@@ -85,7 +85,7 @@
 		"downloadJava": "Click here to download our productor software",
 		"seeAd": "See announce",
 		"detailsAnnounce": "Details announce",
-		"detailsProductor": "Produceur informations"
+		"detailsProductor": "Produceur informations",
 		"backToWebsite":"Back to the home",
 		"yourOrder":"Your order",
 		"selectRestaurant":"Select a restaurant",
@@ -110,7 +110,7 @@
 		"actionSuccess":"Action done",
 		"saveChanges":"Save changes",
 		"orderOf":"Order of the",
-		"total":"Total"
+		"total":"Total",
 		"invoice":"Invoice",
 		"myOrders":"My orders",
 		"addAddress":"Add an address",
@@ -275,12 +275,13 @@
 			"orderType":"Type of order",
 			"delivery":"Delivery",
 			"onPlace":"On the spot",
-			"invoice":"Invoice"
-			"confirm":"Confirmation"
-      "kitchenInterface":"Kitchen interface",
+			"invoice":"Invoice",
+			"confirm":"Confirmation",
+      		"kitchenInterface":"Kitchen interface",
 			"onlineOrder": "Online order",
 			"modalOnlineTitle": "Please enter the order number",
-			"numberOrder": "Number Order"
+			"numberOrder": "Number Order",
+			"seeInside":"See offer details"
 		}
 	}
 }

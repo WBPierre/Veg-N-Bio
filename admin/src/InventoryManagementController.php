@@ -29,11 +29,18 @@ class InventoryManagementController{
      */
     public function getAllOffers(){
         $db = new DatabaseController();
-        $inCourse = $db->fetchAll('SELECT * FROM vnb_offers, vnb_product_component, vnb_users, vnb_users_address WHERE vnb_users.id = vnb_users_address.id_user AND vnb_users.id = vnb_offers.id_producer AND vnb_offers.id_restaurant_ordering = '.intval($_SESSION['id_restaurant']).' AND vnb_offers.state = 1 AND vnb_offers.id_product_component = vnb_product_component.id AND vnb_users_address.name = "delivery" ');
-        $available = $db->fetchAll('SELECT * FROM vnb_offers, vnb_product_component, vnb_users, vnb_users_address WHERE state = 0 AND vnb_users.id = vnb_users_address.id_user AND vnb_users.id = vnb_offers.id_producer AND vnb_offers.id_product_component = vnb_product_component.id AND vnb_users_address.name = "delivery" ');
-        $stock['incourse'] = $inCourse;
-        $stock['available'] = $available;
-        return $stock;
+        $offers = $db->fetchAll('SELECT * FROM vnb_announce WHERE state < 2');
+        foreach($offers as $key=>$value){
+            $product = $db->fetchAll('SELECT vnb_offers.* FROM vnb_offers,vnb_announce_products WHERE vnb_announce_products.id_announce = '.$value['id'].' AND vnb_offers.id = vnb_announce_products.id_products');
+            $producer = $db->fetch('SELECT * FROM vnb_users WHERE id = :id',[ 'id' => intval($value['id_producer']) ]);
+            if(count($product)  != 0){
+                $offers[$key]['products'] = $product;
+                $offers[$key]['producer'] = $producer;
+            }else{
+                unset($offers[$key]);
+            }
+        }
+        return $offers;
     }
 
 }

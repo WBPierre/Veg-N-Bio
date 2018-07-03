@@ -31,6 +31,7 @@ switch($_POST['formName']){
     case 'preOrder':
         if($check){
             $array = $validator->treatData();
+
             if(isset($array['deliveryVar']) && !empty($array['deliveryVar'])){
                 $_SESSION['order']['delivery'] = true;
                 if(isset($array['adress']) && !empty($array['adress'])){
@@ -45,7 +46,6 @@ switch($_POST['formName']){
             }else{
                 header('Location: /');
             }
-
         }
         break;
     case 'switchLang':
@@ -56,8 +56,10 @@ switch($_POST['formName']){
             }else{
                 $_SESSION['lang'] = "en";
             }
-            header('Location: '.$_SERVER['HTTP_REFERER']);
+        }else{
+            $error = true;
         }
+        LinkController::redirect($error);
         break;
     case 'addAddress':
         if($check){
@@ -74,6 +76,7 @@ switch($_POST['formName']){
         }else{
             $error = true;
         }
+        LinkController::redirect($error);
         break;
     case 'modifyProfile':
         if($check){
@@ -102,8 +105,10 @@ switch($_POST['formName']){
             $error = true;
         }
         break;
+        LinkController::redirect($error);
     default:
+
         $error = true;
+        LinkController::redirect($error);
         break;
 }
-LinkController::redirect($error);
