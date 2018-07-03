@@ -116,7 +116,11 @@
 		"addAddress":"Add an address",
 		"address":"Street",
 		"zip_code":"Zip code",
-		"city":"City"
+		"city":"City",
+		"nameProduct": "Product name",
+		"quantity": "Quantity",
+		"priceTTC": "€/TTC ",
+		"email": "Email address "
 	},
 	"admin":{
 		"login":{
