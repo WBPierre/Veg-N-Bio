@@ -1,0 +1,61 @@
+{
+  "name": "BioApp",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-native": "^4.0.0",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "flow-bin": "^0.56.0",
+    "jest-expo": "25.0.0",
+    "prettier-eslint": "^8.8.1",
+    "react-native-scripts": "1.11.1",
+    "react-test-renderer": "16.2.0"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js",
+    "flow": "flow",
+    "flow start": "flow start",
+    "flow stop": "flow stop",
+    "flow status": "flow status",
+    "flow coverage": "flow coverage"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^6.3.1",
+    "axios": "^0.18.0",
+    "clean-webpack-plugin": "^0.1.18",
+    "expo": "^25.0.0",
+    "json-loader": "^0.5.7",
+    "native-base": "^2.4.3",
+    "qs": "^6.5.2",
+    "react": "16.2.0",
+    "react-native": "0.52.0",
+    "react-native-carousel-view": "^0.5.1",
+    "react-native-elements": "^1.0.0-beta5",
+    "react-native-maps": "^0.21.0",
+    "react-native-material-kit": "^0.5.1",
+    "react-native-qrcode": "^0.2.6",
+    "react-native-qrcode-svg": "^5.0.6",
+    "react-native-svg": "^6.3.1",
+    "react-native-vector-icons": "^4.6.0",
+    "react-native-webpack": "^0.1.1",
+    "react-navigation": "^1.5.8",
+    "redux": "^4.0.0",
+    "webpack": "^4.1.0"
+  }
+}
