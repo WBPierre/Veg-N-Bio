@@ -73,8 +73,8 @@
 		"chooseMenu": "Choisissez votre menu",
 		"descriptionGalery": "Bienvenue sur notre galerie, cliquez sur une catégorie pour voir les produits que l'on propose",
 		"seeMarketPlace": "Visiter la place des marchés",
-    "newAnnounces": "Nouvelles annonces",
-    "addAnnounce": "Publier une annonce",
+    	"newAnnounces": "Nouvelles annonces",
+    	"addAnnounce": "Publier une annonce",
 		"title": "Titre",
 		"addFile": "Fichier Excel récent",
 		"announceExcel": "Vous avez récemment ajouter un fichier excel, souhaitez-vous publier une annonce à partir de celui-ci ?",
@@ -85,9 +85,7 @@
         "downloadJava": "Cliquez ici pour télécharger notre plateforme producteur",
         "seeAnnounce": "Voir l'annonce",
         "detailsAnnounce": "Details de l'annonce",
-		"detailsProductor": "Informations du producteur"
-
-    },
+		"detailsProductor": "Informations du producteur",
 		"backToWebsite":"Retour au site",
 		"yourOrder":"Votre commande",
 		"selectRestaurant":"Sélectionner un restaurant",
@@ -284,7 +282,8 @@
 			"orderType":"Type de commande",
 			"delivery":"Livraison",
 			"onPlace":"Sur place",
-			"invoice":"Facture"
+			"invoice":"Facture",
+			"seeInside":"Voir le contenu"
 		}
 	}
 }
