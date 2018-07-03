@@ -1,0 +1,43 @@
+{% extends 'base.twig' %}
+{% block header %}{% include '_partials/header.twig' %}{% endblock %}
+
+{% block content %}
+    <section class="my-5 p-4">
+        {% if offers %}
+            <div class="row mb-4">
+                <div class="col-lg-12 text-center">
+                    <h3 class="font-weight-bold mb-3"><strong>{{ trans.addFile }}</strong></h3>
+                    <p class="dark-grey-text">{{ trans.announceExcel }}</p>
+                    <a href="?url=addAnnounce" class="btn success-color-dark btn-md">{{ trans.addAnnounce }}</a>
+                </div>
+            </div>
+            <hr class="my-5">
+        {% endif %}
+        <h2 class="h1-responsive font-weight-bold text-center mt-5">{{ trans.newAnnounces }}</h2>
+        <a href="../../VnB/dist/VnB.jar"><h6 class="text-center mb-5">({{ trans.downloadJava }})</h6></a>
+        {% for ad in ads %}
+            <div class="row mb-5">
+                <div class="col-lg-5 col-xl-4">
+                    <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-xl-8">
+                    <h3 class="font-weight-bold mb-3"><strong>{{ ad.title }}</strong></h3>
+                    <hr class="my-5">
+                    <p class="dark-grey-text">{{ ad.description }}</p>
+                    <p>by <a class="font-weight-bold"></a>, {{ ad.date }}</p>
+                    <a href="?url=seeAnnounce?id={{ ad.id }}" class="btn success-color-dark btn-md">{{ trans.seeAnnounce }}</a>
+                </div>
+            </div>
+        {% endfor %}
+        <hr class="my-5">
+    </section>
+{% endblock %}
+
+{% block javascript %}
+    {% include 'showMenu/js/showMenu.js' %}
+{% endblock %}

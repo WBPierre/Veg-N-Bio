@@ -6,6 +6,8 @@ $request = new DatabaseController();
 
 $url = LinkController::requestUrl($_GET['url']);
 
+$explodeUrl = substr($_GET['url'], -2);
+
 
 if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
     $db = new DatabaseController();
@@ -21,13 +23,31 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
         case 'showMenu':
             $request = new ProductController();
             $array = $request->getAllProducts();
-            echo $twig->render('showMenu/showMenu.twig', ['products' => $array,'trans' => $string]);
+            echo $twig->render('showMenu/showMenu.twig', ['products' => $array, 'trans' => $string]);
+            break;
+        case 'marketPlace':
+            $request = new AnnounceController();
+            $offers = $request->getAllOffers();
+            $ads = $request->getAds();
+            echo $twig->render('marketPlace/marketPlace.twig', ['ads' => $ads, 'offers' => $offers, 'trans' => $string]);
+            break;
+        case 'addAnnounce':
+            $request = new AnnounceController();
+            $offers = $request->getAllOffers();
+            echo $twig->render('addAnnounce/addAnnounce.twig', ['offers' => $offers, 'trans' => $string]);
+            break;
+        case 'seeAnnounce?id='.$explodeUrl:
+            $request = new AnnounceController();
+            $details = $request->getDetailsAnnounce($explodeUrl);
+            $producer = $request->getProducerDetails($explodeUrl);
+            $products = $request->getAllProducts($explodeUrl);
+            echo $twig->render('seeAnnounce/seeAnnounce.twig', ['products' => $products, 'producer' => $producer ,'details' => $details, 'trans' => $string]);
             break;
         default:
             echo $twig->render('home/home.twig', [ 'trans' => $string, 'name'=>$name, 'intro' => true ] );
             break;
     }
-}else{
+}else {
 
     switch($url['url']) {
         case 'visit':
@@ -40,6 +60,18 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
             $request = new ProductController();
             $array = $request->getAllProducts();
             echo $twig->render('showMenu/showMenu.twig', ['products' => $array,'trans' => $string]);
+            break;
+        case 'marketPlace':
+            $request = new AnnounceController();
+            $offers = $request->getAllOffers();
+            echo $twig->render('marketPlace/marketPlace.twig', ['offers' => $offers, 'trans' => $string]);
+            break;
+        case 'addAnnounce':
+            echo $twig->render('addAnnounce/addAnnounce.twig', ['trans' => $string]);
+            break;
+        case 'seeAnnounce?id='.$idUrl:
+            $request = new AnnounceController();
+            echo $twig->render('seeAnnounce/seeAnnounce.twig', ['id' => 14, 'trans' => $string]);
             break;
         default:
             echo $twig->render('home/home.twig', ['trans' => $string, 'intro' => true]);

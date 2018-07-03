@@ -94,4 +94,27 @@ class ProductController{
 		return $array;
 	}
 
+
+    /*
+     * getStock returns an array with all the current stock of the restaurant
+     * @return PHP Array
+     */
+
+    public static function getStock(){
+        $db = new DatabaseController();
+        $array = $db->fetchAll('SELECT vnb_restaurant_stock.stock_value, vnb_product_component.name FROM vnb_restaurant_stock, vnb_product_component 
+                                WHERE vnb_restaurant_stock.id_restaurant = '.$_SESSION['id_restaurant'].' AND vnb_restaurant_stock.id_component = vnb_product_component.id');
+        return $array;
+    }
+
+    /*
+     * getComposant returns an Array with all the components available
+     * @return PHP Array
+     */
+    public function getComposant(){
+        $db = new DatabaseController();
+        $array = $db->fetchAll('SELECT * FROM vnb_product_component');
+        return $array;
+    }
+
 }

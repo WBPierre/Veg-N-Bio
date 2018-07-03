@@ -58,10 +58,13 @@ if(isset($_SESSION['adminLog']) && !empty($_SESSION['adminLog']) && $_SESSION['a
 			echo $twig->render('cashDesk/cashDesk.twig', [ 'menus' => $menu, 'products' => $array, 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
 			break;
 		case 'inventoryManagement':
-			if($_SESSION['access_level'] >= 2 ){
-				echo $twig->render('inventoryManagement/inventoryManagement.twig', [ 'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
-			}
-			break;
+            $data = ProductController::getStock();
+            $control = new InventoryManagementController();
+            $request = $control->getAllOffers();
+            if($_SESSION['access_level'] >= 2 ){
+                echo $twig->render('inventoryManagement/inventoryManagement.twig', [ 'stock' => $data, 'array' => $request ,'badge' => $badge, 'time' => $time, 'access_level' => $_SESSION['access_level'], 'lang' => $_SESSION['lang'], 'trans' => $string, 'alert' => $url] );
+            }
+            break;
         case 'kitchenInterface':
             $request = new ProductController();
             $array = $request->getAllProducts();

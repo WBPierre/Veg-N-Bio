@@ -1,0 +1,68 @@
+{% extends 'base.twig' %}
+{% block header %}{% include '_partials/header2Front.twig' %}{% endblock %}
+
+{% block content %}
+    <section class="p-4">
+        <h2 class="font-weight-bold text-center my-5">{{ trans.addAnnounce }}</h2>
+
+        <!-- Section: Products v.3 -->
+        <section class="text-center my-5">
+            <div class="row">
+                {% for offer in offers %}
+                    <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+                        <div class="card align-items-center">
+                            <div class="view overlay">
+                                <img src="../assets/images/legumes.jpg" class="card-img-top" alt="">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5>
+                                    <strong>
+                                        <a href="" class="dark-grey-text">{{ offer.name }}
+                                            <span class="badge badge-pill danger-color">NEW</span>
+                                        </a>
+                                    </strong>
+                                </h5>
+                                <h4 class="font-weight-bold blue-text">
+                                    <strong>{{ offer.priceTTC }}€/Kg</strong>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        <form>
+            <div class="form-row">
+                <!-- Default input -->
+                <div class="form-group col-md-12">
+                    <label for="inputEmail4">{{ trans.title }}</label>
+                    <input type="text" class="form-control" id="inputTitle" placeholder="{{ trans.title }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">{{ trans.description }}</label>
+                <textarea class="form-control p-1" id="inputDescription" rows="10"></textarea>
+            </div>
+            <label for="exampleFormControlTextarea1">{{ trans.coverPicture }}</label>
+            <div class="md-form">
+                <div class="file-field">
+                    <div class="btn btn-primary btn-sm float-left">
+                        <span>{{ trans.importFile }}</span>
+                        <input type="file" multiple>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input id="inputFilePath" class="file-path validate" type="text">
+                    </div>
+                </div>
+            </div>
+            <a id="submitAd" class="btn success-color-dark btn-md">{{ trans.publishAd }}</a>
+        </form>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+    {% include 'addAnnounce/js/addAnnounce.js' %}
+{% endblock %}
