@@ -14,12 +14,13 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
     $request = $db->fetchAll('SELECT * FROM vnb_users WHERE id = :id',[ 'id' => $_SESSION['id']]);
     $name = $request[0]['firstname']." ".$request[0]['name'];
 
-    switch($_GET['url']){
+    switch($url['url']){
         case 'visit':
             header('Location: ThreeJS/index.html');
             break;
-        case 'profil':
-            echo $twig->render('users/users.twig', [ 'trans' => $string,'lang' => $_SESSION['lang'] ]);
+        case 'profile':
+            $data = UserController::getUserData();
+            echo $twig->render('userProfile/userProfile.twig', [ 'user' => $data, 'trans' => $string,'name' => $name, 'lang' => $_SESSION['lang'], 'alert' => $url ]);
             break;
         case 'order':
             $request = new ProductController();
