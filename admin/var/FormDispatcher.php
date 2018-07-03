@@ -27,14 +27,10 @@ switch($_POST['formName']){
 			if($number == 1){
 				if(password_verify($_POST['password'], $employee[0]['password'])){
 					$_SESSION['adminLog'] = true;
-					$_SESSION['access_level'] = $employee[0]['access_level'];
-					// if(preg_match('/error/', $_SERVER['HTTP_REFERER'])){
-					// 	$url = $_SERVER['HTTP_REFERER'];
-					// 	$url = preg_replace('/\?error/', "", $url);
-					// 	header('Location: '.$url);
-					// }else{
-					// 	header('Location: '.$_SERVER['HTTP_REFERER']);
-					// }
+					$_SESSION['access_level'] = intval($employee[0]['access_level']);
+					$_SESSION['id'] = intval($employee[0]['id']);
+					$rest = $data->fetchAll('SELECT id_restaurant FROM vnb_contract WHERE id_employee = '.$employee[0]['id']);
+					$_SESSION['id_restaurant'] = intval($rest[0]['id_restaurant']);
 				}else{
 					$error = true;
 				}
@@ -45,7 +41,35 @@ switch($_POST['formName']){
 			$error = true;
 		}
 		break;
-
+    case 'addDiscount':
+        if($check){
+            $array = $validator->treatData();
+            $db = new DatabaseController();
+            $array['value'] = intval($array['value']);
+            $array['duration'] = intval($array['duration']);
+            if(isset($array['active']) && !empty($array['active']) && $array['active'] == "on"){
+                $array['active'] = 1;
+            }else{
+                $array['active'] = 0;
+            }
+            if(!$db->insert('INSERT INTO vnb_discount(code, duration, value, active) VALUES (:code, :duration, :value, :active)',$array)){
+                $error = true;
+            }
+        }else{
+            $error = true;
+        }
+        break;
+    case 'delDiscount':
+        if($check){
+            $array = $validator->treatData();
+            $db = new DatabaseController();
+            if(!$db->update('UPDATE vnb_discount SET active = 0 WHERE id = :id',$array)){
+                $error = true;
+            }
+        }else{
+            $error = true;
+        }
+        break;
 	case 'modifyMenus':
 		if($check){
 			$data = $validator->treatData();
@@ -147,7 +171,7 @@ switch($_POST['formName']){
 				if(substr($key,0,10) == 'ingredient'){
 					$id = intval(substr($key,10));
 					if($value != ""){
-						$arrayCheck[$i]['name'] = $data['ingredient'.$id];
+						$arrayCheck[$i]['id_component'] = $data['ingredient'.$id];
 						$arrayCheck[$i]['quantity'] = intval($data['quantity'.$id]);
 						$i++;
 					}
@@ -163,6 +187,10 @@ switch($_POST['formName']){
 					unset($data[$key]);
 				}
 			}
+			if($data['price'] <= 0){
+			    $error = true;
+			    break;
+            }
 			// $data['id_restaurant'] = $_SESSION['id_restaurant'];
 			$data['id_restaurant'] = 1;
 			if(!$request->insert("INSERT INTO vnb_restaurant_product(id_restaurant, name, description, allergens, type, price, menu_composit, active, img) VALUES (:id_restaurant, :name, :description, :allergens, :type, :price, :menu_composit, :active, :file)",$data)){
@@ -173,9 +201,9 @@ switch($_POST['formName']){
 			}
 			foreach($arrayCheck as $key=>$value){
 				$compo['id_product'] = intval($id['id']);
-				$compo['name'] = $value['name'];
+				$compo['id_component'] = intval($value['id_component']);
 				$compo['quantity'] = intval($value['quantity']);
-				if(!$request->insert("INSERT INTO  vnb_restaurant_product_composition(id_product, name, quantity) VALUES (:id_product, :name, :quantity)",$compo)){
+				if(!$request->insert("INSERT INTO  vnb_restaurant_product_composition(id_product, id_component, quantity) VALUES (:id_product, :id_component, :quantity)",$compo)){
 						$error = true;
 					}
 			}
@@ -189,11 +217,7 @@ switch($_POST['formName']){
 		}else{
 			$error = true;
 		}
-		// if($error){
-		// 	header('Location: '.$_SERVER['HTTP_REFERER']);
-		// }else{
-		// 	header('Location: /admin/?url=manageMenus');
-		// }
+
 		break;
 	case 'checking':
 		$data = $validator->treatData();
@@ -228,6 +252,30 @@ switch($_POST['formName']){
 			$error = true;
 		}
 		break;
+    case 'userManagementModify':
+        if($check){
+            $data = $validator->treatData();
+            $request = new DatabaseController();
+            if($data['password'] === $data['passwordConfirm']){
+                unset($data['passwordConfirm']);
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                
+                if(!$request->update("UPDATE vnb_users SET 
+                name = :name,
+                firstname = :firstname,
+                birthdate = :birthdate,
+                phone = :phone,
+                password = :password,
+                email = :email WHERE id = :id",$data)){
+                    $error = true;
+                }
+            }else{
+                $error = true;
+            }
+        }else{
+            $error = true;
+        }
+        break;
 	case 'delEmployee':
 		$data = $validator->treatData();
 		$request = new DatabaseController();
@@ -238,6 +286,16 @@ switch($_POST['formName']){
 			$error = true;
 		}
 		break;
+    case 'delUser':
+        $data = $validator->treatData();
+        $request = new DatabaseController();
+        if(!$request->update("UPDATE vnb_users SET 
+				active = -1, 
+				access_level = -1 
+				WHERE id = :id", $data)){
+            $error = true;
+        }
+        break;
 	case 'addEmployee':
 		if($check){
 			$data = $validator->treatData();
@@ -264,10 +322,11 @@ switch($_POST['formName']){
 			if(!$error){
 				$id = $request->fetch('SELECT id FROM vnb_users WHERE id = LAST_INSERT_ID()');
 			}
+			$identification = rand(11111111, 99999999);
 			$data2 = [
 				'id_employee' => intval($id['id']),
 				'job' => 'Waiter',
-				'identification' => 77778888,
+				'identification' => $identification,
 				'contract_type' => $data['contractRadio'],
 				'contract_start' => $data['contractStart'],
 				'contract_end' => $data['contractEnd'],
@@ -283,7 +342,21 @@ switch($_POST['formName']){
 		}else{
 			$error = true;
 		}
+		if(!$error){
+            shell_exec("/var/www/dev/admin/admin/var/C/xmlParser/execute ".intval($id['id'])." ".intval($_SESSION['id_restaurant'])." 2>&1");
+            shell_exec("/var/www/dev/admin/admin/var/C/QRcode/execute ".$data['name']."_".$data['firstname']." ".$identification." 2>&1");
+        }
 		break;
-
+    case 'switchLang':
+        if($check){
+            $array = $validator->treatData();
+            if($array['lang'] == "fr"){
+                $_SESSION['lang'] = "fr";
+            }else{
+                $_SESSION['lang'] = "en";
+            }
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+        }
+        break;
 }
 LinkController::redirect($error);

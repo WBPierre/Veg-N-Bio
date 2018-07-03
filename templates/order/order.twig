@@ -1,18 +1,61 @@
-{% extends 'base2Front.twig' %}
+{% extends 'base.twig' %}
+{% block header %}{% endblock %}
 {% block content %}
 
+    <main style="height:100vh;">
     <div class="container-fluid mt-2">
+        <!-- Modal -->
+        <div class="modal fade" id="discount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{ trans.discount }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <div class="row">
+                                <!-- Grid column -->
+                                <div class="col">
+                                    <!-- Material input -->
+                                    <div class="md-form mt-0">
+                                        <input type="text" class="form-control" id="codeDiscount" placeholder="{{ trans.discount }}">
+                                    </div>
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="col">
+                                    <!-- Material input -->
+                                    <div class="md-form mt-0">
+                                        <button type="button" class="btn btn-primary" id="discountActivate">{{ trans.activate }}</button>
+                                    </div>
+                                </div>
+                                <!-- Grid column -->
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Nav tabs -->
         <div class="tabs-wrapper">
-            <ul class="nav classic-tabs tabs-success" role="tablist">
+            <ul class="nav classic-tabs tabs-success success-color-dark" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link waves-light" href="/" role="tab"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i><br>Retour au site</a>
+                    <a class="nav-link waves-light" href="/" role="tab"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i><br>{{ trans.backToWebsite }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-light active" data-toggle="tab" href="#panel61" role="tab"><i class="fa fa-bars fa-2x" aria-hidden="true"></i><br>{{ trans.menuOrder }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-light" data-toggle="tab" href="#panel62" role="tab"><i class="fa fa-leaf fa-2x" aria-hidden="true"></i><br>{{ trans.apetizer }}</a>
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel62" role="tab"><i class="fa fa-cutlery fa-2x" aria-hidden="true"></i><br>{{ trans.apetizer }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel66" role="tab"><i class="fa fa-leaf fa-2x" aria-hidden="true"></i><br>{{ trans.salad }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-light" data-toggle="tab" href="#panel63" role="tab"><i class="fa fa-cutlery fa-2x" aria-hidden="true"></i><br>{{ trans.dishes }}</a>
@@ -21,73 +64,247 @@
                     <a class="nav-link waves-light" data-toggle="tab" href="#panel64" role="tab"><i class="fa fa-birthday-cake fa-2x" aria-hidden="true"></i><br>{{ trans.dessert }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-light" data-toggle="tab" href="#panel64" role="tab"><i class="fa fa-glass fa-2x" aria-hidden="true"></i><br>{{ trans.drink }}</a>
+                    <a class="nav-link waves-light" data-toggle="tab" href="#panel65" role="tab"><i class="fa fa-glass fa-2x" aria-hidden="true"></i><br>{{ trans.drink }}</a>
                 </li>
             </ul>
         </div>
 
         <!-- Tab panels -->
-        <div class="tab-content card col-lg-8 float-left">
-            <h4 class="card-title text-center">{{ trans.chooseMenu }}</h4>
+        <div class="tab-content card col-lg-8 float-left text-center">
             <!--MENUS-->
             <div class="tab-pane fade in show active col-lg-12" id="panel61" role="tabpanel">
-                <div class="card col-md-3 m-2 p-1 float-left">
-                    <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
-                    <p class="card-text text-center">Title</p>
-                </div>
-                <div class="card col-md-3 m-2  p-1 float-left">
-                    <img src="../../assets/images/burger.jpg"  align="center" height="200">
-                    <p class="card-text text-center">Title</p>
-                </div>
-                <div class="card col-md-3 m-2 p-1 float-left">
-                    <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
-                    <p class="card-text text-center">Title</p>
-                </div>
+                <h4 class="card-title text-center">{{ trans.chooseMenu }}</h4>
+                {% for menu in menus %}
+                    <div class="modal fade" id="modal{{ menu.id }}" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:black">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">{{ menu.name }} - {{ menu.price }} €</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" value="{{ menu.id }}" id="idMenu">
+                                    <input type="hidden" value="{{ menu.type }}" id="typeMenu">
+                                    <input type="hidden" value="{{ menu.name }}" id="nameMenu">
+                                    <input type="hidden" value="{{ menu.price }}" id="priceMenu">
+                                    {% if menu.type == 0 %}
+                                        <div class="inline mt-4">
+                                            <div class="form-check">
+                                                <select class="mdb-select colorful-select dropdown-success selection1" name="selection1">
+                                                    {% for entry in products[0] %}
+                                                        <option value="{{ entry.id }}">{{ entry.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <label>{{ trans.apetizer }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="inline mt-5">
+                                            <div class="form-check">
+                                                <select class="mdb-select colorful-select dropdown-success selection2" name="selection2">
+                                                    {% for meal in products[1] %}
+                                                        <option value="{{ meal.id }}">{{ meal.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <label>{{ trans.dishes }}</label>
+                                            </div>
+                                        </div>
+                                    {% endif  %}
+                                    {% if menu.type == 1 %}
+                                        <div class="inline mt-4">
+                                            <div class="form-check">
+                                                <select class="mdb-select colorful-select dropdown-success selection1" name="selection1">
+                                                    {% for salads in products[2] %}
+                                                        <option value="{{ salads.id }}">{{ salads.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <label>{{ trans.salad }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="inline mt-5">
+                                            <div class="form-check">
+                                                <select class="mdb-select colorful-select dropdown-success selection2" name="selection2">
+                                                    {% for drink in products[4] %}
+                                                        <option value="{{ drink.id }}">{{ meal.drink }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <label>{{ trans.drink }}</label>
+                                            </div>
+                                        </div>
+                                    {% endif  %}
+                                    {% if menu.type == 2 %}
+                                        <div class="inline mt-4">
+                                            <div class="form-check">
+                                                <select class="mdb-select colorful-select dropdown-success selection1" name="selection1">
+                                                    {% for entry in products[0] %}
+                                                        <option value="{{ entry.id }}">{{ entry.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <label>{{ trans.entry }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="inline mt-5">
+                                            <div class="form-check">
+                                                <select class="mdb-select colorful-select dropdown-success selection2" name="selection2">
+                                                    {% for meal in products[1] %}
+                                                        <option value="{{ meal.id }}">{{ meal.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <label>{{ trans.dishes }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="inline mt-5">
+                                            <div class="form-check">
+                                                <select class="mdb-select colorful-select dropdown-success selection3" name="selection3">
+                                                    {% for dessert in products[3] %}
+                                                        <option value="{{ dessert.id }}">{{ dessert.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <label>{{ trans.dessert }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="inline mt-5">
+                                            <div class="form-check">
+                                                <select class="mdb-select colorful-select dropdown-success selection4" name="selection4">
+                                                    {% for drink in products[1] %}
+                                                        <option value="{{ drink.id }}">{{ drink.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                <label>{{ trans.drink }}</label>
+                                            </div>
+                                        </div>
+                                    {% endif  %}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+                                    <button type="button" class="btn btn-success addModal">{{ trans.add }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn rgba-green" data-toggle="modal" data-target="#modal{{ menu.id }}">
+                        <div class="col-md-1 d-inline">
+                            <h5>
+                                <strong>
+                                    <a class="black-text">{{ menu.name }}
+                                    </a>
 
-                <div class="card col-md-3 m-2 p-1 float-left">
-                    <img src="../../assets/images/sandwich.jpg"  align="center" height="200">
-                    <p class="card-text text-center">Title</p>
-                </div>
-
+                                    <small class="text-muted">({% if menu.type == 0 %}{{ trans.atLunch }}{% endif %}{% if menu.type == 1 %}{{ trans.atDiner }}{% endif %}{% if menu.type == 2 %}{{ trans.anytime }}{% endif %})</small>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold light-blue-text">
+                                <strong>{{ menu.price }}€</strong>
+                            </h4>
+                        </div>
+                    </button>
+                {% endfor %}
             </div>
             <!--/.Panel 1-->
 
             <!--ENTREES-->
-            <div class="tab-pane fade" id="panel62" role="tabpanel">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
 
+            <!--ENTREES-->
+            <div class="tab-pane fade col-lg-12" id="panel62" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.apetize }}</h4>
+                {% for product in products[0] %}
+                    <div class="card col-md-3 m-2 p-1 float-left  view overlay mask waves-effect waves-light addToList">
+                        <input type="hidden" value="{{ product.id }}" name="id_product">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center getCarac"><name>{{ product.name }}</name> - <price>{{ product.price }}</price> €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
             </div>
             <!--/.Panel 2-->
-
+            <!-- DRINKS -->
+            <div class="tab-pane fade col-lg-12" id="panel66" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.salad }}</h4>
+                {% for product in products[2] %}
+                    <div class="card col-md-3 m-2 p-1 float-left view overlay mask waves-effect waves-light addToList">
+                        <input type="hidden" value="{{ product.id }}" name="id_product">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center getCarac"><name>{{ product.name }}</name> - <price>{{ product.price }}</price> €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
+            </div>
             <!--PLATS-->
-            <div class="tab-pane fade" id="panel63" role="tabpanel">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-
+            <div class="tab-pane fade col-lg-12" id="panel63" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.dishes }}</h4>
+                {% for product in products[1] %}
+                    <div class="card col-md-3 m-2 p-1 float-left view overlay mask waves-effect waves-light addToList">
+                        <input type="hidden" value="{{ product.id }}" name="id_product">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center getCarac"><name>{{ product.name }}</name> - <price>{{ product.price }}</price> €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
             </div>
             <!--/.Panel 3-->
 
             <!--DESSERTS-->
-            <div class="tab-pane fade" id="panel64" role="tabpanel">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-
+            <div class="tab-pane fade col-lg-12" id="panel64" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.dessert }}</h4>
+                {% for product in products[3] %}
+                    <div class="card col-md-3 m-2 p-1 float-left view overlay mask waves-effect waves-light addToList">
+                        <input type="hidden" value="{{ product.id }}" name="id_product">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center getCarac"><name>{{ product.name }}</name> - <price>{{ product.price }}</price> €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
             </div>
             <!--/.Panel 4-->
+            <!-- DRINKS -->
+            <div class="tab-pane fade col-lg-12" id="panel65" role="tabpanel">
+                <h4 class="card-title text-center">{{ trans.drink }}</h4>
+                {% for product in products[4] %}
+                    <div class="card col-md-3 m-2 p-1 float-left view overlay mask waves-effect waves-light addToList">
+                        <input type="hidden" value="{{ product.id }}" name="id_product">
+                        <img src="../../assets/images/products/{{ product.img }}"  align="center" height="200">
+                        <p class="card-text text-center getCarac"><name>{{ product.name }}</name> - <price>{{ product.price }}</price> €</p>
+                        <p class="text-muted">{{ product.allergens }}</p>
+                    </div>
+                {% endfor %}
+            </div>
 
         </div>
-        <div class="offset-2 col-lg-4 p-2 card success-color no-radius">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
+        <div class="offset-2 col-lg-4 p-2 card success-color-dark no-radius">
+            <div class="totalList">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item totalValue"><b>Total : <total>0.00</total>€</b></li>
+                    <li class="list-group-item">{{ trans.yourOrder }} :</li>
+                </ul>
+            </div>
+            <div class="itemList">
+                <ul class="list-group list-group-flush" id="0">
+                    <li class="list-group-item">Panier vide</li>
+                </ul>
+            </div>
+            <div class="discount">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center"><a data-toggle="modal" data-target="#discount" class="btn btn-info btn-lg">{{ trans.haveADiscount }}</a></li>
+                </ul>
+            </div>
+            <div class="buttonList">
+                <a class="btn btn-danger btn-lg" id="cancelOrder">{{ trans.cancel }}</a>
+                <a class="btn btn-success btn-lg" id="goToOrder">{{ trans.confirm }}</a>
+            </div>
+
         </div>
+
     </div>
-
+</main>
+<script>
+    var emptyCart = "{{ trans.cartEmpty }}";
+    var discountText = "{{ trans.discount }}"
+</script>
 {% endblock %}
+{% block footer %}{% endblock %}
 
 {% block javascript %}
+
     {% include 'showMenu/js/showMenu.js' %}
+    {% include 'order/js/order.js' %}
 {% endblock %}

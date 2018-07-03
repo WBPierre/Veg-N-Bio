@@ -1,0 +1,191 @@
+{% extends 'base.twig' %}
+
+{% set bodyClass = 'fixed-sn mdb-skin' %}
+{% block content %}
+
+    <main class="pt-5 mx-lg-5">
+        <div class="container-fluid mt-5">
+            <!--Card-->
+            <div class="card card-cascade narrower">
+                <!--Card header-->
+                <div class="view py-3 gradient-card-header info-color-dark mx-4 d-flex justify-content-between align-items-center">
+
+                    <p class="white-text mx-3"><b>{{ trans.userManagement }}</p>
+
+                    <div>
+                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" id="modifyUser">
+                            {% if access_level >= 2 %}
+                                <i class="fa fa-pencil mt-0"></i>
+                            {% else %}
+                                <i class="fa fa-eye mt-0"></i>
+                            {% endif %}
+                        </button>
+                        {% if access_level >= 2 %}
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" id="deleteUser" data-toggle="modal" data-target="#modalConfirmDelete">
+                                <i class="fa fa-remove mt-0"></i>
+                            </button>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <!--/Card header-->
+
+                <!--Card content-->
+                <div class="card-body">
+
+                    <div class="table-responsive">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>
+                                </th>
+                                <th class="th-lg">{{ trans.firstname }}</th>
+                                <th class="th-lg">{{ trans.name }}</th>
+                                <th class="th-lg">{{ trans.email }}</th>
+                                <th class="th-lg">{{ trans.phone }}</th>
+                                <th class="th-lg">{{ trans.active }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                {% if access_level >= 2 %}
+                                    <div class="modal fade" id="delete_{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+                                            <!--Content-->
+                                            <div class="modal-content text-center">
+                                                <!--Header-->
+                                                <div class="modal-header d-flex justify-content-center">
+                                                    <p class="heading">{{ trans.deleteConfirmUser }}</p>
+                                                </div>
+
+                                                <!--Body-->
+                                                <div class="modal-body">
+                                                    <p>{{ user.firstname }} {{ user.name }}</p>
+                                                    <i class="fa fa-times fa-4x animated rotateIn"></i>
+                                                </div>
+
+                                                <!--Footer-->
+                                                <div class="modal-footer flex-center">
+                                                    <form action="var/FormDispatcher.php" method="POST">
+                                                        <input type="hidden" name="formName" value="delUser">
+                                                        <input type="hidden" name="id" value="{{ user.id }}">
+                                                        <button type="submit" class="btn  btn-outline-secondary-modal">{{ trans.yes }}</button>
+                                                        <a type="button" class="btn  btn-primary-modal waves-effect" data-dismiss="modal">{{ trans.no }}</a>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!--/.Content-->
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="modal fade right" id="{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-full-height modal-right" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">{{ user.firstname }} {{ user.name }} <span class="badge badge-success badge-pill" id="inputRatioHour">250%<i class="fa fa-arrow-up ml-1"></i></span></h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            {% if access_level >= 2 %}
+                                            <form action="var/FormDispatcher.php" method="POST">
+                                                {% endif %}
+                                                <input type="hidden" name="formName" value="userManagementModify">
+                                                <input type="hidden" name="id" value="{{ user.id }}">
+                                                <div class="modal-body">
+                                                    <div class="form-row">
+                                                        <div class="col-md-6">
+                                                            <div class="md-form form-group">
+                                                                <input type="text" class="form-control" id="inputFirstname" name="firstname" value="{{ user.firstname }}">
+                                                                <label for="inputFirstname">{{ trans.firstname }}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="md-form form-group">
+                                                                <input type="text" class="form-control" id="inputName" name="name" value="{{ user.name }}">
+                                                                <label for="inputName">{{ trans.name }}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="md-form form-group">
+                                                                <input type="email" class="form-control" id="inputEmail" name="email" value="{{ user.email }}">
+                                                                <label for="inputEmail">Email</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-6">
+                                                            <div class="md-form form-group">
+                                                                <input value="{{ user.birthdate }}" type="text" id="date-picker-example" name="birthdate" class="form-control datepicker" >
+                                                                <label for="date-picker-example">{{ trans.birthdate }}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="md-form form-group">
+                                                                <input type="text" class="form-control" id="inputPhone" name="phone" value="{{ user.phone }}">
+                                                                <label for="inputPhone">{{ trans.phone }}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-6">
+                                                            <div class="md-form form-group">
+                                                                <input value="" type="password" id="inputPwd" name="password" class="form-control" >
+                                                                <label for="inputPwd">{{ trans.password }}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="md-form form-group">
+                                                                <input value="" type="password" id="inputPwdConfirm" name="passwordConfirm" class="form-control" >
+                                                                <label for="inputPwdConfirm">{{ trans.confirm }}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+                                                    {% if access_level >= 2 %}
+                                                        <button type="submit" class="btn btn-primary">{{ trans.saveChanges }}</button>
+                                                    {% endif %}
+                                                </div>
+                                                {% if access_level >= 2 %}
+                                            </form>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <tr>
+                                    <th scope="row">
+                                        <input class="form-check-input checkThisEmployee" type="radio" name="exampleRadios" id="Check{{ user.id }}" value="{{ user.id }}">
+                                        <label class="form-check-label" for="Check{{ user.id }}">
+                                    </th>
+                                    <td>{{ user.firstname }}</td>
+                                    <td>{{ user.name }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.phone }}</td>
+                                    {% if user.active == 1 %}
+                                        <td><a href="var/swapUserActivity.php?disable={{ user.id }}"><span class="badge badge-success badge-pill">{{ trans.active }}<i class="fa fa-arrow-up ml-1"></i></span></td></a>
+                                    {% else %}
+                                        <td><a href="var/swapUserActivity.php?active={{ user.id }}"><span class="badge badge-warning badge-pill">{{ trans.disable }}<i class="fa fa-arrow-up ml-1"></i></span></td></a>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <hr class="my-0">
+                </div>
+                <!--/.Card content-->
+
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block javascript %}
+{% include 'userManagement/js/userManagement.js' %}
+{% endblock %}

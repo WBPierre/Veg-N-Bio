@@ -6,9 +6,9 @@
 			<section class="section mt-5 feature-box" id="features">
 				<a href="?url=showMenu" class="btn rgba-white-strong dark-grey-text font-bold">{{ trans.seeGalery }}</a>
 				{% if name is defined %}
-					<a href="?url=order" class="btn rgba-yellow-strong dark-grey-text font-bold">{{ trans.order }}</a>
+					<a data-toggle="modal" data-target="#chooseType" class="btn rgba-yellow-strong dark-grey-text font-bold">{{ trans.order }}</a>
 				{% else %}
-					<a data-toggle="modal" data-target="#modalLRForm" class="btn rgba-yellow-strong dark-grey-text font-bold">{{ trans.order }}</a>
+					<a data-toggle="modal" data-target="#modalLRForm" class="orderLinkHome btn rgba-yellow-strong dark-grey-text font-bold">{{ trans.order }}</a>
 				{% endif %}
 				<div class="streak streak-photo streak-md hm-black-strong-1 mt-3" style="background-image: url('../assets/images/producteur.jpg');">
 					<div class="mask pattern-1 flex-center">

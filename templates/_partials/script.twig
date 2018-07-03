@@ -7,7 +7,15 @@
 <script type="text/javascript" src="../../assets/MDB/js/mdb.min.js"></script>
 
 <script>
+    var check = 0;
+
     $(document).ready(function(){
+        {% if alert.success == true %}
+        toastr["success"]("{{ trans.actionSuccess }}");
+        {% endif %}
+        {% if alert.error == true %}
+        toastr["error"]("{{ trans.actionError }}");
+        {% endif %}
         $('#swapSignUp').on('click',function(){
             $('#signUpPanel').click();
         });
@@ -15,6 +23,32 @@
             $('#signInPanel').click();
         });
 
+        $('#submitLangugage').on('click',function(){
+            $('#formLanguage').submit();
+        });
+        $('#deliveryCheckBox').on('change',function(){
+            check++;
+            if(check%2 == 1){
+                $.ajax({
+                    method: "POST",
+                    url: "/var/connection.php",
+                    async: false,
+                    data: { log: "address" }
+                })
+                .done(function(text) {
+                    var html = "<hr>";
+                    html += "<div class=\"row mt-4\">";
+                    $.each( JSON.parse(text), function( key, value ) {
+                        html += "<div class=\"form-check mb-4\">";
+                        html += '<input class="form-check-input with-gap" type="radio" name="adress" id="'+value.name+'" value="'+value.id+'">';
+                        html += '<label class="form-check-label" for="'+value.name+'">'+value.name+'</label></div>';
+                    });
+                    $('#selectOption').append(html);
+                });
+            }else{
+                $('#test123').remove();
+            }
+        });
         $('#logMeOn').on('click',function(){
             var returned = "";
             var success = 0;
@@ -49,10 +83,12 @@
                 var dropdown = '<li class="nav-item dropdown">';
                 dropdown +=  '<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+returned+'</a>';
                 dropdown += '<div class="dropdown-menu dropdown-success" aria-labelledby="navbarDropdownMenuLink">';
-                    dropdown += '<a class="dropdown-item" href="#">{{ trans.myProfile }}</a>';
+                    dropdown += '<a class="dropdown-item" href="?url=profile">{{ trans.myProfile }}</a>';
                 dropdown += '<a class="dropdown-item" href="/var/logOut.php">{{ trans.logOut }}</a></div></li>';
                 $('#linkAccount').html(dropdown);
-                $('#orderDef').html('<a class="nav-link" href="?url=order"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.order }}</span></a>');
+                $('#orderDef').html('<a class="nav-link" data-toggle="modal" data-target="#chooseType"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.order }}</span></a>');
+                $('.orderLinkHome').removeAttr("data-target");
+                $('.orderLinkHome').attr("data-target","#chooseType");
             }else{
                 if(success == 0){
                     toastr["warning"](loginFail);
@@ -93,9 +129,7 @@
             }else{
                 toastr["success"](signUpSuccess);
             }
-
         });
-        $('.mdb-select').material_select();
         $('.datepicker').pickadate({
             {% if lang == 'fr' %}
             monthsFull: ['Janvier', 'Févirer', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],

@@ -1,0 +1,166 @@
+{% extends 'base.twig' %}
+
+{% set bodyClass = 'fixed-sn mdb-skin' %}
+{% block content %}
+
+    <main class="pt-5 mx-lg-5">
+        <div class="container-fluid mt-5">
+            <!--Card-->
+            <div class="card card-cascade narrower">
+                <!--Card header-->
+                <div class="view py-3 gradient-card-header info-color-dark mx-4 d-flex justify-content-between align-items-center">
+
+                    <p class="white-text mx-3"><b>{{ trans.offerManagement }}</p>
+
+                    <div>
+                        {% if access_level >= 2 %}
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" id="deleteDiscount" data-toggle="modal" data-target="#modalConfirmDelete">
+                                <i class="fa fa-remove mt-0"></i>
+                            </button>
+
+                                <button type="button" data-toggle="modal" data-target="#addDiscount" class="btn btn-outline-white btn-rounded btn-sm px-2 font-weight-bold">
+                                    {{ trans.addDiscount }}
+                                </button>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <!--/Card header-->
+
+                <!--Card content-->
+                <div class="card-body">
+
+                    <div class="table-responsive">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>
+                                </th>
+                                <th class="th-lg">{{ trans.id }}</th>
+                                <th class="th-lg">{{ trans.code }}</th>
+                                <th class="th-lg">{{ trans.value }}</th>
+                                <th class="th-lg">{{ trans.dateLast }}</th>
+                                <th class="th-lg">{{ trans.active }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for discount in discounts %}
+                                {% if access_level >= 2 %}
+                                    <div class="modal fade" id="delete_{{ discount.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+                                            <!--Content-->
+                                            <div class="modal-content text-center">
+                                                <!--Header-->
+                                                <div class="modal-header d-flex justify-content-center">
+                                                    <p class="heading">{{ trans.deleteConfirmDiscount }}</p>
+                                                </div>
+
+                                                <!--Body-->
+                                                <div class="modal-body">
+                                                    <p>{{ discount.value }} €</p>
+                                                    <p class="text-muted">{{ trans.dateLast }} : {{ discount.duration }}{% if lang == "fr" %}(Jours){% else %}(Days){% endif %}</p>
+                                                    <i class="fa fa-times fa-4x animated rotateIn"></i>
+                                                </div>
+
+                                                <!--Footer-->
+                                                <div class="modal-footer flex-center">
+                                                    <form action="var/FormDispatcher.php" method="POST">
+                                                        <input type="hidden" name="formName" value="delDiscount">
+                                                        <input type="hidden" name="id" value="{{ discount.id }}">
+                                                        <button type="submit" class="btn  btn-outline-secondary-modal">{{ trans.yes }}</button>
+                                                        <a type="button" class="btn  btn-primary-modal waves-effect" data-dismiss="modal">{{ trans.no }}</a>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!--/.Content-->
+                                        </div>
+                                    </div>
+
+                                    <div class="modal fade right" id="addDiscount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-full-height modal-right" role="document">
+                                            <div class="modal-content">
+                                                <form method="POST" action="var/FormDispatcher.php">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">{{ trans.addDiscount }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                            <input type="hidden" name="formName" value="addDiscount">
+                                                            <!-- Material input -->
+                                                            <div class="md-form form-group mt-5">
+                                                                <input type="text" class="form-control" id="formGroupExampleInputMD" name="code">
+                                                                <label for="formGroupExampleInputMD">{{ trans.code }}</label>
+                                                            </div>
+                                                            <!-- Material input -->
+                                                            <div class="md-form form-group mt-5">
+                                                                <input type="number" class="form-control" id="formGroupExampleInput2MD" name="value">
+                                                                <label for="formGroupExampleInput2MD">{{ trans.value }}</label>
+                                                            </div>
+
+                                                            <!-- Material input -->
+                                                            <div class="md-form form-group mt-5">
+                                                                <input type="number" class="form-control" id="formGroupExampleInputMD" name="duration">
+                                                                <label for="formGroupExampleInputMD">{{ trans.dateLast }}</label>
+                                                            </div>
+                                                            <!-- Material input -->
+                                                            <div class="md-form form-group mt-5">
+                                                                <div class="switch">
+                                                                    {{ trans.active }}
+                                                                    <label class="mt-4">
+                                                                        {{ trans.no }}
+                                                                        <input type="checkbox" name="active">
+                                                                        <span class="lever"></span>
+                                                                        {{ trans.yes }}
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+                                                        <button type="submit" class="btn btn-primary">{{ trans.validate }}</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                {% endif %}
+                                <tr>
+                                    <th scope="row">
+                                        <input class="form-check-input checkThisDiscount" type="radio" name="exampleRadios" id="Check{{ discount.id }}" value="{{ discount.id }}">
+                                        <label class="form-check-label" for="Check{{ discount.id }}">
+                                    </th>
+                                    <td>{{ discount.id }}</td>
+                                    <td>{{ discount.code }}</td>
+                                    <td>{{ discount.value }} €</td>
+                                    <td>{{ discount.duration }} </td>
+                                    <td>
+                                        {% if discount.active == 1 %}
+                                            <a href="var/activateDiscount.php?yes={{ discount.id }}"><span class="badge badge-success">{{ trans.yes }}</span></a>
+                                        {% else %}
+                                            <a href="var/activateDiscount.php?no={{ discount.id }}"><span class="badge badge-danger">{{ trans.no }}</span></a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <hr class="my-0">
+
+                </div>
+                <!--/.Card content-->
+
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block javascript %}
+{% include 'discountManagement/js/discountManagement.js' %}
+{% endblock %}

@@ -48,6 +48,10 @@ class ProductController{
 		$data = $db->fetchAll($request,$params);
 		for($i = 0; $i<count($data);$i++){
 			$compo = $db->fetchAll("SELECT * FROM vnb_restaurant_product_composition WHERE id_product = :id",['id' => $data[$i]['id'] ]);
+			foreach($compo as $key=>$value){
+                $name = $db->fetchAll('SELECT * FROM vnb_product_component WHERE id = '.$value['id_component']);
+                $compo[$key]['name'] = $name['0']['name'];
+            }
 			$data[$i]['compo'] = $compo;
 			$array[$data[$i]['type']][]= $data[$i];
 		}
@@ -79,6 +83,10 @@ class ProductController{
 		
 		
 	}
+    /*
+     * getMenuOnProduct returns an Array with all the ids of he product in there
+     * @return PHP Array
+     */
 
 	public function getMenuOnProduct(){
 		$array = $this->getAllMenus(true);
@@ -93,18 +101,16 @@ class ProductController{
 		}
 		return $array;
 	}
+	/*
+	 * getStock returns an array with all the current stock of the restaurant
+	 * @return PHP Array
+	 */
 
-
-    /*
-     * getStock returns an array with all the current stock of the restaurant
-     * @return PHP Array
-     */
-
-    public static function getStock(){
-        $db = new DatabaseController();
-        $array = $db->fetchAll('SELECT vnb_restaurant_stock.stock_value, vnb_product_component.name FROM vnb_restaurant_stock, vnb_product_component 
+	public static function getStock(){
+	    $db = new DatabaseController();
+	    $array = $db->fetchAll('SELECT vnb_restaurant_stock.stock_value, vnb_product_component.name FROM vnb_restaurant_stock, vnb_product_component 
                                 WHERE vnb_restaurant_stock.id_restaurant = '.$_SESSION['id_restaurant'].' AND vnb_restaurant_stock.id_component = vnb_product_component.id');
-        return $array;
+	    return $array;
     }
 
     /*

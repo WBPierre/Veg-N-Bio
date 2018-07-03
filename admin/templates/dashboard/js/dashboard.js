@@ -5,10 +5,10 @@
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: ["{{ data['orderData']['0']['date_inserted'] }}", "{{ data['orderData']['1']['date_inserted'] }}", "{{ data['orderData']['2']['date_inserted'] }}", "{{ data['orderData']['3']['date_inserted'] }}", "{{ data['orderData']['4']['date_inserted'] }}", "{{ data['orderData']['5']['date_inserted'] }}"],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: '{{ trans.latestOrder }}',
+                data: [{{ data['orderData']['0']['total'] }}, {{ data['orderData']['1']['total'] }}, {{ data['orderData']['2']['total'] }}, {{ data['orderData']['3']['total'] }}, {{ data['orderData']['4']['total'] }}, {{ data['orderData']['5']['total'] }}],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -44,11 +44,12 @@
     var myPieChart = new Chart(ctxP, {
         type: 'pie',
         data: {
+            labels: [mobileText, internetText, restaurantText],
             datasets: [
                 {
-                    data: [300, 50, 100, 40, 120],
-                    backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
-                    hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+                    data: [mobileSale, internetSale, deskSale],
+                    backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C"],
+                    hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870"]
                 }
             ]
         },
@@ -63,20 +64,10 @@
     var myLineChart = new Chart(ctxL, {
         type: 'line',
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["{{ trans.january }}", "{{ trans.february }}", "{{ trans.march }}", "{{ trans.april }}", "{{ trans.may }}", "{{ trans.june }}", "{{ trans.july }}"],
             datasets: [
                 {
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                },
-                {
-                    label: "My Second dataset",
+                    label: "{{ trans.numberOfOrders }}",
                     fillColor: "rgba(151,187,205,0.2)",
                     strokeColor: "rgba(151,187,205,1)",
                     pointColor: "rgba(151,187,205,1)",
@@ -93,51 +84,17 @@
     });
 
 
-    //radar
-    var ctxR = document.getElementById("radarChart").getContext('2d');
-    var myRadarChart = new Chart(ctxR, {
-        type: 'radar',
-        data: {
-            labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [65, 59, 90, 81, 56, 55, 40]
-                },
-                {
-                    label: "My Second dataset",
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [28, 48, 40, 19, 96, 27, 100]
-                }
-            ]
-        },
-        options: {
-            responsive: true
-        }
-    });
-
     //doughnut
     var ctxD = document.getElementById("doughnutChart").getContext('2d');
     var myLineChart = new Chart(ctxD, {
         type: 'doughnut',
         data: {
-            labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+            labels: ["{{ trans.tomatoes }}", "{{ trans.salad }}", "{{ trans.bread }}"],
             datasets: [
                 {
-                    data: [300, 50, 100, 40, 120],
-                    backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
-                    hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+                    data: [tomatoQty, saladQty, breadQty],
+                    backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C"],
+                    hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870"]
                 }
             ]
         },
@@ -148,11 +105,11 @@
 
 </script>
  <!--Google Maps-->
-<!--     <script src="https://maps.google.com/maps/api/js"></script>
+<script src="https://maps.google.com/maps/api/js"></script>
 <script>
     // Regular map
     function regular_map() {
-        var var_location = new google.maps.LatLng(40.725118, -73.997699);
+        var var_location = new google.maps.LatLng(48.84839399999999 , 2.395909999999958);
 
         var var_mapoptions = {
             center: var_location,
