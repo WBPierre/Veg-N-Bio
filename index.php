@@ -39,7 +39,7 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
             $request = new AnnounceController();
             $offers = $request->getAllOffers();
             $ads = $request->getAds();
-            echo $twig->render('marketPlace/marketPlace.twig', ['ads' => $ads, 'offers' => $offers, 'trans' => $string]);
+            echo $twig->render('marketPlace/marketPlace.twig', ['ads' => $ads, 'offers' => $offers,'name' => $name, 'trans' => $string]);
             break;
         case 'addAnnounce':
             $request = new AnnounceController();
