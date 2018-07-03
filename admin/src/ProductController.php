@@ -101,7 +101,6 @@ class ProductController{
 		}
 		return $array;
 	}
-
 	/*
 	 * getStock returns an array with all the current stock of the restaurant
 	 * @return PHP Array

@@ -47,13 +47,6 @@ class DatabaseController{
         }
     }
 
-    /*
-        Handle a fetchAll on a request
-        @param $request
-        @param $data
-        @return PHP Array
-     */
-
     public function fetchAll($request, $data = []){
         $valid = $this->requestDB($request, $data);
         if(!$valid){
@@ -61,12 +54,6 @@ class DatabaseController{
         }
         return $this->response->fetchAll();
     }
-    /*
-        Handle a update on a request
-        @param $request
-        @param $data
-        @return Boolean
-     */
 
     public function update($request, $data = []){
         $valid = $this->requestDB($request,$data);
