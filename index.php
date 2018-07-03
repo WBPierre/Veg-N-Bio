@@ -39,19 +39,19 @@ if(isset($_SESSION['logUser']) && !empty($_SESSION['logUser'])){
             $request = new AnnounceController();
             $offers = $request->getAllOffers();
             $ads = $request->getAds();
-            echo $twig->render('marketPlace/marketPlace.twig', ['ads' => $ads, 'offers' => $offers,'name' => $name, 'trans' => $string]);
+            echo $twig->render('marketPlace/marketPlace.twig', ['ads' => $ads, 'offers' => $offers, 'name' => $name, 'trans' => $string]);
             break;
         case 'addAnnounce':
             $request = new AnnounceController();
             $offers = $request->getAllOffers();
-            echo $twig->render('addAnnounce/addAnnounce.twig', ['offers' => $offers, 'trans' => $string]);
+            echo $twig->render('addAnnounce/addAnnounce.twig', ['offers' => $offers, 'name' => $name, 'trans' => $string]);
             break;
         case 'seeAnnounce?id='.$explodeUrl:
             $request = new AnnounceController();
             $details = $request->getDetailsAnnounce($explodeUrl);
             $producer = $request->getProducerDetails($explodeUrl);
             $products = $request->getAllProducts($explodeUrl);
-            echo $twig->render('seeAnnounce/seeAnnounce.twig', ['products' => $products, 'producer' => $producer ,'details' => $details, 'trans' => $string]);
+            echo $twig->render('seeAnnounce/seeAnnounce.twig', ['products' => $products,'name' => $name, 'producer' => $producer ,'details' => $details, 'trans' => $string]);
             break;
         default:
             echo $twig->render('home/home.twig', [ 'trans' => $string, 'name'=>$name, 'intro' => true, 'restaurant' => $restaurant, 'lang' => $_SESSION['lang'] ] );
