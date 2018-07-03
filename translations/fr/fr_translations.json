@@ -86,8 +86,11 @@
         "downloadJava": "Cliquez ici pour télécharger notre plateforme producteur",
         "seeAnnounce": "Voir l'annonce",
         "detailsAnnounce": "Details de l'annonce",
-		"detailsProductor": "Informations du producteur"
-
+		"detailsProductor": "Informations du producteur",
+		"nameProduct": "Nom du produit",
+		"quantity": "Quantité",
+		"priceTTC": "€/TTC ",
+		"email": "Adresse e-mail "
     },
 	"admin":{
 		"login":{

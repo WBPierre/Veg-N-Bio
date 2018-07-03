@@ -86,7 +86,11 @@
 		"downloadJava": "Click here to download our productor software",
 		"seeAd": "See announce",
 		"detailsAnnounce": "Details announce",
-		"detailsProductor": "Produceur informations"
+		"detailsProductor": "Produceur informations",
+		"nameProduct": "Product name",
+		"quantity": "Quantity",
+		"priceTTC": "€/TTC ",
+		"email": "Email address "
 
 	},
 	"admin":{

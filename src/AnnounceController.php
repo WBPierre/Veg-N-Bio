@@ -36,28 +36,36 @@ class AnnounceController{
         return $details;
     }
 
-    public function getProducerDetails($id){
+    public function getProducerDetails($id_announce){
         $db = new DatabaseController();
-        $request = "SELECT firstname FROM vnb_users WHERE id = :id";
-        $user = $db->fetch($request,['id' => $id]);
+        $request = "SELECT id_producer FROM vnb_announce WHERE id = :id_announce";
+        $id_producer = $db->fetch($request,['id_announce' => $id_announce]);
 
-        return $user;
+        $request = "SELECT * FROM vnb_users WHERE id = :id_producer";
+        $producer = $db->fetch($request,['id_producer' => $id_producer[0]]);
+
+        return $producer;
     }
 
-    public function getAllProducts($id){
+    public function getAllProducts($id_announce)
+    {
 
         $products = [];
 
         $db = new DatabaseController();
-        $request = "SELECT id_products FROM vnb_announce_products WHERE id_announce = :id";
-        $id_products = $db->fetchAll($request,['id' => $id]);
+        $request = "SELECT id_products FROM vnb_announce_products WHERE id_announce = :id_announce";
+        $id_products = $db->fetchAll($request, ['id_announce' => $id_announce]);
 
-        foreach ($id_products as $id_product){
+
+        foreach ($id_products as $id_product) {
 
             $request = "SELECT * FROM vnb_offers WHERE id = :id_product";
-            $products = $db->fetch($request,['id' => $id_product]);
+            array_push($products,$db->fetch($request, ['id_product' => $id_product[0]]));
+
         }
 
         return $products;
+
     }
+
 }

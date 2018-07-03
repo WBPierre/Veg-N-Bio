@@ -1,0 +1,101 @@
+{% extends 'base.twig' %}
+
+{% block header %}{% endblock %}
+{% block content %}
+	{% include 'login/css/login.css' %}
+
+	<header>
+	    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+	        <div class="container">
+	            <a class="navbar-brand" href="#"><strong>Veg'N'Bio</strong></a>
+	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+	                <span class="navbar-toggler-icon"></span>
+	            </button>
+	            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+	                <ul class="navbar-nav mr-auto">
+	                    <li class="nav-item">
+	                        <a class="nav-link" href="../">{{ trans.backToMain }} <span class="sr-only">(current)</span></a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </nav>
+	    <div class="modal fade" id="loginWithCard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		    <div class="modal-dialog modal-dialog-centered" role="document">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <h5 class="modal-title" id="exampleModalLabel">Scanner votre carte</h5>
+		                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                    <span aria-hidden="true">&times;</span>
+		                </button>
+		            </div>
+		            <div class="modal-body">
+		                <input type="password" id="card" value="">
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	    <!--Intro Section-->
+	    <section class="view intro-2 hm-stylish-strong" style="height:100vh;">
+	        <div class="full-bg-img flex-center">
+	            <div class="container">
+	                <div class="row">
+	                    <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
+
+	                        <!--Form with header-->
+	                        <div class="card wow fadeIn" data-wow-delay="0.3s">
+	                            <div class="card-body">
+	                            	<form action="var/FormDispatcher.php" method="POST">
+	                            		<input type="hidden" name="formName" value="adminLogin">
+		                                <!--Header-->
+		                                <div class="form-header success-color-dark">
+		                                    <h3><i class="fa fa-user mt-2 mb-2"></i> {{ trans.logIn }}</h3>
+		                                </div>
+
+		                                <!--Body-->
+		                                <div class="md-form">
+		                                    <i class="fa fa-envelope prefix white-text"></i>
+		                                    <input type="text" id="orangeForm-email" class="form-control" name="email">
+		                                    <label for="orangeForm-email">{{ trans.yourEmail }}</label>
+		                                </div>
+
+		                                <div class="md-form">
+		                                    <i class="fa fa-lock prefix white-text"></i>
+		                                    <input type="password" id="orangeForm-pass" class="form-control" name="password">
+		                                    <label for="orangeForm-pass">{{ trans.yourPwd }}</label>
+		                                </div>
+
+		                                <div class="text-center">
+		                                    <input type="submit" class="btn success-color-dark btn-lg" value="{{ trans.signUp }}">
+		                                    <hr>
+		                                    <div class="inline-ul text-center d-flex justify-content-center">
+		                                        {#<button type="button" id="toggleModal" data-toggle="modal" data-target="#loginWithCard" class="btn success-color-dark btn-lg">{{ trans.signUpThroughCard }}</button>#}
+		                                        <a href="var/shellExecute.php"><button type="button" class="btn success-color-dark btn-lg">{{ trans.signUpThroughCard }}</button></a>
+		                                    </div>
+		                                </div>
+		                            </form>
+	                            </div>
+	                        </div>
+	                        <!--/Form with header-->
+
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+	</header>
+{% endblock %}
+{% block footer %}{% endblock %}
+{% block javascript %}
+	<script>
+		$('#loginWithCard').on('shown.bs.modal', function () {
+		    $('#card').focus();
+		});
+		$('#card').on('input',function(){
+			console.log('test');
+		});
+	</script>
+{% endblock %}

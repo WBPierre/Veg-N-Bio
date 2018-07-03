@@ -45,30 +45,24 @@ public class DatabaseManager {
     
     public void insertProductDB(Productor productor, ArrayList<Product> products) throws SQLException{
         
-        rs = null;
+
         
         for(int i = 0; i < products.size(); i++){
-        
-            PreparedStatement st = connect.prepareStatement("SELECT id FROM vnb_product_component WHERE name = ?");
-            st.setString(1,products.get(i).getName());
-            rs = st.executeQuery();
+
+            PreparedStatement preparedStmt = connect.prepareStatement("INSERT INTO vnb_offers(id_producer, name, quantity, priceHT, priceTTC, state)"
+            + "VALUES (?, ?, ?, ?, ?, ?)");
+
+            preparedStmt.setInt (1, productor.getId());
+            preparedStmt.setString(2, products.get(i).getName());   
+            preparedStmt.setDouble(3, products.get(i).getQuantity());
+            preparedStmt.setDouble(4, products.get(i).getPriceHT());
+            preparedStmt.setDouble(5, products.get(i).getPriceTTC());
+            preparedStmt.setInt(6, 0);
+
+            // execute the preparedstatement
+            preparedStmt.execute();
+
             
-            if(rs.next()){
-                PreparedStatement preparedStmt = connect.prepareStatement("INSERT INTO vnb_offers(id_producer, id_product_component, name, quantity, priceHT, priceTTC, state)"
-                + "VALUES (?, ?, ?, ?, ?, ?, ?)");
-
-                preparedStmt.setInt (1, productor.getId());
-                preparedStmt.setInt (2, rs.getInt("id"));
-                preparedStmt.setString(3, products.get(i).getName());   
-                preparedStmt.setDouble(4, products.get(i).getQuantity());
-                preparedStmt.setDouble(5, products.get(i).getPriceHT());
-                preparedStmt.setDouble(6, products.get(i).getPriceTTC());
-                preparedStmt.setInt(7, 0);
-
-                // execute the preparedstatement
-                preparedStmt.execute();
-
-            }
         }
         System.out.println("\nSuccès de l'enregistrement\n");
         

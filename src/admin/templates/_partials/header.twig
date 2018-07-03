@@ -1,0 +1,114 @@
+{% include 'dashboard/css/dashboard.css' %}
+<div class="modal fade" id="centralCheck" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info" role="document">
+      <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">{{ trans.checking }}</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true" class="white-text">&times;</span>
+                  </button>
+              </div>
+
+              <!--Body-->
+              <div class="modal-body">
+                  <div class="text-center">
+                      
+                      <p>{{ trans.proposeChecking }}</p>
+                      <p>
+                        {% if badge == true %}
+                            {{ trans.lastCheck }} {{ time }}
+                        {% else %}
+                            {{ trans.noCheck }}
+                        {% endif %}
+                      </p>
+                  </div>
+              </div>
+
+              <!--Footer-->
+              <div class="modal-footer justify-content-center">
+                <form method="POST" action="var/FormDispatcher.php">
+                    <input type="hidden" name="formName" value="checking">
+                  <button type="submit" class="btn btn-primary" name="id" value="{{ id }}">{{ trans.yes }}<i class="fa fa-check ml-1"></i></button>
+                </form>
+                  <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">{{ trans.no }}</a>
+              </div>
+        </div>
+      <!--/.Content-->
+    </div>
+</div>
+<header>
+        <!-- Sidebar navigation -->
+        <div id="slide-out" class="side-nav sn-bg-4 fixed">
+            <ul class="custom-scrollbar" style="padding-left:0px;">
+                <!-- Logo -->
+                <li>
+                    <div class="logo-wrapper waves-light">
+                        <a href="/admin/"><img src="/assets/images/logo.png" class="img-fluid flex-center"></a>
+                    </div>
+                </li>
+                <li>
+                    <form class="search-form" role="search">
+                        <div class="form-group md-form mt-0 pt-1 waves-light">
+                            <input type="text" class="form-control" placeholder="{{ trans.search }}">
+                        </div>
+                    </form>
+                </li>
+                <!--/.Search Form-->
+                
+                <!-- Side navigation links -->
+                <li>
+                    <ul class="collapsible collapsible-accordion">
+                        {% if access_level >= 2 %}
+                            <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.restaurantManagement }}<i class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="?url=manageProducts" class="waves-effect"> {{ trans.productsManagement }}</a>
+                                        </li>
+                                        <li><a href="?url=manageMenus" class="waves-effect"> {{ trans.menusManagement }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="?url=inventoryManagement" class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.inventoryManagement }}</a>
+                            </li>
+                            <li><a href="?url=employeesManagement" class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.employeesManagement }}</a>
+                            </li>
+                        {% endif %}
+                        <li><a class="waves-effect arrow-r" href="?url=cashDesk"><i class="fa fa-chevron-right"></i> {{ trans.cashDesk }}</a>
+                        <li><a class="waves-effect arrow-r" href="?url=kitchenInterface"><i class="fa fa-chevron-right"></i> {{ trans.kitchenInterface }}</a>
+                        <li><a class="waves-effect arrow-r" data-toggle="modal" data-target="#centralCheck"><i class="fa fa-chevron-right"></i> {{ trans.checking }}</a>
+                        </li>
+                        {% if access_level >= 2 %}
+                            <li><a class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.offerManagement }}</a>
+                            </li>
+                        {% endif %}
+                        
+                        <li><a class="waves-effect arrow-r"><i class="fa fa-chevron-right"></i> {{ trans.support }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--/. Side navigation links -->
+            </ul>
+            <div class="sidenav-bg mask-strong"></div>
+        </div>
+        <!--/. Sidebar navigation -->
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-dark success-color-dark navbar-expand-lg scrolling-navbar double-nav">
+            <!-- SideNav slide-out button -->
+            <div class="float-left">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn mr-auto">
+                <p>Veg'N'Bio</p>
+            </div>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto">
+                <li class="nav-item">
+                    <a href="var/logOut.php" class="nav-link"><i class="fa fa-chevron-right"></i> {{ trans.logOut }}</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.Navbar -->
+    </header>

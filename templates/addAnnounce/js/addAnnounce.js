@@ -21,7 +21,7 @@ $(document).ready(function(){
             url: "templates/addAnnounce/ajax.php",
             data: ser_data,
             success: function(data){
-                console.log(data);
+                window.location.replace('/?url=marketPlace');
             }
         })
     });

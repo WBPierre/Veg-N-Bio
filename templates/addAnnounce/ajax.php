@@ -17,20 +17,20 @@ if(isset($_POST['title']) && isset($_POST['description']) && isset($_POST['fileP
             'coverPicture' => $_POST['filePath']
         ]);
 
-    $last_id = $db->fetch("SELECT id FROM vnb_announce ORDER BY id DESC LIMIT 1");
+    $last_id = $db->fetch("SELECT LAST_INSERT_ID() FROM vnb_announce");
+
 
     $products = $db->fetchAll("SELECT * FROM vnb_offers WHERE id_producer = :id AND state = :state",
-        ['id' => $_SESSION['id'], 'state' => 1, ]);
-
+        ['id' => $_SESSION['id'], 'state' => 0, ]);
 
     foreach($products as $product){
-
         $db->insert("INSERT INTO vnb_announce_products (id_announce, id_products) 
-        VALUES(:id_announce, :id_products)", [ 'id_announce' => $last_id['id'], 'id_products' => $product['id']]);
+        VALUES(:id_announce, :id_products)", [ 'id_announce' => $last_id[0], 'id_products' => $product['id']]);
     }
 
+    foreach($products as $product) {
+        $db->update("UPDATE vnb_offers SET state = :state WHERE id = :id", ['state' => 2, 'id' => $product['id']]);
+    }
 
-    $db->update("UPDATE vnb_offers SET state = :state WHERE id_producer = :id", [ 'state' => 1, 'id' => $_SESSION['id']]);
-
-
+    return '/marketPlace';
 }

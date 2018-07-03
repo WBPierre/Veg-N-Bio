@@ -1,0 +1,33 @@
+[08-Mar-2018 12:42:27 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:42:27 Europe/Berlin] message
+[08-Mar-2018 12:42:27 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:42:28 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:42:28 Europe/Berlin] message
+[08-Mar-2018 12:42:28 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:42:29 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:42:29 Europe/Berlin] message
+[08-Mar-2018 12:42:29 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:44:18 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:44:18 Europe/Berlin] message
+[08-Mar-2018 12:44:18 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:45:25 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:45:25 Europe/Berlin] message
+[08-Mar-2018 12:45:25 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:45:44 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:45:44 Europe/Berlin] message
+[08-Mar-2018 12:45:44 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:45:45 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:45:45 Europe/Berlin] message
+[08-Mar-2018 12:45:45 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:45:46 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:45:46 Europe/Berlin] message
+[08-Mar-2018 12:45:46 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:46:13 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:46:13 Europe/Berlin] message
+[08-Mar-2018 12:46:13 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:46:24 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:46:24 Europe/Berlin] message
+[08-Mar-2018 12:46:24 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10
+[08-Mar-2018 12:46:25 Europe/Berlin] PHP Notice:  Use of undefined constant message - assumed 'message' in /var/www/dev/admin/admin/config/init.php on line 35
+[08-Mar-2018 12:46:25 Europe/Berlin] message
+[08-Mar-2018 12:46:25 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/dev/admin/admin/src/RooterController.php on line 10

@@ -47,6 +47,7 @@ public class Excel {
             products.add(product);
             
             row = sheet.getRow(index++);
+            System.out.println(product);
         }      
         System.out.println("\nL'importation a réussie \n");
         
