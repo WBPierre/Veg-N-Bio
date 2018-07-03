@@ -1,0 +1,151 @@
+{% extends 'base.twig' %}
+{% block content %}
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ trans.addAddress }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="var/formDispatcher.php" method="POST" id="profileModify">
+                <div class="modal-body">
+                    <ul class="list-group">
+                            <input type="hidden" name="formName" value="addAddress">
+                            <input type="hidden" name="id" value="{{ user[0].id }}">
+                            <li class="list-group-item">
+                                <div class="md-form">
+                                    <input type="text" name="name" id="nameAdd" class="form-control" value="">
+                                    <label for="nameAdd">{{ trans.name }}</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-form">
+                                    <input type="text" id="street" name="street" class="form-control" value="">
+                                    <label for="street">{{ trans.address }}</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-form">
+                                    <input type="text" id="zip_code" name="zip_code" class="form-control" value="">
+                                    <label for="zip_code" >{{ trans.zip_code }}</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="md-form">
+                                    <input type="text" id="city" name="city" class="form-control" value="">
+                                    <label for="city" >{{ trans.city }}</label>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.close }}</button>
+                    <button type="submit" class="btn btn-primary">{{ trans.confirm }}</button>
+
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<main>
+    <div class="container">
+    <div class="card card-body m-5">
+        <h4 class="card-title">{{ trans.myProfile }}</h4>
+        <!--<p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>-->
+        <div class="flex-row">
+            <ul class="list-group col-lg-5 float-left">
+                <form action="var/formDispatcher.php" method="POST" id="profileModify">
+                    <input type="hidden" name="formName" value="modifyProfile">
+                    <input type="hidden" name="id_user" value="{{ user[0].id }}">
+                <li class="list-group-item">
+                    <div class="md-form">
+                        <input type="text" id="firstname" class="form-control" value="{{ user[0].firstname }}" disabled>
+                        <label for="firstname" class="disabled">{{ trans.firstname }}</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="md-form">
+                        <input type="text" id="name" class="form-control" value="{{ user[0].name }}" disabled>
+                        <label for="name" class="disabled">{{ trans.name }}</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="md-form">
+                        <input type="text" id="phone" name="phone" class="form-control" value="{{ user[0].phone }}">
+                        <label for="name" >{{ trans.phone }}</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="md-form">
+                        <input type="text" id="birthdate" name="birthdate" class="form-control" value="{{ user[0].birthdate }}">
+                        <label for="birthdate" >{{ trans.birthdate }}</label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="md-form">
+                        <input type="text" id="password" name="password" class="form-control" value="">
+                        <label for="password" >{{ trans.changePassword }}</label>
+                    </div>
+                </li>
+            </ul>
+            <ul class="list-group col-lg-5">
+                <li class="list-group-item">
+                    {{ trans.yourAddress }}
+                    <ul class="list-group">
+                        {% for address in user['addresses'] %}
+                        <li class="list-group-item">
+                            <h4>{{ address.name }}</h4>
+                            {{ address.street }}<br>{{ address.zip_code }} {{ address.city }}
+                            <div class="flex-row">
+                                <a class="card-link deep-orange-text" href="var/deleteAddress.php?id={{ address.id }}">{{ trans.delete }}</a>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">{{ trans.addAddress }}</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="flex-row">
+            <div class="text-center">
+                <button type="button" class="btn btn-secondary">{{ trans.cancel }}</button>
+                <button type="button" class="btn btn-primary" id="saveProfile">{{ trans.saveChanges }}</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card card-body m-5">
+        <h4 class="card-title">{{ trans.myOrders }}</h4>
+        <!--<p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>-->
+        <div class="flex-row">
+            <ul class="list-group col-lg-5 float-left">
+                {% for order in user['orders'] %}
+                    <li class="list-group-item">
+                        <h4>{{ trans.orderOf }} {{ order.date_inserted }}</h4>
+                        {{ trans.total }} : {{ order.total }}
+                        <div class="flex-row">
+                            <a class="card-link deep-blue-text" href="admin/invoice/invoice_{{ order.id }}.pdf" target="_blank">{{ trans.invoice }}</a>
+                        </div>
+                    </li>
+                {% endfor %}
+
+
+            </ul>
+        </div>
+    </div>
+    </div>
+</main>
+
+
+{% endblock %}
+
+{% block javascript %}
+{% include 'userProfile/js/userProfile.js' %}
+{% endblock %}
+

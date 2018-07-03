@@ -8,7 +8,14 @@
 
 <script>
     var check = 0;
+
     $(document).ready(function(){
+        {% if alert.success == true %}
+        toastr["success"]("{{ trans.actionSuccess }}");
+        {% endif %}
+        {% if alert.error == true %}
+        toastr["error"]("{{ trans.actionError }}");
+        {% endif %}
         $('#swapSignUp').on('click',function(){
             $('#signUpPanel').click();
         });
@@ -76,7 +83,7 @@
                 var dropdown = '<li class="nav-item dropdown">';
                 dropdown +=  '<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+returned+'</a>';
                 dropdown += '<div class="dropdown-menu dropdown-success" aria-labelledby="navbarDropdownMenuLink">';
-                    dropdown += '<a class="dropdown-item" href="#">{{ trans.myProfile }}</a>';
+                    dropdown += '<a class="dropdown-item" href="?url=profile">{{ trans.myProfile }}</a>';
                 dropdown += '<a class="dropdown-item" href="/var/logOut.php">{{ trans.logOut }}</a></div></li>';
                 $('#linkAccount').html(dropdown);
                 $('#orderDef').html('<a class="nav-link" data-toggle="modal" data-target="#chooseType"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span class="clearfix d-none d-sm-inline-block" id="changeName">{{ trans.order }}</span></a>');

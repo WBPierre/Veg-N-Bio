@@ -88,7 +88,21 @@
 		"discount":"Discount",
 		"enterCodeDiscount":"Please enter the code of the discount below :",
 		"valid":"Right",
-		"wrong":"Wrong"
+		"wrong":"Wrong",
+		"changePassword":"Change your password",
+		"yourAddress":"Your addresses",
+		"delete":"Delete",
+		"actionError":"Action impossible",
+		"actionSuccess":"Action done",
+		"saveChanges":"Save changes",
+		"orderOf":"Order of the",
+		"total":"Total"
+		"invoice":"Invoice",
+		"myOrders":"My orders",
+		"addAddress":"Add an address",
+		"address":"Street",
+		"zip_code":"Zip code",
+		"city":"City"
 	},
 	"admin":{
 		"login":{
